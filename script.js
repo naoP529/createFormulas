@@ -68,6 +68,15 @@ function ready(fn) {
     }
 }
 
+function onclick_acquisitionTerms4() {
+    if (document.termNumber["acquisitionTerms"][4].checked) {
+        document.termNumber["freeDesignationterm"]. disabled = false;
+    } else {
+        document.termNumber["freeDesignationterm"]. disabled = true;
+    }
+}
+window.onload = onclick_acquisitionTerms4();
+
 let termNumberChecked = null;
 let formulaNumberChecked = null;
 let operatorTypeChecked = null;
@@ -141,7 +150,7 @@ const conditionEnter_onclick = () => {
     for (let i = 1; i <= formulaNumberChecked; i++) {
 
         //演算子、数をランダムに表示させるための準備
-        // const operators = ["＋", "ー", "×", "÷"];
+        const operators = operatorTypeChecked;
         // let maximumValue = 9;
         // let minimumValue = 1;
         // let difference = maximumValue + 1 - minimumValue;
