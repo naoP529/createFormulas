@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>計クリ</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1><a href="index.html" class="title">計クリ</a></h1>
+        </header>
+        <div class = "contents">
+            <h2 class="explanation">2項までの計算問題を自動で</h2>
+            <input  class = "create" type="button" value="計算問題作成" onclick="newFormula();">
+                <a href = "#createLink"></a>
+            </input>
+        </div>
+        <div class = "conditions">
+            <h1>条件を設定</h1>
+            <form name = "termNumber" id = "termNumber">
+                <h1>項の数を指定</h1>
+                <label>
+                    <input type="radio" name = "acquisitionTerms" value = "2">2
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionTerms" value = "3">3
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionTerms" value = "4">4
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionTerms" value = "rondom">ランダム
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionTerms" value = "input" onclick="termInputDisabled();">
+                    項の数を入力
+                    <input type="text" name="freeDesignationterm"  value="" > 
+                </label>
+            </form>
+            <form name = "formulaNumber" id = "formulaNumber">
+                <h1>問題数を指定</h1>
+                <label>
+                    <input type="radio" name="acquisitionFormulas" value = "30">30
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionFormulas" value="50">50
+                </label>
+                <label>
+                    <input type="radio" name="acquisitionFormulas" value="100">100
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionFormulas" value = "rondom">ランダム
+                </label>
+                <label>
+                    <input type="radio" name = "acquisitionFormulas" value = "input">
+                    問題数を入力
+                    <input type="text" name="freeDesignationformula" id = "inputformulaNumber" >
+                </label>
+            </form>
+            <form name = "operatorType" id = "operatorType">
+                <h1>演算子を指定</h1>
+                <label>
+                    <input type="radio" name="aquisitionOperators" value = "＋">＋足し算
+                </label>
+                <label>
+                    <input type="radio" name="aquisitionOperators" value = "ー">ー引き算
+                </label>
+                <label>
+                    <input type="radio" name="aquisitionOperators" value = "×">ｘ掛け算
+                </label>
+                <label>
+                    <input type="radio" name="aquisitionOperators" value = "÷">÷割り算
+                </label>
+                <label>
+                    <input type="radio" name="aquisitionOperators"  value = "all">すべて
+                </label>
+            </form>
+            <form name = "numberSize" id = "numberSize">
+                <h1>数の桁を指定</h1>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value="1">1桁
+                </label>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value="2">2桁
+                </label>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value="3">3桁
+                </label>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value="4">4桁
+                </label>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value = "rondom">ランダム
+                </label>
+                <label>
+                    <input type="radio" name = "aquisitionNumberSizes" value = "input" >
+                    桁数を入力
+                    <input type="text" name="freeDesignationNumberSize"  id = "inputNumberSize">
+                </label>
+            </form>
+            <input type="button" class = "conditionsButton" value="決定！" onclick="conditionEnter_onclick()";>
+        </div>
+        <div id = "formulas">
+            <a id="createLink"></a>
+        </div>
+    </body>
+</html>
