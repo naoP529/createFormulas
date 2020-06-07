@@ -5,7 +5,7 @@
         <title>計クリ</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <!-- <script src="script.js"></script> -->
     </head>
     <body>
         <header>
@@ -13,7 +13,7 @@
         </header>
         <div class = "contents">
             <h2 class="explanation">2項までの計算問題を自動で</h2>
-            <input  class = "create" type="button" value="計算問題作成" onclick="newFormula();">
+            <input  class = "create" type="button" value="計算問題作成">
                 <a href = "#createLink"></a>
             </input>
         </div>
@@ -36,7 +36,7 @@
                 <label>
                     <input type="radio" name = "acquisitionTerms" value = "input" onclick="onclick_acquisitionTerms4();">
                     項の数を入力
-                    <input type="text" name="freeDesignationterm"  value=""> 
+                    <input type="text" name="freeDesignationterm" id = "inputTermNumber" value=""> 
                 </label>
             </form>
             <form name = "formulaNumber" id = "formulaNumber">
@@ -56,7 +56,7 @@
                 <label>
                     <input type="radio" name = "acquisitionFormulas" value = "input">
                     問題数を入力
-                    <input type="text" name="freeDesignationformula" id = "inputformulaNumber" >
+                    <input type="text" name="freeDesignationformula" id = "inputformulaNumber" value="">
                 </label>
             </form>
             <form name = "operatorType" id = "operatorType">
@@ -80,16 +80,16 @@
             <form name = "numberSize" id = "numberSize">
                 <h1>数の桁を指定</h1>
                 <label>
-                    <input type="radio" name = "aquisitionNumberSizes" value="1">1桁
+                    <input type="radio" name = "aquisitionNumberSizes" value=9>1桁
                 </label>
                 <label>
-                    <input type="radio" name = "aquisitionNumberSizes" value="2">2桁
+                    <input type="radio" name = "aquisitionNumberSizes" value=99>2桁
                 </label>
                 <label>
-                    <input type="radio" name = "aquisitionNumberSizes" value="3">3桁
+                    <input type="radio" name = "aquisitionNumberSizes" value=999>3桁
                 </label>
                 <label>
-                    <input type="radio" name = "aquisitionNumberSizes" value="4">4桁
+                    <input type="radio" name = "aquisitionNumberSizes" value=9999>4桁
                 </label>
                 <label>
                     <input type="radio" name = "aquisitionNumberSizes" value = "rondom">ランダム
@@ -105,5 +105,6 @@
         <div id = "formulas">
             <a id="createLink"></a>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>

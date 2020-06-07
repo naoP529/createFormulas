@@ -109,9 +109,13 @@ const conditionEnter_onclick = () => {
     
     switch (formulaNumberChecked) {
         case "rondom":
-            let formulaNumber = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] 
-            let rondomformulaNumber = formulaNumber[Math.floor(Math.random() * formulaNumber.length)];
-            formulaNumberChecked = rondomformulaNumber;
+            let formulaNumber = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+            let tmpNumber = Math.floor(Math.random() * formulaNumber.length);
+            console.log(tmpNumber);
+            let rondomFormulaNumber = formulaNumber[tmpNumber];
+            console.log('randomFormulaNumber: ' + rondomFormulaNumber)
+            formulaNumberChecked = rondomFormulaNumber;
+            break;
         
         case "input":
             // let inputformulaNumber = document.getElementById("inputformulaNumber");
@@ -119,16 +123,10 @@ const conditionEnter_onclick = () => {
             formulaNumberChecked = document.forms.formulaNumber.inputformulaNumber.value;
     }
     
-    switch (operatorTypeChecked) {
-        case "all":
-            let operators = ["＋", "ー", "×", "÷"]
-            let rondomOperator = operators[Math.floor(Math.random() * operators.length)];
-            operatorTypeChecked = rondomOperator;
-    }
-    
     switch (numberSizeChecked) {
         case "rondom":
-            let rondomNumberSize = Math.floor(Math.random() * 4) + 1;
+            let numbers = [9, 99, 999, 9999];
+            let rondomNumberSize = numbers[Math.floor(Math.random() * numbers.length)];
             numberSizeChecked = rondomNumberSize;
         
         case "input":
@@ -143,14 +141,31 @@ const conditionEnter_onclick = () => {
     console.log(operatorTypeChecked);
     console.log(numberSizeChecked);
 
-        // documentに計算式を逐次追加すると、追加のたびに再描画が発生し遅くなるので、
+    // documentに計算式を逐次追加すると、追加のたびに再描画が発生し遅くなるので、
     // DocumentFragmentにいったん追加してから、最後にdocumentに追加する。
     const fragment = document.createDocumentFragment();
 
-    for (let i = 1; i <= formulaNumberChecked; i++) {
+    for (let i = 0; i < formulaNumberChecked; i++) {
+        console.log(hoge);
+        let number = [];
+        for (let i = 0; i < termNumberChecked; i++) {
+            let random = Math.floor(Math.random() * numberSizeChecked) + 1;
+            number.push(random);
+        }
 
-        //演算子、数をランダムに表示させるための準備
-        const operators = operatorTypeChecked;
+        let operatorLoop = operatorTypeChecked - 1;
+        let operator = [];
+        for (let i = 0; i < operatorLoop; i++) {
+            if (operatorTypeChecked === "all") {
+                let type = ["＋", "ー", "×", "÷"];
+                let random = type[Math.floor(Math.random() * type.length)];
+                operatorTypeChecked = random;
+            } 
+            operator.push(operatorTypeChecked);
+        }
+
+        console.log(number);
+        console.log(operator);
         // let maximumValue = 9;
         // let minimumValue = 1;
         // let difference = maximumValue + 1 - minimumValue;
@@ -162,7 +177,7 @@ const conditionEnter_onclick = () => {
         // //準備した"operators"の演算子の中から一つ選ぶ
         // let randomOperator = operators[Math.floor(Math.random() * operators.length)];
 
-        switch (randomOperator) {
+        switch (operatorTypeChecked) {
             case "＋":
                 calculationResult = firstTerm + secondTerm;
                 break;
@@ -243,7 +258,6 @@ const conditionEnter_onclick = () => {
     
 // };
 
-window.onload = termInputDisabled();
 
 // let termLoopNumber = tempArray[0];
 // let questionNumber = tempArray[1];
