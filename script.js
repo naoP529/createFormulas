@@ -77,6 +77,24 @@ function onclick_acquisitionTerms4() {
 }
 window.onload = onclick_acquisitionTerms4();
 
+function onclick_acquisitionFormulas4() {
+    if (document.formulaNumber["acquisitionFormulas"][4].checked) {
+        document.formulaNumber["freeDesignationformula"]. disabled = false;
+    } else {
+        document.formulaNumber["freeDesignationformula"]. disabled = true;
+    }
+}
+window.onload = onclick_acquisitionFormulas4();
+
+function onclick_aquisitionNumberSizes4() {
+    if (document.numberSize["aquisitionNumberSizes"][5].checked) {
+        document.numberSize["freeDesignationNumberSize"]. disabled = false;
+    } else {
+        document.numberSize["freeDesignationNumberSize"]. disabled = true;
+    }
+}
+window.onload = onclick_aquisitionNumberSizes4();
+
 let termNumberChecked = null;
 let formulaNumberChecked = null;
 let operatorTypeChecked = null;
