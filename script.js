@@ -68,32 +68,32 @@ function ready(fn) {
     }
 }
 
-function onclick_acquisitionTerms4() {
+function onclick_acquisitionTerms() {
     if (document.termNumber["acquisitionTerms"][4].checked) {
         document.termNumber["freeDesignationterm"]. disabled = false;
     } else {
         document.termNumber["freeDesignationterm"]. disabled = true;
     }
 }
-window.onload = onclick_acquisitionTerms4();
+window.onload = onclick_acquisitionTerms();
 
-function onclick_acquisitionFormulas4() {
+function onclick_acquisitionFormulas() {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
         document.formulaNumber["freeDesignationformula"]. disabled = false;
     } else {
         document.formulaNumber["freeDesignationformula"]. disabled = true;
     }
 }
-window.onload = onclick_acquisitionFormulas4();
+window.onload = onclick_acquisitionFormulas();
 
-function onclick_aquisitionNumberSizes4() {
+function onclick_aquisitionNumberSizes() {
     if (document.numberSize["aquisitionNumberSizes"][5].checked) {
         document.numberSize["freeDesignationNumberSize"]. disabled = false;
     } else {
         document.numberSize["freeDesignationNumberSize"]. disabled = true;
     }
 }
-window.onload = onclick_aquisitionNumberSizes4();
+window.onload = onclick_aquisitionNumberSizes();
 
 let termNumberChecked = null;
 let formulaNumberChecked = null;
@@ -210,7 +210,6 @@ const conditionEnter_onclick = () => {
                     break;
             }
         }
-
         // console.log(hoge);
         // let number = [];
         // for (let i = 0; i < termNumberChecked; i++) {
@@ -267,41 +266,41 @@ const conditionEnter_onclick = () => {
         //         break;
         // }
     
-        // insertAdjacentHTML()はinnerHTMLより高速らしいが、
-    //     // 新しいelementを作成することはできない。なので、
-    //     // いったんdummyのelementを作成して、その直下に追加する。
-    //     let dummyElement = document.createElement('div');
+        //insertAdjacentHTML()はinnerHTMLより高速らしいが、
+        // 新しいelementを作成することはできない。なので、
+        // いったんdummyのelementを作成して、その直下に追加する。
+        let dummyElement = document.createElement('div');
 
-    //     // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
-    //     // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
-    //     // 最近の流行とのことなので仕方なし。
-    //     dummyElement.insertAdjacentHTML('beforeend',
-    //         `<div class = "formula"></div>`);
-    //     let formula = dummyElement.lastElementChild;
+        // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
+        // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
+        // 最近の流行とのことなので仕方なし。
+        dummyElement.insertAdjacentHTML('beforeend',
+            `<div class = "formula"></div>`);
+        let formula = dummyElement.lastElementChild;
 
-    //     // これ以降、dummyElementは使わない。formulaを使う。
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
-    //     let temporaryFormula = formula.lastElementChild;
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<input type = "button" value = "答え" id = "buttonAnswer">`);
-    //     let buttonAnswer = formula.lastElementChild;
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
-    //     let temporaryAnswer = formula.lastElementChild;
-    //     // 最後にイベントリスナーを登録
-    //     buttonAnswer.addEventListener('click', function() {
-    //         temporaryAnswer.classList.toggle('hidden');
-    //     });
+        // これ以降、dummyElementは使わない。formulaを使う。
+        formula.insertAdjacentHTML('beforeend',
+            `<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
+        let temporaryFormula = formula.lastElementChild;
+        formula.insertAdjacentHTML('beforeend',
+            `<input type = "button" value = "答え" id = "buttonAnswer">`);
+        let buttonAnswer = formula.lastElementChild;
+        formula.insertAdjacentHTML('beforeend',
+            `<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
+        let temporaryAnswer = formula.lastElementChild;
+        // 最後にイベントリスナーを登録
+        buttonAnswer.addEventListener('click', function() {
+            temporaryAnswer.classList.toggle('hidden');
+        });
 
-    //     // 作ったformulaはいったんfragmentに追加しておく。
-    //     fragment.appendChild(formula);
-    // };
+        // 作ったformulaはいったんfragmentに追加しておく。
+        fragment.appendChild(formula);
+    };
 
-    // // 最後にfragmentの内容をdocumentに移す。
-    // // この方法ならば再描画が一回しか起きないので高速。
-    // let formulas = document.getElementById('formulas');
-    // formulas.appendChild(fragment);
+    // 最後にfragmentの内容をdocumentに移す。
+    // この方法ならば再描画が一回しか起きないので高速。
+    let formulas = document.getElementById('formulas');
+    formulas.appendChild(fragment);
 
 }
 
