@@ -118,7 +118,7 @@ const conditionEnter_onclick = () => {
 
     switch (termNumberChecked) {
         case "rondom":
-            let rondomTermNumber = Math.floor(Math.random() * 5) + 1;
+            let rondomTermNumber = Math.floor(Math.random() * 5) + 2;
             termNumberChecked = rondomTermNumber;
         
         case "input":
@@ -164,26 +164,73 @@ const conditionEnter_onclick = () => {
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < formulaNumberChecked; i++) {
-        console.log(hoge);
-        let number = [];
-        for (let i = 0; i < termNumberChecked; i++) {
+        let operators = [];
+        let numbers = [];
+        // if (operatorTypeChecked = "all") {
+        //     let type = ["＋", "ー", "×", "÷"];
+        //     let random = type[Math.floor(Math.random() * type.length)];
+        //     operatorTypeChecked = random;
+        // }
+        // operators.push(operatorTypeChecked);
+
+        for (i = 1; i <= termNumberChecked; i++) {
+            if (i < termNumberChecked) {
+                if (operatorTypeChecked = "all") {
+                    let type = ["＋", "ー", "×", "÷"];
+                    let random = type[Math.floor(Math.random() * type.length)];
+                    operatorTypeChecked = random;
+                }
+                operators.push(operatorTypeChecked);
+            }
+
             let random = Math.floor(Math.random() * numberSizeChecked) + 1;
-            number.push(random);
+            numbers.push(random);
+
+            let n = i - 1;
+            switch (operators[n]) {
+                case "＋":
+                    let additionNumber = Math.floor(Math.random() * numberSizeChecked) + 1;
+                    numbers.push(additionNumber);
+                    break;
+
+                case "ー":
+                    let subtractionNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
+                    numbers.push(subtractionNumber);
+                    break;
+
+                case "×":
+                    let multiplicationNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
+                    numbers.push(multiplicationNumber);
+                    break;
+
+                case "÷":
+                    let maximum = numberSizeChecked / numbers[n];
+                    let divisionNumber = Math.floor (Math.random() * maximum) + 1;
+                    numbers.push(divisionNumber);
+                    break;
+            }
         }
 
-        let operatorLoop = operatorTypeChecked - 1;
-        let operator = [];
-        for (let i = 0; i < operatorLoop; i++) {
-            if (operatorTypeChecked === "all") {
-                let type = ["＋", "ー", "×", "÷"];
-                let random = type[Math.floor(Math.random() * type.length)];
-                operatorTypeChecked = random;
-            } 
-            operator.push(operatorTypeChecked);
-        }
+        // console.log(hoge);
+        // let number = [];
+        // for (let i = 0; i < termNumberChecked; i++) {
+        //     let random = Math.floor(Math.random() * numberSizeChecked) + 1;
+        //     number.push(random);
+        // }
 
-        console.log(number);
-        console.log(operator);
+        // let operatorLoop = operatorTypeChecked - 1;
+        // let operator = [];
+        // for (let i = 0; i < operatorLoop; i++) {
+        //     if (operatorTypeChecked === "all") {
+        //         let type = ["＋", "ー", "×", "÷"];
+        //         let random = type[Math.floor(Math.random() * type.length)];
+        //         operatorTypeChecked = random;
+        //     } 
+        //     operator.push(operatorTypeChecked);
+        // }
+
+        // console.log(number);
+        // console.log(operator);
         // let maximumValue = 9;
         // let minimumValue = 1;
         // let difference = maximumValue + 1 - minimumValue;
@@ -195,66 +242,66 @@ const conditionEnter_onclick = () => {
         // //準備した"operators"の演算子の中から一つ選ぶ
         // let randomOperator = operators[Math.floor(Math.random() * operators.length)];
 
-        switch (operatorTypeChecked) {
-            case "＋":
-                calculationResult = firstTerm + secondTerm;
-                break;
+        // switch (operatorTypeChecked) {
+        //     case "＋":
+        //         calculationResult = firstTerm + secondTerm;
+        //         break;
                 
-            case "ー":
-                if ((firstTerm - secondTerm) < 0) {
-                    firstTerm = secondTerm;
-                    secondTerm = firstTerm;
-                };
-                calculationResult = firstTerm - secondTerm;
-                break;
+        //     case "ー":
+        //         if ((firstTerm - secondTerm) < 0) {
+        //             firstTerm = secondTerm;
+        //             secondTerm = firstTerm;
+        //         };
+        //         calculationResult = firstTerm - secondTerm;
+        //         break;
 
-            case "×":
-                calculationResult = firstTerm * secondTerm;
-                break;
+        //     case "×":
+        //         calculationResult = firstTerm * secondTerm;
+        //         break;
 
-            case "÷":
-                while (!Number.isInteger(firstTerm / secondTerm)) {
-                    secondTerm = Math.floor( Math.random() * difference) + minimumValue;
-                }
-                calculationResult = firstTerm / secondTerm;
-                break;
-        }
+        //     case "÷":
+        //         while (!Number.isInteger(firstTerm / secondTerm)) {
+        //             secondTerm = Math.floor( Math.random() * difference) + minimumValue;
+        //         }
+        //         calculationResult = firstTerm / secondTerm;
+        //         break;
+        // }
     
         // insertAdjacentHTML()はinnerHTMLより高速らしいが、
-        // 新しいelementを作成することはできない。なので、
-        // いったんdummyのelementを作成して、その直下に追加する。
-        let dummyElement = document.createElement('div');
+    //     // 新しいelementを作成することはできない。なので、
+    //     // いったんdummyのelementを作成して、その直下に追加する。
+    //     let dummyElement = document.createElement('div');
 
-        // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
-        // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
-        // 最近の流行とのことなので仕方なし。
-        dummyElement.insertAdjacentHTML('beforeend',
-            `<div class = "formula"></div>`);
-        let formula = dummyElement.lastElementChild;
+    //     // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
+    //     // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
+    //     // 最近の流行とのことなので仕方なし。
+    //     dummyElement.insertAdjacentHTML('beforeend',
+    //         `<div class = "formula"></div>`);
+    //     let formula = dummyElement.lastElementChild;
 
-        // これ以降、dummyElementは使わない。formulaを使う。
-        formula.insertAdjacentHTML('beforeend',
-            `<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
-        let temporaryFormula = formula.lastElementChild;
-        formula.insertAdjacentHTML('beforeend',
-            `<input type = "button" value = "答え" id = "buttonAnswer">`);
-        let buttonAnswer = formula.lastElementChild;
-        formula.insertAdjacentHTML('beforeend',
-            `<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
-        let temporaryAnswer = formula.lastElementChild;
-        // 最後にイベントリスナーを登録
-        buttonAnswer.addEventListener('click', function() {
-            temporaryAnswer.classList.toggle('hidden');
-        });
+    //     // これ以降、dummyElementは使わない。formulaを使う。
+    //     formula.insertAdjacentHTML('beforeend',
+    //         `<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
+    //     let temporaryFormula = formula.lastElementChild;
+    //     formula.insertAdjacentHTML('beforeend',
+    //         `<input type = "button" value = "答え" id = "buttonAnswer">`);
+    //     let buttonAnswer = formula.lastElementChild;
+    //     formula.insertAdjacentHTML('beforeend',
+    //         `<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
+    //     let temporaryAnswer = formula.lastElementChild;
+    //     // 最後にイベントリスナーを登録
+    //     buttonAnswer.addEventListener('click', function() {
+    //         temporaryAnswer.classList.toggle('hidden');
+    //     });
 
-        // 作ったformulaはいったんfragmentに追加しておく。
-        fragment.appendChild(formula);
-    };
+    //     // 作ったformulaはいったんfragmentに追加しておく。
+    //     fragment.appendChild(formula);
+    // };
 
-    // 最後にfragmentの内容をdocumentに移す。
-    // この方法ならば再描画が一回しか起きないので高速。
-    let formulas = document.getElementById('formulas');
-    formulas.appendChild(fragment);
+    // // 最後にfragmentの内容をdocumentに移す。
+    // // この方法ならば再描画が一回しか起きないので高速。
+    // let formulas = document.getElementById('formulas');
+    // formulas.appendChild(fragment);
 
 }
 
