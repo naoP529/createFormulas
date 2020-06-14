@@ -65,16 +65,16 @@ function ready(fn) {
         fn();
     } else {
         document.addEventListener('DOMContentLoaded', fn);
-    }
-}
+    };
+;}
 
 function onclick_acquisitionTerms() {
     if (document.termNumber["acquisitionTerms"][4].checked) {
         document.termNumber["freeDesignationterm"]. disabled = false;
     } else {
         document.termNumber["freeDesignationterm"]. disabled = true;
-    }
-}
+    };
+};
 window.onload = onclick_acquisitionTerms();
 
 function onclick_acquisitionFormulas() {
@@ -82,8 +82,8 @@ function onclick_acquisitionFormulas() {
         document.formulaNumber["freeDesignationformula"]. disabled = false;
     } else {
         document.formulaNumber["freeDesignationformula"]. disabled = true;
-    }
-}
+    };
+};
 window.onload = onclick_acquisitionFormulas();
 
 function onclick_aquisitionNumberSizes() {
@@ -91,125 +91,140 @@ function onclick_aquisitionNumberSizes() {
         document.numberSize["freeDesignationNumberSize"]. disabled = false;
     } else {
         document.numberSize["freeDesignationNumberSize"]. disabled = true;
-    }
-}
+    };
+};
 window.onload = onclick_aquisitionNumberSizes();
 
-let termNumberChecked = null;
-let formulaNumberChecked = null;
-let operatorTypeChecked = null;
-let numberSizeChecked = null;
+let termNumber = null;
+let formulaNumber = null;
+let operatorType = null;
+let numberSize = null;
 
 function getCheckedButton(buttons) {
     for (let i = 0; i < buttons.length; i++) {
         if(buttons[i].checked) {
             return buttons[i].value;
-        }
-    }
+        };
+    };
     return null;
-}
+};
 
 const conditionEnter_onclick = () => {
-    termNumberChecked = getCheckedButton(document.termNumber.acquisitionTerms);
-    formulaNumberChecked = getCheckedButton(document.formulaNumber.acquisitionFormulas);
-    operatorTypeChecked = getCheckedButton(document.operatorType.aquisitionOperators);
-    numberSizeChecked = getCheckedButton(document.numberSize.aquisitionNumberSizes);
+    termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
+    formulaNumber = getCheckedButton(document.formulaNumber.acquisitionFormulas);
+    operatorType = getCheckedButton(document.operatorType.aquisitionOperators);
+    numberSize = getCheckedButton(document.numberSize.aquisitionNumberSizes);
+
+    console.log("----------------------")
+    console.log(termNumber);
+    console.log(formulaNumber);
+    console.log(operatorType);
+    console.log(numberSize);
+
+    if (4 < numberSize) {
+        alert("桁数が4を超えています。4以下にしてください");
+        break;
+    };
 
 
-    switch (termNumberChecked) {
-        case "rondom":
+    switch (termNumber) {
+        case "random":
             let rondomTermNumber = Math.floor(Math.random() * 5) + 2;
-            termNumberChecked = rondomTermNumber;
+            termNumber = rondomTermNumber;
+            break;
         
         case "input":
-            termNumberChecked = document.forms.termNumber.inputTermNumber.value;
-    }
+            termNumber = document.forms.termNumber.inputTermNumber.value;
+            break;
+    };
     
-    switch (formulaNumberChecked) {
-        case "rondom":
-            let formulaNumber = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-            let tmpNumber = Math.floor(Math.random() * formulaNumber.length);
-            console.log(tmpNumber);
-            let rondomFormulaNumber = formulaNumber[tmpNumber];
-            console.log('randomFormulaNumber: ' + rondomFormulaNumber)
-            formulaNumberChecked = rondomFormulaNumber;
+    switch (formulaNumber) {
+        case "random":
+            let formulaOption = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+            let tmpNumber = Math.floor(Math.random() * formulaOption.length);
+            let rondomFormulaNumber = formulaOption[tmpNumber];
+            formulaNumber = rondomFormulaNumber;
             break;
         
         case "input":
             // let inputformulaNumber = document.getElementById("inputformulaNumber");
             // inputformulaNumber.innerText = document.forms.formulaNumber.inputformulaNumber;
-            formulaNumberChecked = document.forms.formulaNumber.inputformulaNumber.value;
-    }
+
+            formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
+            //formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
+            break;
+    };
     
-    switch (numberSizeChecked) {
-        case "rondom":
+    switch (numberSize) {
+        case "random":
             let numbers = [9, 99, 999, 9999];
             let rondomNumberSize = numbers[Math.floor(Math.random() * numbers.length)];
-            numberSizeChecked = rondomNumberSize;
+            numberSize = rondomNumberSize;
+            break;
         
         case "input":
             // let inputNumberSize = document.getElementById("inputNumberSize");
             // inputNumberSize.innerText = document.forms.numberSize.inputNumberSize;
-            numberSizeChecked = document.forms.numberSize.inputNumberSize.value;
-    }
+            numberSize = document.forms.numberSize.inputNumberSize.value;
+            break;
+    };
 
     console.log("----------------------");
-    console.log(termNumberChecked);
-    console.log(formulaNumberChecked);
-    console.log(operatorTypeChecked);
-    console.log(numberSizeChecked);
+    console.log(termNumber);
+    console.log(formulaNumber);
+    console.log(operatorType);
+    console.log(numberSize);
 
     // documentに計算式を逐次追加すると、追加のたびに再描画が発生し遅くなるので、
     // DocumentFragmentにいったん追加してから、最後にdocumentに追加する。
     const fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < formulaNumberChecked; i++) {
+    for (let i = 0; i < formulaNumber; i++) {
         let operators = [];
         let numbers = [];
-        // if (operatorTypeChecked = "all") {
-        //     let type = ["＋", "ー", "×", "÷"];
-        //     let random = type[Math.floor(Math.random() * type.length)];
-        //     operatorTypeChecked = random;
-        // }
-        // operators.push(operatorTypeChecked);
 
-        for (i = 1; i <= termNumberChecked; i++) {
-            if (i < termNumberChecked) {
-                if (operatorTypeChecked = "all") {
-                    let type = ["＋", "ー", "×", "÷"];
-                    let random = type[Math.floor(Math.random() * type.length)];
-                    operatorTypeChecked = random;
-                }
-                operators.push(operatorTypeChecked);
-            }
+        let randomNumber = Math.floor(Math.random() * numberSize) + 1;
+        let randomOperator = null;
+        numbers.push(randomNumber);
+        
+        for (let i = 1; i < termNumber; i++) {
+            if (operatorType = "all") {
+                let type = ["＋", "ー", "×", "÷"];
+                randomOperator = type[Math.floor(Math.random() * type.length)];
+                operatorType = randomOperator;
+            };
+            operators.push(operatorType);
 
-            let random = Math.floor(Math.random() * numberSizeChecked) + 1;
-            numbers.push(random);
+            randomNumber = Math.floor(Math.random() * numberSize) + 1;
+            numbers.push(randomNumber);
 
-            let n = i - 1;
-            switch (operators[n]) {
-                case "＋":
-                    let additionNumber = Math.floor(Math.random() * numberSizeChecked) + 1;
-                    numbers.push(additionNumber);
-                    break;
+            // let n = i - 1;
+            // switch (operators[n]) {
+            //     case "＋":
+            //         let additionNumber = Math.floor(Math.random() * numberSizeChecked) + 1;
+            //         numbers.push(additionNumber);
+            //         break;
 
-                case "ー":
-                    let subtractionNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
-                    numbers.push(subtractionNumber);
-                    break;
+            //     case "ー":
+            //         let subtractionNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
+            //         numbers.push(subtractionNumber);
+            //         break;
 
-                case "×":
-                    let multiplicationNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
-                    numbers.push(multiplicationNumber);
-                    break;
+            //     case "×":
+            //         let multiplicationNumber = Math.floor (Math.random() * numberSizeChecked) + 1;
+            //         numbers.push(multiplicationNumber);
+            //         break;
 
-                case "÷":
-                    let maximum = numberSizeChecked / numbers[n];
-                    let divisionNumber = Math.floor (Math.random() * maximum) + 1;
-                    numbers.push(divisionNumber);
-                    break;
-            }
-        }
+            //     case "÷":
+            //         let maximum = numberSizeChecked / numbers[n];
+            //         let divisionNumber = Math.floor (Math.random() * maximum) + 1;
+            //         // numbers.push(divisionNumber);
+            //         break;
+            // }
+        };
+        console.log(operators);
+        console.log(numbers);
+    };
         // console.log(hoge);
         // let number = [];
         // for (let i = 0; i < termNumberChecked; i++) {
@@ -302,7 +317,7 @@ const conditionEnter_onclick = () => {
     // let formulas = document.getElementById('formulas');
     // formulas.appendChild(fragment);
 
-}
+};
 
 // const termInput = (str, checkname) => {
 //     if (str.length > 0) {
