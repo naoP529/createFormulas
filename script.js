@@ -68,7 +68,7 @@ function ready(fn) {
     };
 ;}
 
-function onclick_acquisitionTerms() {
+const onclick_acquisitionTerms =  () =>  {
     if (document.termNumber["acquisitionTerms"][4].checked) {
         document.termNumber["freeDesignationterm"]. disabled = false;
     } else {
@@ -77,7 +77,7 @@ function onclick_acquisitionTerms() {
 };
 window.onload = onclick_acquisitionTerms();
 
-function onclick_acquisitionFormulas() {
+const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
         document.formulaNumber["freeDesignationformula"]. disabled = false;
     } else {
@@ -86,7 +86,7 @@ function onclick_acquisitionFormulas() {
 };
 window.onload = onclick_acquisitionFormulas();
 
-function onclick_aquisitionNumberSizes() {
+const  onclick_aquisitionNumberSizes = () => {
     if (document.numberSize["aquisitionNumberSizes"][5].checked) {
         document.numberSize["freeDesignationNumberSize"]. disabled = false;
     } else {
@@ -120,11 +120,6 @@ const conditionEnter_onclick = () => {
     console.log(formulaNumber);
     console.log(operatorType);
     console.log(numberSize);
-
-    if (4 < numberSize) {
-        alert("桁数が4を超えています。4以下にしてください");
-        break;
-    };
 
 
     switch (termNumber) {
@@ -188,7 +183,7 @@ const conditionEnter_onclick = () => {
         numbers.push(randomNumber);
         
         for (let i = 1; i < termNumber; i++) {
-            if (operatorType = "all") {
+            if (operatorType === "all") {
                 let type = ["＋", "ー", "×", "÷"];
                 randomOperator = type[Math.floor(Math.random() * type.length)];
                 operatorType = randomOperator;
@@ -222,9 +217,40 @@ const conditionEnter_onclick = () => {
             //         break;
             // }
         };
+        console.log("----------------------");
+        console.log(operators);
+        console.log(numbers);
+
+        let numbersTest = numbers.slice(0, numbers.length);
+        for (let i = 0; i <= operators.length; i++) {
+            let firstTerm = numbersTest[i];
+            let secondTerm = numbersTest[i + 1];
+            if (operators[i] === "×") {
+                let answer = firstTerm * secondTerm;
+                numbersTest[i] = null;
+                numbersTest[i + 1] = answer;
+            } else if (operators[i] === "÷") {
+                if (firstTerm % secondTerm != 0) {
+                    let answer = Math.floor(firstTerm / secondTerm);
+                    let random = Math.floor(Math.random() * answer) + 1;
+                    let newFirstTerm = secondTerm * random;
+                    numbers[i] = newFirstTerm;
+                    numbersTest[i] = null;
+                    numbersTest[i] = answer;
+                };
+                
+            };
+            console.log("----------------------");
+            console.log(numbers);
+            console.log(numbersTest);
+        };
+        console.log("----------------------");
         console.log(operators);
         console.log(numbers);
     };
+
+
+
         // console.log(hoge);
         // let number = [];
         // for (let i = 0; i < termNumberChecked; i++) {
