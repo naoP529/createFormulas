@@ -179,16 +179,18 @@ const conditionEnter_onclick = () => {
         let numbers = [];
 
         let randomNumber = Math.floor(Math.random() * numberSize) + 1;
-        let randomOperator = null;
+
         numbers.push(randomNumber);
+        let operator = operatorType;
+
         
         for (let i = 1; i < termNumber; i++) {
             if (operatorType === "all") {
                 let type = ["＋", "ー", "×", "÷"];
-                randomOperator = type[Math.floor(Math.random() * type.length)];
-                operatorType = randomOperator;
+                let randomOperator = type[Math.floor(Math.random() * type.length)];
+                operator = randomOperator;
             };
-            operators.push(operatorType);
+            operators.push(operator);
 
             randomNumber = Math.floor(Math.random() * numberSize) + 1;
             numbers.push(randomNumber);
@@ -218,6 +220,7 @@ const conditionEnter_onclick = () => {
             // }
         };
         console.log("----------------------");
+        console.log("----------------------");
         console.log(operators);
         console.log(numbers);
 
@@ -231,16 +234,31 @@ const conditionEnter_onclick = () => {
                 numbersTest[i + 1] = answer;
             } else if (operators[i] === "÷") {
                 if (firstTerm % secondTerm != 0) {
+                    if (firstTerm < secondTerm) {
+                        newSecondTerm = Math.floor()
+                    };
                     let answer = Math.floor(firstTerm / secondTerm);
-                    let random = Math.floor(Math.random() * answer) + 1;
-                    let newFirstTerm = secondTerm * random;
+                    console.log(`answer:${answer}`);
+                    console.log(numbers[i], numbers[i + 1]);
+                    let newFirstTerm = secondTerm * answer;
+                    console.log(`newFirstTerm:${newFirstTerm}`);
                     numbers[i] = newFirstTerm;
                     numbersTest[i] = null;
-                    numbersTest[i] = answer;
-                };
+                    numbersTest[i + 1] = answer;
+                    //
+                    for (let x = i; x > 0; x--) {
+                        newNumber = numbers[i] * numbers[i]
+                    };
+
+
+                } else {
+                    let answer = firstTerm / secondTerm;
+                    numbersTest[i] = null;
+                    numbersTest[i + 1] = answer;
+                }; 
                 
             };
-            console.log("----------------------");
+
             console.log(numbers);
             console.log(numbersTest);
         };
