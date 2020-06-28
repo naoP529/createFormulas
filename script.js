@@ -68,14 +68,14 @@ function ready(fn) {
     };
 ;}
 
-const onclick_acquisitionTerms =  () =>  {
-    if (document.termNumber["acquisitionTerms"][4].checked) {
-        document.termNumber["freeDesignationterm"]. disabled = false;
-    } else {
-        document.termNumber["freeDesignationterm"]. disabled = true;
-    };
-};
-window.onload = onclick_acquisitionTerms();
+// const onclick_acquisitionTerms =  () =>  {
+//     if (document.termNumber["acquisitionTerms"][4].checked) {
+//         document.termNumber["freeDesignationterm"]. disabled = false;
+//     } else {
+//         document.termNumber["freeDesignationterm"]. disabled = true;
+//     };
+// };
+// window.onload = onclick_acquisitionTerms();
 
 const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
@@ -86,14 +86,14 @@ const onclick_acquisitionFormulas = () =>  {
 };
 window.onload = onclick_acquisitionFormulas();
 
-const  onclick_aquisitionNumberSizes = () => {
-    if (document.numberSize["aquisitionNumberSizes"][5].checked) {
-        document.numberSize["freeDesignationNumberSize"]. disabled = false;
-    } else {
-        document.numberSize["freeDesignationNumberSize"]. disabled = true;
-    };
-};
-window.onload = onclick_aquisitionNumberSizes();
+// const  onclick_aquisitionNumberSizes = () => {
+//     if (document.numberSize["aquisitionNumberSizes"][5].checked) {
+//         document.numberSize["freeDesignationNumberSize"]. disabled = false;
+//     } else {
+//         document.numberSize["freeDesignationNumberSize"]. disabled = true;
+//     };
+// };
+// window.onload = onclick_aquisitionNumberSizes();
 
 let termNumber = null;
 let formulaNumber = null;
@@ -115,11 +115,11 @@ const conditionEnter_onclick = () => {
     operatorType = getCheckedButton(document.operatorType.aquisitionOperators);
     numberSize = getCheckedButton(document.numberSize.aquisitionNumberSizes);
 
-    console.log("----------------------")
-    console.log(termNumber);
-    console.log(formulaNumber);
-    console.log(operatorType);
-    console.log(numberSize);
+    // console.log("----------------------")
+    // console.log(termNumber);
+    // console.log(formulaNumber);
+    // console.log(operatorType);
+    // console.log(numberSize);
 
 
     switch (termNumber) {
@@ -164,6 +164,7 @@ const conditionEnter_onclick = () => {
             break;
     };
 
+    console.log("----------------------");
     console.log("----------------------");
     console.log(termNumber);
     console.log(formulaNumber);
@@ -220,7 +221,7 @@ const conditionEnter_onclick = () => {
             // }
         };
         console.log("----------------------");
-        console.log("----------------------");
+
         console.log(operators);
         console.log(numbers);
 
@@ -233,18 +234,26 @@ const conditionEnter_onclick = () => {
                 numbersTest[i] = null;
                 numbersTest[i + 1] = answer;
             } else if (operators[i] === "÷") {
+                if (firstTerm < secondTerm) {
+                    let x = firstTerm;
+                    firstTerm = secondTerm;
+                    secondTerm = x;
+                    numbersTest[i] = firstTerm;
+                    numbersTest[i + 1] = secondTerm;
+                    numbers[i] = firstTerm;
+                    numbers[i + 1] = secondTerm;
+                    console.log(firstTerm, secondTerm);
+                };
                 if (firstTerm % secondTerm != 0) {
-                    if (firstTerm < secondTerm) {
-                        newSecondTerm = Math.floor()
-                    };
-                    let answer = Math.floor(firstTerm / secondTerm);
+                    let answer = Math.floor(Math.random() * numberSize) + 1;
                     console.log(`answer:${answer}`);
-                    console.log(numbers[i], numbers[i + 1]);
+
                     let newFirstTerm = secondTerm * answer;
                     console.log(`newFirstTerm:${newFirstTerm}`);
                     numbers[i] = newFirstTerm;
                     numbersTest[i] = null;
                     numbersTest[i + 1] = answer;
+                    console.log(numbers[i], numbers[i + 1]);
                     //
                     for (let x = i; x > 0; x--) {
                         newNumber = numbers[i] * numbers[i]
