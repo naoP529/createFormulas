@@ -192,7 +192,6 @@ const conditionEnter_onclick = () => {
         };
         operators.push(operator);
 
-        };
         console.log("----------------------");
         console.log(operators);
         console.log(numbers);
@@ -232,6 +231,7 @@ const conditionEnter_onclick = () => {
                 };
                 break;
         }
+        console.log(operators, numbers, answer);
 
         // let numbersTest = numbers.slice(0, numbers.length);
         // for (let i = 0; i <= operators.length; i++) {
@@ -282,6 +282,41 @@ const conditionEnter_onclick = () => {
         console.log("----------------------");
         console.log(operators);
         console.log(numbers);
+
+         // insertAdjacentHTML()はinnerHTMLより高速らしいが、
+        // 新しいelementを作成することはできない。なので、
+        // いったんdummyのelementを作成して、その直下に追加する。
+        let dummyElement = document.createElement('div');
+
+        // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
+        // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
+        // 最近の流行とのことなので仕方なし。
+        dummyElement.insertAdjacentHTML('beforeend',
+            `<div class = "formula"></div>`);
+        let formula = dummyElement.lastElementChild;
+
+        // これ以降、dummyElementは使わない。formulaを使う。
+        formula.insertAdjacentHTML('beforeend',
+            `<p class = "temporaryFormula">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
+        let temporaryFormula = formula.lastElementChild;
+        formula.insertAdjacentHTML('beforeend',
+            `<input type = "button" value = "答え" id = "buttonAnswer">`);
+        let buttonAnswer = formula.lastElementChild;
+        formula.insertAdjacentHTML('beforeend',
+            `<p class = "hidden temporaryAnswer" >${answer}</p>`);
+        let temporaryAnswer = formula.lastElementChild;
+        // 最後にイベントリスナーを登録
+        buttonAnswer.addEventListener('click', function() {
+            temporaryAnswer.classList.toggle('hidden');
+        });
+
+        // 作ったformulaはいったんfragmentに追加しておく。
+        fragment.appendChild(formula);
+
+    // 最後にfragmentの内容をdocumentに移す。
+    // この方法ならば再描画が一回しか起きないので高速。
+    let formulas = document.getElementById('formulas');
+    formulas.appendChild(fragment);
     };
 
 
@@ -304,79 +339,8 @@ const conditionEnter_onclick = () => {
         //     operator.push(operatorTypeChecked);
         // }
 
-        // console.log(number);
-        // console.log(operator);
-        // let maximumValue = 9;
-        // let minimumValue = 1;
-        // let difference = maximumValue + 1 - minimumValue;
-        // let calculationResult = null;
-        // //1~9までの数の中からランダムに選ぶ
-        // let firstTerm = Math.floor( Math.random() * difference) + minimumValue;
-        // //1~9までの数の中からランダムに選ぶ
-        // let secondTerm = Math.floor( Math.random() * difference) + minimumValue;
-        // //準備した"operators"の演算子の中から一つ選ぶ
-        // let randomOperator = operators[Math.floor(Math.random() * operators.length)];
+  
 
-        // switch (operatorTypeChecked) {
-        //     case "＋":
-        //         calculationResult = firstTerm + secondTerm;
-        //         break;
-                
-        //     case "ー":
-        //         if ((firstTerm - secondTerm) < 0) {
-        //             firstTerm = secondTerm;
-        //             secondTerm = firstTerm;
-        //         };
-        //         calculationResult = firstTerm - secondTerm;
-        //         break;
-
-        //     case "×":
-        //         calculationResult = firstTerm * secondTerm;
-        //         break;
-
-        //     case "÷":
-        //         while (!Number.isInteger(firstTerm / secondTerm)) {
-        //             secondTerm = Math.floor( Math.random() * difference) + minimumValue;
-        //         }
-        //         calculationResult = firstTerm / secondTerm;
-        //         break;
-        // }
-    
-        //insertAdjacentHTML()はinnerHTMLより高速らしいが、
-        // 新しいelementを作成することはできない。なので、
-        // // いったんdummyのelementを作成して、その直下に追加する。
-        // let dummyElement = document.createElement('div');
-
-        // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
-        // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
-        // 最近の流行とのことなので仕方なし。
-    //     dummyElement.insertAdjacentHTML('beforeend',
-    //         `<div class = "formula"></div>`);
-    //     let formula = dummyElement.lastElementChild;
-
-    //     // これ以降、dummyElementは使わない。formulaを使う。
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
-    //     let temporaryFormula = formula.lastElementChild;
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<input type = "button" value = "答え" id = "buttonAnswer">`);
-    //     let buttonAnswer = formula.lastElementChild;
-    //     formula.insertAdjacentHTML('beforeend',
-    //         `<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
-    //     let temporaryAnswer = formula.lastElementChild;
-    //     // 最後にイベントリスナーを登録
-    //     buttonAnswer.addEventListener('click', function() {
-    //         temporaryAnswer.classList.toggle('hidden');
-    //     });
-
-    //     // 作ったformulaはいったんfragmentに追加しておく。
-    //     fragment.appendChild(formula);
-    // };
-
-    // // 最後にfragmentの内容をdocumentに移す。
-    // // この方法ならば再描画が一回しか起きないので高速。
-    // let formulas = document.getElementById('formulas');
-    // formulas.appendChild(fragment);
 
 };
 
