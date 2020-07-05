@@ -1,87 +1,199 @@
 body {
     margin: 0;
     padding: 0;
-    position: relative;
 }
 
-/* header {
-    z-index: 100;
-    width: 100%;
-    position: fixed;
-    height: 80px;
-    background-color: #ffffff;
-} */ 
-
-
-h1{
-    position: relative;
-    background-color: white;
-    text-align: center;
-    margin: 0;
-    padding: 10px 0;  
-}
-
-.title {
-    font-family: 'Noto Sans JP', sans-serif; 
-    font-weight: 300;
-    font-size: 50px;
-    text-decoration: none;
-    color: black;
-}
-
+/* トップページのスタイル */
 .contents {
-    height:calc(100vh - 94px);
-    top: 0px;
-    background-image: url(imgs/antoine-dautry-05A-kdOH6Hw-unsplash.jpg);
-    width:100vw;
-    background-size: cover;
+    height:100vh;
+    background-color: aquamarine;
 }
 
-.explanation {
+.main-title {
     position: absolute;
-    top: 350px;
+    top: 225px;
     left: 150px;
-    margin: 0;
-    text-align: center;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 100;
-    font-size: 40px;
-}
-
-/* img {
-    width: 100%;
-    height: 100vh;
-} */
-
-.create {
-    position: absolute;
-    border-radius: 8px;
-    top:450px;
-    left: 150px;
-    display: block;
-    color: #00CED1;
-    margin: 20px auto;
-    padding: 15px 75px ;
-    text-align: center;
-    font-size: 20px;
-    background-color: white;
+    font-size: 100px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
-    box-shadow: none;
-    border:1px solid #00CED1;
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
 }
 
-.create:hover {
-    background-color: #00CED1;
-    color:white;
+.main-explanation {
+    position:absolute;
+    top: 420px;
+    left: 60px;
+    font-size: 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
 }
 
-.create {
-    outline:0;
+.white-background {
+    height:100vh;
+    width:800px;
+    background-color: white;
 }
 
+.details-explanation {
+    position:absolute;
+    margin: 0px;
+    padding: 5px;
+    color: white;
+    font-size: 38px;
+    font-family: 'Noto Sans JP', sans-serif;
+    border:solid 2px white;
+    border-radius: 10px;
+}
+
+.explanation1 {
+    top:200px;
+    left:825px;
+}
+
+.explanation2 {
+    top: 400px;
+    left:1100px;
+}
+
+.explanation3 {
+    top: 550px;
+    left:875px;
+}
+/* トップページのスタイルここまで */
+
+/* 選択画面のスタイル */
+.selection-screen {
+    height: 100vh;
+}
+
+.selection-title {
+    margin: 0;
+    padding: 30px 0 70px 0;
+    text-align: center;
+    color: black;
+    font-size:80px;
+    font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+.selected {
+    display: inline-block;
+    width: 700px;
+    height: 600px;
+    margin-left: 165px;
+    border-radius: 20px;
+}
+
+.selected-condision {
+    background-color: #0066FF;
+}
+
+.selected-grand {
+    background-color: #CC33FF;
+}
+
+.selected-title {
+    margin: 0;
+    padding: 30px;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    font-size: 45px;
+}
+
+.condision-type {
+    margin: 40px 0 10px 40px;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 20px;
+}
+
+.condision-types {
+    margin: 0 0 10px 70px;
+    list-style: none;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30px;
+} 
+
+.condision-types li{
+    display: inline-block;
+    margin-left: 15px;
+}
+.selected-details {
+    margin: 40px 40px 0 40px;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size:25px ;
+    line-height: 45px;
+}
+
+.condision-types-grand {
+    margin: 0 0 10px 30px;
+    list-style: none;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30px;
+}
+
+.condision-types-grand li{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.elementary {
+    font-size:20px;
+}
+/* 選択画面のスタイルここまで */
+
+/* 条件選択画面のスタイル */
+.conditions {
+    height:100vh;
+}
+
+.condision-title {
+    text-align: center;
+    margin: 0;
+    padding: 25px 0 40px 0;
+    font-size:80px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+#formulaNumber {
+    padding:20px 0 50px 0;
+    background-color: #99FFFF;
+}
+
+.formula-item {
+    display: inline-block;
+}
+
+.operatorType {
+    background-color: ;
+}
+
+.operator-item {
+    display: inline-block;
+}
+
+.numberSize-item {
+    display: inline-block;
+}
+
+.condition-title {
+    margin-left:60px;
+    font-size: 60px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+.condision-selected {
+    margin-left:40px;
+    font-size: 40px ; 
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+}
+/* 条件選択画面のスタイルここまで */
 
 #formulas {
     position: block;

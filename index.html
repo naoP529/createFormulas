@@ -8,17 +8,48 @@
         <!-- <script src="script.js"></script> -->
     </head>
     <body>
-        <header>
-            <h1><a href="index.html" class="title">計クリ</a></h1>
-        </header>
         <div class = "contents">
-            <h2 class="explanation">2項までの計算問題を自動で</h2>
-            <input  class = "create" type="button" value="計算問題作成">
-                <a href = "#createLink"></a>
-            </input>
+            <h1 class = "main-title">計クリ</h1>
+            <h2 class = "main-explanation">2つの数の計算問題を自動作成できます</h2>
+            <div class = "white-background"></div>
+            <p class = "details-explanation explanation1">答えはすべて整数になります</p>
+            <p class = "details-explanation explanation2">条件を細かく設定することができます</p>
+            <p class = "details-explanation explanation3">自分のレベルに合わせて問題を作成できます</p>
         </div>
+
+        <div class = "selection-screen">
+            <p class = "selection-title">以下の2つの方法から選択してください</p>
+            <div class = "selected selected-condision">
+                <p class = "selected-title">条件を設定して作成</p>
+                <p class = "condision-type">設定できる条件</p>
+                <ul class = "condision-types">
+                    <li>問題数</li>
+                    <li>加減乗除</li>
+                    <li>ケタ数</li>
+                </ul>
+                <p class = "selected-details">条件を設定するときは、選択肢のどれかにチェックを入れるか、入力フォームに数字を入力します</p>
+                <p class = "selected-details">自分の目的に合った問題を作ることができます</p>
+            </div>
+            <div class = "selected selected-grand">
+                <p class = "selected-title">レベルを選択して作成</p>
+                <p class = "condision-type">選択肢</p>
+                <ul class = "condision-types-grand">
+                    <li class = "elementary">小学</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4・5</li>
+                    <li>6年以上<li>
+                    <li>超ハイレベル</li>
+                </ul>
+                <p class = "selected-details">上の選択肢の中から目的のレベルを選んで、そのレベルにあった計算問題を作成します</p>
+                <p class = "selected-details">右の方法より簡単で、手間もかからず小さなお子様でもわかりやすいです</p>
+
+            </div>
+        </div>
+
         <div class = "conditions">
-            <h1>条件を設定</h1>
+            <h1 class = "condision-title">条件を設定</h1>
             <!-- <form name = "termNumber" id = "termNumber">
                 <h1>項の数を指定</h1>
                 <label>
@@ -40,58 +71,58 @@
                 </label>
             </form> -->
             <form name = "formulaNumber" id = "formulaNumber">
-                <h1>問題数を指定</h1>
-                <label>
+                <h1  class = "formula-item condition-title">問題数を指定</h1>
+                <label class = "formula-item condision-selected">
                     <input type="radio" name="acquisitionFormulas" value = "30" onclick="onclick_acquisitionFormulas();">30
                 </label>
-                <label>
+                <label class = "formula-item condision-selected">
                     <input type="radio" name = "acquisitionFormulas" value="50" onclick="onclick_acquisitionFormulas();">50
                 </label>
-                <label>
+                <label class = "formula-item condision-selected">
                     <input type="radio" name="acquisitionFormulas" value="100" onclick="onclick_acquisitionFormulas();">100
                 </label>
-                <label>
+                <label class = "formula-item condision-selected">
                     <input type="radio" name = "acquisitionFormulas" value = "random" onclick="onclick_acquisitionFormulas();">ランダム
                 </label>
-                <label>
+                <label class = "formula-item condision-selected">
                     <input type="radio" name = "acquisitionFormulas" value = "input" onclick="onclick_acquisitionFormulas();">
                     問題数を入力
                     <input type="text" name="freeDesignationformula" id = "inputformulaNumber" value="">
                 </label>
             </form>
             <form name = "operatorType" id = "operatorType">
-                <h1>演算子を指定</h1>
-                <label>
+                <h1 class = "condition-title operator-item">演算子を指定</h1>
+                <label class = "condision-selected operator-item">
                     <input type="radio" name="aquisitionOperators" value = "＋">＋足し算
                 </label>
-                <label>
+                <label class = "condision-selected operator-item">
                     <input type="radio" name="aquisitionOperators" value = "ー">ー引き算
                 </label>
-                <label>
+                <label class = "condision-selected operator-item">
                     <input type="radio" name="aquisitionOperators" value = "×">ｘ掛け算
                 </label>
-                <label>
+                <label class = "condision-selected operator-item">
                     <input type="radio" name="aquisitionOperators" value = "÷">÷割り算
                 </label>
-                <label>
+                <label class = "condision-selected operator-item">
                     <input type="radio" name="aquisitionOperators"  value = "all">すべて
                 </label>
             </form>
             <form name = "numberSize" id = "numberSize">
-                <h1>数の桁を指定</h1>
-                <label>
+                <h1 class = "condition-title numberSize-item">数の桁を指定</h1>
+                <label class = "condision-selected numberSize-item">
                     <input type="radio" name = "aquisitionNumberSizes" value=9 >1桁
                 </label>
-                <label>
+                <label class = "condision-selected numberSize-item">
                     <input type="radio" name = "aquisitionNumberSizes" value=99  >2桁
                 </label>
-                <label>
+                <label class = "condision-selected numberSize-item">
                     <input type="radio" name = "aquisitionNumberSizes" value=999  >3桁
                 </label>
-                <label>
+                <label class = "condision-selected numberSize-item">
                     <input type="radio" name = "aquisitionNumberSizes" value=9999  >4桁
                 </label>
-                <label>
+                <label class = "condision-selected numberSize-item">
                     <input type="radio" name = "aquisitionNumberSizes" value = "random"  >ランダム
                 </label>
             </form>

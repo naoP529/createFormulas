@@ -178,7 +178,7 @@ const conditionEnter_onclick = () => {
     for (let i = 0; i < formulaNumber; i++) {
         let operators = [];
         let numbers = [];
-        for (i = 0; i < 2; i++) {
+        for (let i = 0; i < 2; i++) {
             let randomNumber = Math.floor(Math.random() * numberSize) + 1;
 
             numbers.push(randomNumber);
@@ -313,10 +313,7 @@ const conditionEnter_onclick = () => {
         // 作ったformulaはいったんfragmentに追加しておく。
         fragment.appendChild(formula);
 
-    // 最後にfragmentの内容をdocumentに移す。
-    // この方法ならば再描画が一回しか起きないので高速。
-    let formulas = document.getElementById('formulas');
-    formulas.appendChild(fragment);
+
     };
 
 
@@ -338,7 +335,11 @@ const conditionEnter_onclick = () => {
         //     } 
         //     operator.push(operatorTypeChecked);
         // }
-
+        
+    // 最後にfragmentの内容をdocumentに移す。
+    // この方法ならば再描画が一回しか起きないので高速。
+    let formulas = document.getElementById('formulas');
+    formulas.appendChild(fragment);
   
 
 
