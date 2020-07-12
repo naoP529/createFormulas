@@ -98,7 +98,7 @@ html{
 
 .selection-title {
     margin: 0;
-    padding: 30px 0 70px 0;
+    padding: 30px 0 60px 0;
     text-align: center;
     color: black;
     font-size:80px;
@@ -112,13 +112,18 @@ html{
     height: 600px;
     margin-left: 250px;
     border-radius: 20px;
+    transition: opacity 0.3s;
+}
+
+.selected:hover {
+    opacity: 0.8;
+    
 }
 
 .selected-condision {
     background-color: #0066FF;
     position: relative;
     z-index: 1;
-    transition: opacity 0.3s;
 }
 
 .selected-condision a {
@@ -131,12 +136,20 @@ html{
     z-index: 2;
 }
 
-.selected-condision:hover {
-    opacity: 0.8;
-}
-
 .selected-grand {
     background-color: #CC33FF;
+    position: relative;
+    z-index: 1;
+}
+
+.selected-grand a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 .selected-title {
@@ -317,7 +330,7 @@ html{
     cursor: pointer;
 }
 
-.formula-button:checked + .white {
+.formula-button:checked + label {
     background-color: white;
     color: black;
     border: none;
@@ -332,6 +345,8 @@ html{
 
 .grade-title {
     text-align: center;
+    margin: 0;
+    padding: 20px 0 40px 0;
     font-size:80px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
@@ -339,6 +354,78 @@ html{
 
 .selected-grade {
     display: inline-block;
+    margin: 0 0 50px 60px;
+    height: 325px;
+    width: 550px;
+    background-color: darkseagreen;
+    border-radius: 8px;
+    transition: opacity 0.3s;
+}
+
+.selected-grade:hover  {
+    opacity:0.7;
+    cursor: pointer;
+}
+/* .condition-grade-item {
+    display: inline-block;
+} */
+
+.selected-grade div {
+    float: left;
+}
+
+.selected-grade-title {
+    margin: 10px 0;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+.condition-grade {
+    margin:7px 0 23px 60px;
+    font-size: 30px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+}
+
+.set-condition {
+    margin:0 0 10px 60px;
+    font-size: 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+.grade1 {
+    background-color: #60EEFF;
+}
+
+.grade2 {
+    background-color: #78FF94			;
+}
+
+.grade3 {
+    background-color: #FFFF44	;
+}
+
+.grade45 {
+    background-color: #FF5F17;
+}
+
+.grade6 {
+    background-color: #BB0000;
+}
+
+.grade-max {
+    background-color: #330033;
+}
+
+.grade6 h1, .grade6 p {
+    color: white;
+}
+
+.grade-max h1, .grade-max p {
+    color: white;
 }
 /* レベル選択画面のスタイルここまで */
 
