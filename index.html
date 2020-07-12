@@ -15,10 +15,12 @@
             <p class = "details-explanation explanation1">答えはすべて整数になります</p>
             <p class = "details-explanation explanation2">条件を細かく設定することができます</p>
             <p class = "details-explanation explanation3">自分のレベルに合わせて問題を作成できます</p>
+            <a href="#start" class = "start">始める</a>
         </div>
 
         <div class = "selection-screen">
-            <p class = "selection-title">以下の2つの方法から選択してください</p>
+            <a id = "start"></a>
+            <p class = "selection-title">2つの方法から選択してください</p>
             <div class = "selected selected-condision">
                 <p class = "selected-title">条件を設定して作成</p>
                 <p class = "condision-type">設定できる条件</p>
@@ -29,6 +31,7 @@
                 </ul>
                 <p class = "selected-details">条件を設定するときは、選択肢のどれかにチェックを入れるか、入力フォームに数字を入力します</p>
                 <p class = "selected-details">自分の目的に合った問題を作ることができます</p>
+                <a href="#condition"></a>
             </div>
             <div class = "selected selected-grand">
                 <p class = "selected-title">レベルを選択して作成</p>
@@ -43,12 +46,13 @@
                     <li>超ハイレベル</li>
                 </ul>
                 <p class = "selected-details">上の選択肢の中から目的のレベルを選んで、そのレベルにあった計算問題を作成します</p>
-                <p class = "selected-details">右の方法より簡単で、手間もかからず小さなお子様でもわかりやすいです</p>
+                <p class = "selected-details">すごく簡単で、手間もかからず小さなお子様でもわかりやすいです</p>
 
             </div>
         </div>
 
         <div class = "conditions">
+            <a id = "condition"></a>
             <h1 class = "condision-title">条件を設定</h1>
             <!-- <form name = "termNumber" id = "termNumber">
                 <h1>項の数を指定</h1>
@@ -70,66 +74,128 @@
                     <input type="text" name="freeDesignationterm" id = "inputTermNumber" value=""> 
                 </label>
             </form> -->
-            <form name = "formulaNumber" id = "formulaNumber">
-                <h1  class = "formula-item condition-title">問題数を指定</h1>
-                <label class = "formula-item condision-selected">
-                    <input type="radio" name="acquisitionFormulas" value = "30" onclick="onclick_acquisitionFormulas();">30
+            <form name = "formulaNumber" id = "formulaNumber" class = "condition">
+                <h1  class = "formula-item condition-title white-title">問題数を指定</h1>
+                <label class = "formula-item condision-selected white">
+                    <input type="radio" name="acquisitionFormulas" class = "condition-button formula-button" value = "30" onclick="onclick_acquisitionFormulas();">
+                    30
                 </label>
-                <label class = "formula-item condision-selected">
-                    <input type="radio" name = "acquisitionFormulas" value="50" onclick="onclick_acquisitionFormulas();">50
+                <label class = "formula-item condision-selected white">
+                    <input type="radio" name = "acquisitionFormulas" class = "condition-button formula-button" value="50" onclick="onclick_acquisitionFormulas();">
+                    50
                 </label>
-                <label class = "formula-item condision-selected">
-                    <input type="radio" name="acquisitionFormulas" value="100" onclick="onclick_acquisitionFormulas();">100
+                <label class = "formula-item condision-selected white">
+                    <input type="radio" name="acquisitionFormulas" class = "condition-button formula-button" value="100" onclick="onclick_acquisitionFormulas();">
+                    100
                 </label>
-                <label class = "formula-item condision-selected">
-                    <input type="radio" name = "acquisitionFormulas" value = "random" onclick="onclick_acquisitionFormulas();">ランダム
+                <label class = "formula-item condision-selected white">
+                    <input type="radio" name = "acquisitionFormulas" class = "condition-button formula-button" value = "random" onclick="onclick_acquisitionFormulas();">ランダム
                 </label>
-                <label class = "formula-item condision-selected">
-                    <input type="radio" name = "acquisitionFormulas" value = "input" onclick="onclick_acquisitionFormulas();">
+                <label class = "formula-item condision-selected white">
+                    <input type="radio" name = "acquisitionFormulas" class = "condition-button formula-button" value = "input" onclick="onclick_acquisitionFormulas();">
                     問題数を入力
-                    <input type="text" name="freeDesignationformula" id = "inputformulaNumber" value="">
+                    <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
                 </label>
             </form>
-            <form name = "operatorType" id = "operatorType">
+            <form name = "operatorType" id = "operatorType" class = "condition">
                 <h1 class = "condition-title operator-item">演算子を指定</h1>
-                <label class = "condision-selected operator-item">
-                    <input type="radio" name="aquisitionOperators" value = "＋">＋足し算
+                <label class = "condision-selected  black operator-item addition">
+                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "＋">＋
                 </label>
-                <label class = "condision-selected operator-item">
-                    <input type="radio" name="aquisitionOperators" value = "ー">ー引き算
+                <label class = "condision-selected black operator-item">
+                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "ー">ー
                 </label>
-                <label class = "condision-selected operator-item">
-                    <input type="radio" name="aquisitionOperators" value = "×">ｘ掛け算
+                <label class = "condision-selected black operator-item">
+                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "×">ｘ
                 </label>
-                <label class = "condision-selected operator-item">
-                    <input type="radio" name="aquisitionOperators" value = "÷">÷割り算
+                <label class = "condision-selected black operator-item">
+                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "÷">÷
                 </label>
-                <label class = "condision-selected operator-item">
-                    <input type="radio" name="aquisitionOperators"  value = "all">すべて
-                </label>
-            </form>
-            <form name = "numberSize" id = "numberSize">
-                <h1 class = "condition-title numberSize-item">数の桁を指定</h1>
-                <label class = "condision-selected numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" value=9 >1桁
-                </label>
-                <label class = "condision-selected numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" value=99  >2桁
-                </label>
-                <label class = "condision-selected numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" value=999  >3桁
-                </label>
-                <label class = "condision-selected numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" value=9999  >4桁
-                </label>
-                <label class = "condision-selected numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" value = "random"  >ランダム
+                <label class = "condision-selected black operator-item">
+                    <input type="radio" name="aquisitionOperators" class = "condition-button"  value = "all">すべて
                 </label>
             </form>
-            <input type="button" class = "conditionsButton" value="決定！" onclick="conditionEnter_onclick();">
+            <form name = "numberSize" id = "numberSize" class = "condition">
+                <h1 class = "condition-title numberSize-item white-title">ケタ数を指定</h1>
+                <label class = "condision-selected white numberSize-item">
+                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9 >1ケタ
+                </label>
+                <label class = "condision-selected white numberSize-item">
+                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=99  >2ケタ
+                </label>
+                <label class = "condision-selected white numberSize-item">
+                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=999  >3ケタ
+                </label>
+                <label class = "condision-selected white numberSize-item">
+                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9999  >4ケタ
+                </label>
+                <label class = "condision-selected white numberSize-item">
+                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value = "random"  >ランダム
+                </label>
+            </form>
+            <a type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>
         </div>
+
+        <div class = "select-Grade">
+            <h1 class = "grade-title">レベルを選択</h1>
+            <div class = "grade1 selected-grade">
+                <h1 class = "selected-grade-title">小学1年</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">20問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">足し算と引き算</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">1ケタ</p>
+            </div>
+            <div class = "grade2 selected-grade">
+                <h1 class = "selected-grade-title">小学2年</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">30問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">割り算以外</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">1ケタ</p>
+            </div>
+            <div class = "grade3 selected-grade">
+                <h1 class = "selected-grade-title">小学3年</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">30問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">すべて</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">2ケタ</p>
+            </div>
+            <div class = "grade45 selected-grade">
+                <h1 class = "selected-grade-title">小学4・5年</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">40問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">すべて</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">2ケタ</p>
+            </div>
+            <div class = "grade6 selected-grade">
+                <h1 class = "selected-grade-title">小学6年</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">50問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">すべて</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">3ケタ</p>
+            </div>
+            <div class = "grade-max selected-grade">
+                <h1 class = "selected-grade-title">激ムズ</h1>
+                <p class = "condition-grade">問題数</p>
+                <p class = "set-condition">100問</p>
+                <p class = "condition-grade">四則</p>
+                <p class = "set-condition">すべて</p>
+                <p class = "condition-grade">ケタ数</p>
+                <p class = "set-condition">4ケタ</p>
+            </div>
+        </div>
+
         <div id = "formulas">
-            
+    
         </div>
         <script src="script.js"></script>
     </body>

@@ -3,10 +3,14 @@ body {
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* トップページのスタイル */
 .contents {
     height:100vh;
-    background-color: aquamarine;
+    background-color: dimgray;
 }
 
 .main-title {
@@ -58,6 +62,33 @@ body {
     top: 550px;
     left:875px;
 }
+
+.start {
+    position: absolute;
+    top:720px;
+    left:calc(50% - 175px);
+    height:80px;
+    width: 350px;
+    color: #00CED1;
+    border-radius: 8px;
+    text-align: center; 
+    text-decoration: none;
+    background-color: white;
+    font-size: 50px;
+    font-family:'Noto Sans JP', sans-serif;
+    border:1px solid #00CED1; 
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.start:hover {
+    background-color: #00CED1;
+    color:white;
+}
+
+.start:focus {
+    outline:0;
+}
 /* トップページのスタイルここまで */
 
 /* 選択画面のスタイル */
@@ -77,14 +108,31 @@ body {
 
 .selected {
     display: inline-block;
-    width: 700px;
+    width: 600px;
     height: 600px;
-    margin-left: 165px;
+    margin-left: 250px;
     border-radius: 20px;
 }
 
 .selected-condision {
     background-color: #0066FF;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s;
+}
+
+.selected-condision a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
+}
+
+.selected-condision:hover {
+    opacity: 0.8;
 }
 
 .selected-grand {
@@ -150,31 +198,48 @@ body {
     height:100vh;
 }
 
+#formulaNumber {
+    background-color: #1995AD;
+}
+
+#operatorType {
+    background-color: #F1f1f2;
+}
+
+#numberSize {
+    background-color:#a1d6e2;
+}
+
 .condision-title {
     text-align: center;
     margin: 0;
-    padding: 25px 0 40px 0;
+    padding: 30px 0 40px 0;
     font-size:80px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
 }
 
-#formulaNumber {
-    padding:20px 0 50px 0;
-    background-color: #99FFFF;
+.condition {
+    height: 200px;
+}
+
+.condision-selected {
+    margin-left:40px;
+    font-size: 40px ; 
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+    padding: 0 30px;
+    border-radius: 5px;
 }
 
 .formula-item {
     display: inline-block;
 }
 
-.operatorType {
-    background-color: ;
-}
-
 .operator-item {
     display: inline-block;
 }
+
 
 .numberSize-item {
     display: inline-block;
@@ -187,13 +252,95 @@ body {
     font-weight: 400;
 }
 
-.condision-selected {
-    margin-left:40px;
-    font-size: 40px ; 
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 100;
+.white-title {
+    color: white;
 }
-/* 条件選択画面のスタイルここまで */
+
+.conditionsButton {
+    border-radius: 8px;
+    display: block;
+    width: 150px;
+    color: #00CED1;
+    margin: 30px auto;
+    padding: 10px 70px ;
+    text-align: center;
+    font-size: 40px;
+    background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    box-shadow: none;
+    border:1px solid #00CED1;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.conditionsButton:hover {
+    background-color: #00CED1;
+    color:white;
+}
+
+.conditionsButton:focus {
+    outline:0;
+}
+
+.condition-button {
+    display: none;
+}
+
+.white {
+    color: white;
+    border: solid 1px white;
+    transition: 0.2s;
+}
+
+.white:hover {
+    transition: 0.2s;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+.black {
+    border: solid 1px black;
+    transition: 0.2s;
+    padding: 0 45px;
+    margin-left: 60px;
+}
+
+.addition {
+    margin-left: 40px;
+}
+
+.black:hover  {
+    transition: 0.2s;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.formula-button:checked + .white {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+ /* 条件選択画面のスタイルここまで */ 
+
+/* レベル選択画面のスタイル */
+.select-Grade {
+    height: 100vh;
+}
+
+.grade-title {
+    text-align: center;
+    font-size:80px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+.selected-grade {
+    display: inline-block;
+}
+/* レベル選択画面のスタイルここまで */
 
 #formulas {
     position: block;
