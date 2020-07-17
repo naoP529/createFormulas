@@ -100,26 +100,27 @@
             </form>
             <form name = "operatorType" id = "operatorType" class = "condition">
                 <h1 class = "condition-title operator-item">演算子を指定</h1>
-                <input id = "add" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "＋">
+                <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "＋">
                 <label class = "condision-selected  black operator-item addition condition-label-black" for="add">
                     ＋
                 </label>
-                <input id = "subtraction" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "ー">
+                <input id = "subtraction" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "ー">
                 <label class = "condision-selected black operator-item condition-label-black" for="subtraction">
                     ー
                 </label>
-                <input id = "multiplication" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "×">
+                <input id = "multiplication" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "×">
                 <label class = "condision-selected black operator-item condition-label-black" for="multiplication">
                     ｘ
                 </label>
-                <input id = "division" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "÷">
+                <input id = "division" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "÷">
                 <label class = "condision-selected black operator-item condition-label-black" for = "division">
                     ÷
                 </label>
-                <input id = "operator-all" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button"  value = "all">
+                <!-- <input id = "operator-all" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button"  value = "all">
                 <label class = "condision-selected black operator-item condition-label-black" for="operator-all">
                     すべて
-                </label>
+                </label> -->
+                <input type = "button" onclick="operatorSetAll();" value="すべて選択">
             </form>
             <form name = "numberSize" id = "numberSize" class = "condition">
                 <h1 class = "condition-title numberSize-item white-title">ケタ数を指定</h1>
@@ -150,7 +151,7 @@
         <div class = "select-Grade">
             <a id = "select-Grade"></a>
             <h1 class = "grade-title">レベルを選択</h1>
-            <div class = "grade1 selected-grade">
+            <div class = "grade1 selected-grade" onclick = "">
                 <h1 class = "selected-grade-title">小学1年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>

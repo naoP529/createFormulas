@@ -82,7 +82,7 @@ let formulaNumber = null;
 let operatorType = null;
 let numberSize = null;
 
-function getCheckedButton(buttons) {
+function getCheckedRadioButton(buttons) {
     for (let i = 0; i < buttons.length; i++) {
         if(buttons[i].checked) {
             return buttons[i].value;
@@ -90,12 +90,30 @@ function getCheckedButton(buttons) {
     };
     return null;
 };
+ 
+function getCheckedCheckbox(checkbox) {
+    let operatorCheked = [];
+    for(let i = 0; i < checkbox.length; i++) {
+        if(checkbox[i].checked) {
+            operatorCheked.push(checkbox[i].value);
+        }
+    };
+    return operatorCheked;
+}
+
+const operatorSetAll = () => {
+    let operatorCheked = document.operatorType.aquisitionOperators;
+
+    for(let i = 0; i < operatorCheked.length; i++) {
+        operatorCheked[i].checked = true;
+    }
+}
 
 const conditionEnter_onclick = () => {
     // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
-    formulaNumber = getCheckedButton(document.formulaNumber.acquisitionFormulas);
-    operatorType = getCheckedButton(document.operatorType.aquisitionOperators);
-    numberSize = getCheckedButton(document.numberSize.aquisitionNumberSizes);
+    formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
+    operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
+    numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
 
     // console.log("----------------------")
     // console.log(termNumber);
@@ -166,13 +184,14 @@ const conditionEnter_onclick = () => {
             numbers.push(randomNumber);
         }
 
-        let operator = operatorType;
-        if (operatorType === "all") {
-            let type = ["＋", "ー", "×", "÷"];
-            let randomOperator = type[Math.floor(Math.random() * type.length)];
-            operator = randomOperator;
-        };
-        operators.push(operator);
+        // let operator = operatorType;
+        // if (operatorType === "all") {
+        //     let type = ["＋", "ー", "×", "÷"];
+        //     let randomOperator = type[Math.floor(Math.random() * type.length)];
+        //     operator = randomOperator
+        // operators.push(operator);
+        let randomOperator = operatorType[Math.floor(Math.random() * operatorType.length)];
+        operators.push(randomOperator);
 
         console.log("----------------------");
         console.log(operators);
