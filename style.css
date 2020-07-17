@@ -300,6 +300,8 @@ html{
     display: none;
 }
 
+
+
 .white {
     color: white;
     border: solid 1px white;
@@ -330,7 +332,11 @@ html{
     cursor: pointer;
 }
 
-.formula-button:checked + label {
+.condition-button-label {
+    transition: 0.2s;
+}
+
+.condition-button:checked + .condition-button-label {
     background-color: white;
     color: black;
     border: none;
