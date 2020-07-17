@@ -76,62 +76,72 @@
             <form name = "formulaNumber" id = "formulaNumber" class = "condition">
                 <h1  class = "formula-item condition-title white-title">問題数を指定</h1>
                 <input id = "formula-30" type="radio" name="acquisitionFormulas" class = "condition-button formula-button" value = "30" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-label" for="formula-30">
+                <label class = "formula-item condision-selected white condition-button-white" for="formula-30">
                     30
                 </label>
                 <input type="radio" id = "formula-50" name = "acquisitionFormulas" class = "condition-button formula-button" value="50" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-label" for="formula-50">
+                <label class = "formula-item condision-selected white condition-button-white" for="formula-50">
                     50
                 </label>
                 <input type="radio" id = "formula-100" name="acquisitionFormulas" class = "condition-button formula-button" value="100" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-label" for="formula-100">
+                <label class = "formula-item condision-selected white condition-button-white" for="formula-100">
                     100
                 </label>
                 <input type="radio" id = "formula-random" name = "acquisitionFormulas" class = "condition-button formula-button" value = "random" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-label" for="formula-random">
+                <label class = "formula-item condision-selected white condition-button-white" for="formula-random">
                     ランダム
                 </label>
 
                 <input type="radio" id = "formula-input" name = "acquisitionFormulas" class = "condition-button formula-button" value = "input" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-label" for = "formula-input">
+                <label class = "formula-item condision-selected white condition-button-white" for = "formula-input">
                 問題数を入力
                 </label>
                 <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
             </form>
             <form name = "operatorType" id = "operatorType" class = "condition">
                 <h1 class = "condition-title operator-item">演算子を指定</h1>
-                <label class = "condision-selected  black operator-item addition">
-                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "＋">＋
+                <input id = "add" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "＋">
+                <label class = "condision-selected  black operator-item addition condition-label-black" for="add">
+                    ＋
                 </label>
-                <label class = "condision-selected black operator-item">
-                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "ー">ー
+                <input id = "subtraction" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "ー">
+                <label class = "condision-selected black operator-item condition-label-black" for="subtraction">
+                    ー
                 </label>
-                <label class = "condision-selected black operator-item">
-                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "×">ｘ
+                <input id = "multiplication" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "×">
+                <label class = "condision-selected black operator-item condition-label-black" for="multiplication">
+                    ｘ
                 </label>
-                <label class = "condision-selected black operator-item">
-                    <input type="radio" name="aquisitionOperators" class = "condition-button" value = "÷">÷
+                <input id = "division" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button" value = "÷">
+                <label class = "condision-selected black operator-item condition-label-black" for = "division">
+                    ÷
                 </label>
-                <label class = "condision-selected black operator-item">
-                    <input type="radio" name="aquisitionOperators" class = "condition-button"  value = "all">すべて
+                <input id = "operator-all" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button"  value = "all">
+                <label class = "condision-selected black operator-item condition-label-black" for="operator-all">
+                    すべて
                 </label>
             </form>
             <form name = "numberSize" id = "numberSize" class = "condition">
                 <h1 class = "condition-title numberSize-item white-title">ケタ数を指定</h1>
-                <label class = "condision-selected white numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9 >1ケタ
+                <input id = "numberSize-1" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9>
+                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-1">
+                    1ケタ
                 </label>
-                <label class = "condision-selected white numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=99  >2ケタ
+                <input id = "numberSize-2" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=99  >
+                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-2">
+                    2ケタ
                 </label>
-                <label class = "condision-selected white numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=999  >3ケタ
+                <input id = "numberSize-3" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=999  >
+                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-3">
+                    3ケタ
                 </label>
-                <label class = "condision-selected white numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9999  >4ケタ
+                <input id = "numberSize-4" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9999  >
+                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-4">
+                    4ケタ
                 </label>
-                <label class = "condision-selected white numberSize-item">
-                    <input type="radio" name = "aquisitionNumberSizes" class = "condition-button" value = "random"  >ランダム
+                <input id = "numberSize-random" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value = "random"  >
+                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-random">
+                    ランダム
                 </label>
             </form>
             <a type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>

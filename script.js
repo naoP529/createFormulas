@@ -68,15 +68,6 @@ function ready(fn) {
     };
 ;}
 
-// const onclick_acquisitionTerms =  () =>  {
-//     if (document.termNumber["acquisitionTerms"][4].checked) {
-//         document.termNumber["freeDesignationterm"]. disabled = false;
-//     } else {
-//         document.termNumber["freeDesignationterm"]. disabled = true;
-//     };
-// };
-// window.onload = onclick_acquisitionTerms();
-
 const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
         document.formulaNumber["freeDesignationformula"]. disabled = false;
@@ -85,15 +76,6 @@ const onclick_acquisitionFormulas = () =>  {
     };
 };
 window.onload = onclick_acquisitionFormulas();
-
-// const  onclick_aquisitionNumberSizes = () => {
-//     if (document.numberSize["aquisitionNumberSizes"][5].checked) {
-//         document.numberSize["freeDesignationNumberSize"]. disabled = false;
-//     } else {
-//         document.numberSize["freeDesignationNumberSize"]. disabled = true;
-//     };
-// };
-// window.onload = onclick_aquisitionNumberSizes();
 
 // let termNumber = null;
 let formulaNumber = null;

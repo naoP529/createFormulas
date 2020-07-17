@@ -336,9 +336,15 @@ html{
     transition: 0.2s;
 }
 
-.condition-button:checked + .condition-button-label {
+.condition-button:checked + .condition-button-white {
     background-color: white;
     color: black;
+    border: none;
+}
+
+.condition-button-black:checked + .condition-label-black {
+    background-color: black;
+    color: white;
     border: none;
 }
 
