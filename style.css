@@ -285,6 +285,7 @@ html{
     border:1px solid #00CED1;
     cursor: pointer;
     transition: background-color 0.5s, color 0.5s;
+    text-decoration: none;
 }
 
 .conditionsButton:hover {
@@ -365,6 +366,7 @@ html{
 }
 
 .selected-grade {
+    position: relative;
     display: inline-block;
     margin: 0 0 50px 60px;
     height: 325px;
@@ -384,6 +386,16 @@ html{
 
 .selected-grade div {
     float: left;
+}
+
+.selected-grade a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 .selected-grade-title {
@@ -413,11 +425,11 @@ html{
 }
 
 .grade2 {
-    background-color: #78FF94			;
+    background-color: #78FF94;
 }
 
 .grade3 {
-    background-color: #FFFF44	;
+    background-color: #FFFF44;
 }
 
 .grade45 {
@@ -443,33 +455,68 @@ html{
 
 #formulas {
     position: block;
+    margin-left: 200px;
 }
 
 .formula {
     display: inline-block;
-    width: 10%;
+    width: 45%;
+    margin-bottom: 50px;
 
-}
-
-.childFormula {
-    text-align: center;
-    font-size: 40px;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-.formulaAnswer {
-    text-align: center;
-    font-size: 30px;
-    color: red;
-    font-family:'Noto Sans JP', sans-serif ;
-    animation: fadeIn 0.2s ease 0.3s 1 normal;
 }
 
 .hidden {
     visibility:hidden
 }
 
-#buttonAnswer {
+.temporaryFormula {
+    display: inline;
+}
+
+.temporaryAnswer {
+    display: inline;
+}
+
+.equal {
+    display: inline;
+}
+
+.formulaParts {
+    margin-left: 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 50px;
+} 
+
+.formulas-header {
+    position: absolute;
+    left: 60px;
+}
+
+.formulas-headerItem {
+    display: flex;
+    margin-top:20px;
+}
+
+.formulas-icon {
+    width: 90px;
+    padding:10px;
+    border-radius: 30px;
+
+    /* border: solid 3px black; */
+}
+
+.answer-display {
+    background-color: white;
+    font-size: 70px;
+    height: 90px;
+    width: 90px;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    /* border: solid 3px black; */
+} 
+
+/* #buttonAnswer {
     border-radius: 8px;
     display: block;
     color: #00CED1;
@@ -493,4 +540,4 @@ html{
 
 #buttonAnswer:focus {
     outline:0;
-}
+} */

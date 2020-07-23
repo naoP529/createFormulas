@@ -30,7 +30,7 @@
                     <li>ケタ数</li>
                 </ul>
                 <p class = "selected-details">条件を設定するときは、選択肢のどれかにチェックを入れるか、入力フォームに数字を入力します</p>
-                <p class = "selected-details">自分の目的に合った問題を作ることができます</p>
+                <p class = "selected-details">目的に合った問題を作ることができます</p>
                 <a href="#condition"></a>
             </div>
             <div class = "selected selected-grand">
@@ -145,13 +145,13 @@
                     ランダム
                 </label>
             </form>
-            <a type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>
+            <a href="#formulas-link" type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>
         </div>
 
         <div class = "select-Grade">
             <a id = "select-Grade"></a>
             <h1 class = "grade-title">レベルを選択</h1>
-            <div class = "grade1 selected-grade" onclick = "">
+            <div class = "grade1 selected-grade" onclick = "grade1_click();">
                 <h1 class = "selected-grade-title">小学1年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -163,8 +163,9 @@
                     <p class = "set-condition condition-grade-item">足し算と引き算</p>
                     <p class = "set-condition condition-grade-item">1ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
-            <div class = "grade2 selected-grade">
+            <div class = "grade2 selected-grade" onclick="grade2_click();">
                 <h1 class = "selected-grade-title">小学2年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -176,8 +177,9 @@
                     <p class = "set-condition  condition-grade-item">割り算以外</p>
                     <p class = "set-condition  condition-grade-item">1ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
-            <div class = "grade3 selected-grade">
+            <div class = "grade3 selected-grade" onclick="grade3_click();">
                 <h1 class = "selected-grade-title ">小学3年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -189,8 +191,9 @@
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
-            <div class = "grade45 selected-grade">
+            <div class = "grade45 selected-grade" onclick="grade45_click();">
                 <h1 class = "selected-grade-title">小学4・5年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -202,8 +205,9 @@
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
-            <div class = "grade6 selected-grade">
+            <div class = "grade6 selected-grade" onclick="grade6_click();">
                 <h1 class = "selected-grade-title">小学6年</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -213,10 +217,11 @@
                 <div>
                     <p class = "set-condition condition-grade-item">50問</p>
                     <p class = "set-condition condition-grade-item">すべて</p>
-                    <p class = "set-condition condition-grade-item">3ケタ</p>
+                    <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
-            <div class = "grade-max selected-grade">
+            <div class = "grade-max selected-grade" onclick="highLevel_click();">
                 <h1 class = "selected-grade-title">激ムズ</h1>
                 <div>
                     <p class = "condition-grade condition-grade-item">問題数</p>
@@ -228,12 +233,28 @@
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">4ケタ</p>
                 </div>
+                <a href="#formulas-link"></a>
             </div>
         </div>
 
         <div id = "formulas">
-    
+            <h1>計算問題</h1>
+            <div class = "formulas-header">
+                <input type="button" class = "formulas-headerItem answer-display" value="答">
+                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon">
+
+                <img src="imgs\無料のダウンロードのアイコン素材 (1).png" class = "formulas-headerItem formulas-icon">
+                <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon">
+            </div>
+            <a id = "formulas-link"></a>
         </div>
+
+        <!-- <footer>
+            <a href="">リセットして始めに戻る</a>
+            <input type="button" value="答えを表示">
+            <img src="imgs\無料のダウンロードのアイコン素材 (1).png">
+            <img src="imgs\プリンターの無料アイコン4.png">
+        </footer> -->
         <script src="script.js"></script>
     </body>
 </html>

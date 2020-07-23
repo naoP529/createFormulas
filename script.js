@@ -109,70 +109,7 @@ const operatorSetAll = () => {
     }
 }
 
-const conditionEnter_onclick = () => {
-    // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
-    formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
-    operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
-    numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
-
-    // console.log("----------------------")
-    // console.log(termNumber);
-    // console.log(formulaNumber);
-    // console.log(operatorType);
-    // console.log(numberSize);
-
-
-    // switch (termNumber) {
-    //     case "random":
-    //         let rondomTermNumber = Math.floor(Math.random() * 5) + 2;
-    //         termNumber = rondomTermNumber;
-    //         break;
-        
-    //     case "input":
-    //         termNumber = document.forms.termNumber.inputTermNumber.value;
-    //         break;
-    // };
-    
-    switch (formulaNumber) {
-        case "random":
-            let formulaOption = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-            let tmpNumber = Math.floor(Math.random() * formulaOption.length);
-            let rondomFormulaNumber = formulaOption[tmpNumber];
-            formulaNumber = rondomFormulaNumber;
-            break;
-        
-        case "input":
-            // let inputformulaNumber = document.getElementById("inputformulaNumber");
-            // inputformulaNumber.innerText = document.forms.formulaNumber.inputformulaNumber;
-
-            formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
-            //formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
-            break;
-    };
-    
-    switch (numberSize) {
-        case "random":
-            let numbers = [9, 99, 999, 9999];
-            let rondomNumberSize = numbers[Math.floor(Math.random() * numbers.length)];
-            numberSize = rondomNumberSize;
-            break;
-        
-        case "input":
-            // let inputNumberSize = document.getElementById("inputNumberSize");
-            // inputNumberSize.innerText = document.forms.numberSize.inputNumberSize;
-            numberSize = document.forms.numberSize.inputNumberSize.value;
-            break;
-    };
-
-    console.log("----------------------");
-    console.log("----------------------");
-    // console.log(termNumber);
-    console.log(formulaNumber);
-    console.log(operatorType);
-    console.log(numberSize);
-
-    // documentに計算式を逐次追加すると、追加のたびに再描画が発生し遅くなるので、
-    // DocumentFragmentにいったん追加してから、最後にdocumentに追加する。
+const createFormula = (formulaNumber, operatorType, numberSize) => {
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < formulaNumber; i++) {
@@ -298,18 +235,22 @@ const conditionEnter_onclick = () => {
 
         // これ以降、dummyElementは使わない。formulaを使う。
         formula.insertAdjacentHTML('beforeend',
-            `<p class = "temporaryFormula">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
+            `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
         let temporaryFormula = formula.lastElementChild;
+        // formula.insertAdjacentHTML('beforeend',
+
+        //     `<input type = "button" value = "答え" id = "buttonAnswer">`);
+        // let buttonAnswer = formula.lastElementChild;
+        formula.insertAdjacentHTML(`beforeend`,
+            `<p class = "equal formulaParts">＝</p>`);
+        let equal = formula.lastElementChild;
         formula.insertAdjacentHTML('beforeend',
-            `<input type = "button" value = "答え" id = "buttonAnswer">`);
-        let buttonAnswer = formula.lastElementChild;
-        formula.insertAdjacentHTML('beforeend',
-            `<p class = "hidden temporaryAnswer" >${answer}</p>`);
+            `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
         let temporaryAnswer = formula.lastElementChild;
         // 最後にイベントリスナーを登録
-        buttonAnswer.addEventListener('click', function() {
-            temporaryAnswer.classList.toggle('hidden');
-        });
+        // buttonAnswer.addEventListener('click', function() {
+        //     temporaryAnswer.classList.toggle('hidden');
+        // });
 
         // 作ったformulaはいったんfragmentに追加しておく。
         fragment.appendChild(formula);
@@ -317,35 +258,103 @@ const conditionEnter_onclick = () => {
 
     };
 
-
-
-        // console.log(hoge);
-        // let number = [];
-        // for (let i = 0; i < termNumberChecked; i++) {
-        //     let random = Math.floor(Math.random() * numberSizeChecked) + 1;
-        //     number.push(random);
-        // }
-
-        // let operatorLoop = operatorTypeChecked - 1;
-        // let operator = [];
-        // for (let i = 0; i < operatorLoop; i++) {
-        //     if (operatorTypeChecked === "all") {
-        //         let type = ["＋", "ー", "×", "÷"];
-        //         let random = type[Math.floor(Math.random() * type.length)];
-        //         operatorTypeChecked = random;
-        //     } 
-        //     operator.push(operatorTypeChecked);
-        // }
-        
-    // 最後にfragmentの内容をdocumentに移す。
-    // この方法ならば再描画が一回しか起きないので高速。
     let formulas = document.getElementById('formulas');
     formulas.appendChild(fragment);
-  
+}
 
+const conditionEnter_onclick = () => {
+    // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
+    formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
+    operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
+    numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
+    
+    switch (formulaNumber) {
+        case "random":
+            let formulaOption = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+            let tmpNumber = Math.floor(Math.random() * formulaOption.length);
+            let rondomFormulaNumber = formulaOption[tmpNumber];
+            formulaNumber = rondomFormulaNumber;
+            break;
+        
+        case "input":
+            // let inputformulaNumber = document.getElementById("inputformulaNumber");
+            // inputformulaNumber.innerText = document.forms.formulaNumber.inputformulaNumber;
 
+            formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
+            //formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
+            break;
+    };
+    
+    switch (numberSize) {
+        case "random":
+            let numbers = [9, 99, 999, 9999];
+            let rondomNumberSize = numbers[Math.floor(Math.random() * numbers.length)];
+            numberSize = rondomNumberSize;
+            break;
+        
+        case "input":
+            // let inputNumberSize = document.getElementById("inputNumberSize");
+            // inputNumberSize.innerText = document.forms.numberSize.inputNumberSize;
+            numberSize = document.forms.numberSize.inputNumberSize.value;
+            break;
+    };
+
+    console.log("----------------------");
+    console.log("----------------------");
+    console.log(formulaNumber);
+    console.log(operatorType);
+    console.log(numberSize);
+
+    createFormula(formulaNumber, operatorType, numberSize);
 };
 
+const grade1_click = () => {
+    formulaNumber = 20;
+    operatorType = ["＋", "ー"];
+    numberSize = 9;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const grade2_click = () => {
+    formulaNumber = 30;
+    operatorType = ["＋", "ー", "×"];
+    numberSize = 9;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const grade3_click = () => {
+    formulaNumber = 30;
+    operatorType = ["＋", "ー", "×", "÷"];
+    numberSize = 99;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const grade45_click = () => {
+    formulaNumber = 40;
+    operatorType = ["＋", "ー", "×", "÷"];
+    numberSize = 99;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const grade6_click = () => {
+    formulaNumber = 50;
+    operatorType = ["＋", "ー", "×", "÷"];
+    numberSize = 99;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const highLevel_click = () => {
+    formulaNumber = 100;
+    operatorType = ["＋", "ー", "×", "÷"];
+    numberSize = 9999;
+
+    createFormula(formulaNumber, operatorType, numberSize);
+}
 // const termInput = (str, checkname) => {
 //     if (str.length > 0) {
 //         document.getElementById(checkname).checked = true;
