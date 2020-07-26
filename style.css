@@ -8,7 +8,7 @@ html{
 }
 
 /* トップページのスタイル */
-.contents {
+#contents {
     height:100vh;
     background-color: dimgray;
 }
@@ -29,6 +29,20 @@ html{
     font-size: 40px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 100;
+}
+
+.main-explanation  [data-ruby] {
+    position: relative;
+}
+
+.main-explanation  [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
 }
 
 .white-background {
@@ -74,6 +88,7 @@ html{
     text-align: center; 
     text-decoration: none;
     background-color: white;
+    font-weight: 400;
     font-size: 50px;
     font-family:'Noto Sans JP', sans-serif;
     border:1px solid #00CED1; 
@@ -92,7 +107,7 @@ html{
 /* トップページのスタイルここまで */
 
 /* 選択画面のスタイル */
-.selection-screen {
+#selection-screen {
     height: 100vh;
 }
 
@@ -104,6 +119,20 @@ html{
     font-size:80px;
     font-family: 'Noto Sans JP', sans-serif;
 
+}
+
+.selection-title [data-ruby] {
+    position: relative;
+}
+
+.selection-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-25px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 40px;
 }
 
 .selected {
@@ -161,12 +190,41 @@ html{
     font-size: 45px;
 }
 
+.selected-title [data-ruby] {
+    position: relative;
+}
+
+.selected-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 20px;
+}	
+
 .condision-type {
     margin: 40px 0 10px 40px;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 20px;
 }
+
+.condision-type [data-ruby] {
+    position: relative;
+}
+
+.condision-type [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-14px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 12px;
+    width: 70px;
+}	
 
 .condision-types {
     margin: 0 0 10px 70px;
@@ -180,12 +238,43 @@ html{
     display: inline-block;
     margin-left: 15px;
 }
+
+.condision-types [data-ruby] {
+    position: relative;
+}
+
+.condision-types [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-12px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 15px;
+    width: 150px;
+}
+
 .selected-details {
     margin: 40px 40px 0 40px;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
     font-size:25px ;
     line-height: 45px;
+}
+
+.selected-details [data-ruby] {
+    position: relative;
+}
+
+.selected-details [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-24px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 12px;
+    width: 150px;
 }
 
 .condision-types-grand {
@@ -207,23 +296,36 @@ html{
 /* 選択画面のスタイルここまで */
 
 /* 条件選択画面のスタイル */
-.conditions {
+#conditions {
     height:100vh;
 }
 
 #formulaNumber {
-    background-color: #1995AD;
+    background-color: #22259f;
 }
 
 #operatorType {
-    background-color: #F1f1f2;
+    background-color: #55a5ff;
 }
 
 #numberSize {
-    background-color:#a1d6e2;
+    background-color:#a2ea00;
 }
 
-.condision-title {
+
+
+.formula-text {
+    position:relative;
+    bottom: 4.4px;
+    right: 5px;
+    height: 56px;
+    width: 200px;
+    font-size: 30px;
+    border-radius: 0 5px 5px 0;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.condition-main-title {
     text-align: center;
     margin: 0;
     padding: 30px 0 40px 0;
@@ -245,6 +347,20 @@ html{
     border-radius: 5px;
 }
 
+.condision-selected [data-ruby] {
+    position: relative;
+}
+
+.condision-selected [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 12px;
+}
+
 .formula-item {
     display: inline-block;
 }
@@ -263,6 +379,36 @@ html{
     font-size: 60px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
+}
+
+.condition-main-title [data-ruby]   {
+    position: relative;
+}
+
+.condition-main-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-12px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+    width: 150px;
+}
+
+.condition-title [data-ruby] {
+    position: relative;
+}
+
+.condition-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+    width: 150px;
 }
 
 .white-title {
@@ -319,8 +465,6 @@ html{
 .black {
     border: solid 1px black;
     transition: 0.2s;
-    padding: 0 45px;
-    margin-left: 60px;
 }
 
 .addition {
@@ -337,22 +481,80 @@ html{
     transition: 0.2s;
 }
 
-.condition-button:checked + .condition-button-white {
+
+
+/* .condition-button:checked + .condition-button-white {
     background-color: white;
     color: black;
     border: none;
+} */
+
+.condition-label-operator  {
+    padding: 0 50px;
 }
 
-.condition-button-black:checked + .condition-label-black {
-    background-color: black;
-    color: white;
+.formula-button:checked + .condition-button-formula {
+    background-color: white;
     border: none;
+    color:#22259f;
+    font-weight: 400; 
 }
 
- /* 条件選択画面のスタイルここまで */ 
+.operator-button:checked + .condition-label-operator {
+    background-color: white;
+    color: #55a5ff;
+    border: none;
+    font-weight: 400;
+}
+
+.numberSize-item:checked + .condition-button-numberSize {
+    background-color: white;
+    border: none;
+    color:black;
+    font-weight: 400;
+}
+
+#operatorType {
+    position: relative;
+}
+
+.operator-all {
+    position: absolute;
+    top: 62px;
+    padding: 0 40px;
+    left: 1250px;
+    border-radius: 8px;
+    display: block;
+    color: #00CED1;
+    text-align: center;
+    font-size: 40px;
+    background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    box-shadow: none;
+    border:1px solid #00CED1;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+    text-decoration: none;
+}
+
+.operator-all:hover {
+    background-color: #00CED1;
+    color:white;
+}
+
+.operator-all:focus {
+    outline:0;
+}
+
+.formula-input {
+    border-radius:5px 0 0 5px;
+    /* border-right: none; */
+}
+/* 条件選択画面のスタイルここまで */ 
 
 /* レベル選択画面のスタイル */
-.select-Grade {
+#select-Grade {
     height: 100vh;
 }
 
@@ -363,6 +565,21 @@ html{
     font-size:80px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
+}
+
+.grade-title [data-ruby] {
+    position: relative;
+}
+
+.grade-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+    width: 150px;
 }
 
 .selected-grade {
@@ -406,6 +623,21 @@ html{
     font-weight: 400;
 }
 
+.selected-grade-title [data-ruby] {
+    position: relative;
+}
+
+.selected-grade-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+}
+
+
 .condition-grade {
     margin:7px 0 23px 60px;
     font-size: 30px;
@@ -413,11 +645,39 @@ html{
     font-weight: 100;
 }
 
+.condition-grade [data-ruby] {
+    position: relative;
+}
+
+.condition-grade [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 15px;
+}
+
 .set-condition {
     margin:0 0 10px 60px;
     font-size: 40px;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
+}
+
+.set-condition [data-ruby] {
+    position: relative;
+}
+
+.set-condition [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 20px;
 }
 
 .grade1 {
@@ -465,9 +725,33 @@ html{
 
 }
 
+.formulas-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.formulas-title [data-ruby] {
+    position: relative;
+}
+
+.formulas-title [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+}
+
 .hidden {
     visibility:hidden
 }
+
+/* .formula-hidden {
+    display:none;
+} */
 
 .temporaryFormula {
     display: inline;
@@ -475,6 +759,7 @@ html{
 
 .temporaryAnswer {
     display: inline;
+    color: red;
 }
 
 .equal {
@@ -487,7 +772,7 @@ html{
     font-size: 50px;
 } 
 
-.formulas-header {
+#formulas-header {
     position: absolute;
     left: 60px;
 }
@@ -500,19 +785,24 @@ html{
 .formulas-icon {
     width: 90px;
     padding:10px;
-    border-radius: 30px;
 
     /* border: solid 3px black; */
 }
 
 .answer-display {
     background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 70px;
-    height: 90px;
-    width: 90px;
+    color: red;
+    height: 110px;
+    width: 110px;
     padding: 10px;
     border-radius: 30px;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:400;
     /* border: solid 3px black; */
 } 
 
@@ -541,3 +831,65 @@ html{
 #buttonAnswer:focus {
     outline:0;
 } */
+
+@media print {
+    #contents {
+        display:none;
+    }
+
+    #selection-screen {
+        display: none;
+    }
+
+    #conditions {
+        display: none;
+    }
+
+    #select-Grade {
+        display: none;
+    }
+
+    #formulas-header {
+        display: none;
+    }
+
+    #formulas {
+        margin: 0;
+    }
+
+    .formula {
+        width: 50%;
+    }
+
+    .formulas-title {
+        font-size: 30px;
+    }
+
+    .formulas-title [data-ruby]::before {
+        font-size: 15px;
+        top: -12px;
+    }
+
+    .formulaParts {
+        font-size: 25px;
+        margin-left: 20px;
+    }    
+
+}
+
+
+@media screen and (max-width:1000px) {
+    .white-background {
+        height:100vh;
+        width:100%;
+        background-color: white;
+    }
+
+    .main-title {
+        text-align: center;
+    }
+
+    .main-explanation {
+        text-align: center;
+    }
+}

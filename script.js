@@ -130,9 +130,9 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
         let randomOperator = operatorType[Math.floor(Math.random() * operatorType.length)];
         operators.push(randomOperator);
 
-        console.log("----------------------");
-        console.log(operators);
-        console.log(numbers);
+        // console.log("----------------------");
+        // console.log(operators);
+        // console.log(numbers);
 
         let answer = null;
         switch (operators[0]) {
@@ -169,7 +169,7 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
                 };
                 break;
         }
-        console.log(operators, numbers, answer);
+        // console.log(operators, numbers, answer);
 
         // let numbersTest = numbers.slice(0, numbers.length);
         // for (let i = 0; i <= operators.length; i++) {
@@ -217,9 +217,9 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
         //     console.log(numbers);
         //     console.log(numbersTest);
         // };
-        console.log("----------------------");
-        console.log(operators);
-        console.log(numbers);
+        // console.log("----------------------");
+        // console.log(operators);
+        // console.log(numbers);
 
          // insertAdjacentHTML()はinnerHTMLより高速らしいが、
         // 新しいelementを作成することはできない。なので、
@@ -236,17 +236,17 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
         // これ以降、dummyElementは使わない。formulaを使う。
         formula.insertAdjacentHTML('beforeend',
             `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
-        let temporaryFormula = formula.lastElementChild;
+        // let temporaryFormula = formula.lastElementChild;
         // formula.insertAdjacentHTML('beforeend',
 
         //     `<input type = "button" value = "答え" id = "buttonAnswer">`);
         // let buttonAnswer = formula.lastElementChild;
         formula.insertAdjacentHTML(`beforeend`,
             `<p class = "equal formulaParts">＝</p>`);
-        let equal = formula.lastElementChild;
+        // let equal = formula.lastElementChild;
         formula.insertAdjacentHTML('beforeend',
             `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
-        let temporaryAnswer = formula.lastElementChild;
+        // let temporaryAnswer = formula.lastElementChild;
         // 最後にイベントリスナーを登録
         // buttonAnswer.addEventListener('click', function() {
         //     temporaryAnswer.classList.toggle('hidden');
@@ -263,6 +263,12 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
 }
 
 const conditionEnter_onclick = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    console.log(remove_formula);
+    for (let i= 0; 0 < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
     operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
@@ -352,8 +358,24 @@ const highLevel_click = () => {
     formulaNumber = 100;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 9999;
-
+    // const formulaHidden = document.getElementsByClassName('formula-hidden');
+    // console.log(formulaHidden);
+    // for (let i = 0; 0 < formulaHidden.length; i++) {
+    //     formulaHidden[i].classList.remove(`formula-hidden`);
+    // }
     createFormula(formulaNumber, operatorType, numberSize);
+}
+
+const answerDisplay = () => {
+    let temporaryAnswer = document.getElementsByClassName(`temporaryAnswer`);
+    for (let i = 0; 0 < temporaryAnswer.length; i++) {
+        temporaryAnswer[i].classList.toggle(`hidden`);
+    }
+};
+
+
+const formula_print = () => {
+    window.print();
 }
 // const termInput = (str, checkname) => {
 //     if (str.length > 0) {

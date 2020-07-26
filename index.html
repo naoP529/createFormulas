@@ -8,34 +8,54 @@
         <!-- <script src="script.js"></script> -->
     </head>
     <body>
-        <div class = "contents">
-            <h1 class = "main-title">計クリ</h1>
-            <h2 class = "main-explanation">2つの数の計算問題を自動作成できます</h2>
+        <div id = "contents">
+            <h1 class = "main-title">
+                <ruby>計クリ</h1>
+            <h2 class = "main-explanation">2つの
+                <span data-ruby="かず">数</span>の
+                <span data-ruby="けいさんもんだい">計算問題</span>を
+                <span data-ruby="じどうさくせい">自動作成</span>できます</h2>
             <div class = "white-background"></div>
             <p class = "details-explanation explanation1">答えはすべて整数になります</p>
             <p class = "details-explanation explanation2">条件を細かく設定することができます</p>
             <p class = "details-explanation explanation3">自分のレベルに合わせて問題を作成できます</p>
-            <a href="#start" class = "start">始める</a>
+            <a href="#start" class = "start">始</rt></ruby>める</a>
         </div>
 
-        <div class = "selection-screen">
+        <div id = "selection-screen">
             <a id = "start"></a>
-            <p class = "selection-title">2つの方法から選択してください</p>
+            <p class = "selection-title">2つの
+                <span data-ruby="ほうほう">方法</span>から
+                <span data-ruby="せんたく">選択</span>してください</p>
             <div class = "selected selected-condision">
-                <p class = "selected-title">条件を設定して作成</p>
-                <p class = "condision-type">設定できる条件</p>
+                <p class = "selected-title">
+                    <span data-ruby="じょうけん">条件を</span>
+                    <span data-ruby="せってい">設定</span>して
+                    <span data-ruby="さくせい">作成</span></p>
+                <p class = "condision-type">
+                    <span data-ruby="せってい">設定</span>できる
+                    <span data-ruby="じょうけん">条件 </span></p>
                 <ul class = "condision-types">
-                    <li>問題数</li>
-                    <li>加減乗除</li>
-                    <li>ケタ数</li>
+                    <li data-ruby="もんだいすう">問題数</li>
+                    <li data-ruby="かげんじょうじょ">加減乗除</li>
+                    <li>ケタ<span data-ruby="すう">数</span></li>
                 </ul>
-                <p class = "selected-details">条件を設定するときは、選択肢のどれかにチェックを入れるか、入力フォームに数字を入力します</p>
-                <p class = "selected-details">目的に合った問題を作ることができます</p>
+                <p class = "selected-details">
+                    <span data-ruby="じょうけん">条件</span>を<span data-ruby="せってい">設定</span>
+                    するときは<span data-ruby="せんたくし">選択肢</span>のどれかにチェックを入れるか、
+                    <span data-ruby="にゅうりょく">入力</span>フォームに<span data-ruby="すうじ">数字</span>を
+                    <span data-ruby="にゅうりょく">入力</span>します</p>
+                <p class = "selected-details">
+                    <span data-ruby="もくてき">目的</span>に<span class = "selected-details-a" data-ruby="あ">合っ</span>た
+                    <span data-ruby="もんだい">問題</span>を<span data-ruby="つく">作</span>ることができます</p>
                 <a href="#condition"></a>
             </div>
             <div class = "selected selected-grand">
-                <p class = "selected-title">レベルを選択して作成</p>
-                <p class = "condision-type">選択肢</p>
+                <p class = "selected-title">レベルを
+                    <span data-ruby="せんたく">選択</span>して
+                    <span data-ruby="さくせい">作成</span></p>
+                <p class = "condision-type">
+                    <span data-ruby="せんたくし">選択肢</span></p>
                 <ul class = "condision-types-grand">
                     <li class = "elementary">小学</li>
                     <li>1</li>
@@ -45,15 +65,22 @@
                     <li>6年以上<li>
                     <li>超ハイレベル</li>
                 </ul>
-                <p class = "selected-details">上の選択肢の中から目的のレベルを選んで、そのレベルにあった計算問題を作成します</p>
-                <p class = "selected-details">すごく簡単で、手間もかからず小さなお子様でもわかりやすいです</p>
+                <p class = "selected-details">
+                    <span data-ruby="うそ">上</span>の<span data-ruby="せんたくし">選択肢</span>の
+                    <span data-ruby="なか">中</span>から<span data-ruby="もくてき">目的</span>のレベルを
+                    <span data-ruby="えら">選</span>んで、そのレベルにあった
+                    <span data-ruby="けいさんもんだい">計算問題</span>を<span data-ruby="さくせい">作成</span>します</p>
+                <p class = "selected-details">
+                    すごく<span data-ruby="かんたん">簡単</span>で、<span data-ruby="てま">手間</span>も
+                    かからず<span data-ruby="ちい">小</span>さなお<span data-ruby="こさま">子様</span>でもわかりやすいです</p>
                 <a href="#select-Grade"></a>
             </div>
         </div>
 
-        <div class = "conditions">
+        <div id = "conditions">
             <a id = "condition"></a>
-            <h1 class = "condision-title">条件を設定</h1>
+            <h1 class = "condition-main-title">
+                <span data-ruby="じょうけん">条件</span>を<span data-ruby="せってい">設定</span></h1>
             <!-- <form name = "termNumber" id = "termNumber">
                 <h1>項の数を指定</h1>
                 <label>
@@ -74,162 +101,190 @@
                 </label>
             </form> -->
             <form name = "formulaNumber" id = "formulaNumber" class = "condition">
-                <h1  class = "formula-item condition-title white-title">問題数を指定</h1>
+                <h1  class = "formula-item condition-title white-title">
+                    <span data-ruby="もんだいすう">問題数</span>を<span data-ruby="してい">指定</span></h1>
                 <input id = "formula-30" type="radio" name="acquisitionFormulas" class = "condition-button formula-button" value = "30" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-white" for="formula-30">
+                <label class = "formula-item condision-selected white condition-button-formula" for="formula-30">
                     30
                 </label>
                 <input type="radio" id = "formula-50" name = "acquisitionFormulas" class = "condition-button formula-button" value="50" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-white" for="formula-50">
+                <label class = "formula-item condision-selected white condition-button-formula" for="formula-50">
                     50
                 </label>
                 <input type="radio" id = "formula-100" name="acquisitionFormulas" class = "condition-button formula-button" value="100" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-white" for="formula-100">
+                <label class = "formula-item condision-selected white condition-button-formula" for="formula-100">
                     100
                 </label>
                 <input type="radio" id = "formula-random" name = "acquisitionFormulas" class = "condition-button formula-button" value = "random" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-white" for="formula-random">
+                <label class = "formula-item condision-selected white condition-button-formula" for="formula-random">
                     ランダム
                 </label>
 
                 <input type="radio" id = "formula-input" name = "acquisitionFormulas" class = "condition-button formula-button" value = "input" onclick="onclick_acquisitionFormulas();">
-                <label class = "formula-item condision-selected white condition-button-white" for = "formula-input">
-                問題数を入力
+                <label class = "formula-item condision-selected white condition-button-formula formula-input" for = "formula-input">
+                <span data-ruby="かず">数</span>を<span data-ruby="してい">指定</span>
                 </label>
                 <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
             </form>
             <form name = "operatorType" id = "operatorType" class = "condition">
-                <h1 class = "condition-title operator-item">演算子を指定</h1>
-                <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "＋">
-                <label class = "condision-selected  black operator-item addition condition-label-black" for="add">
+                <h1 class = "condition-title operator-item white-title">
+                    <span data-ruby="えんざんし">演算子</span>を<span data-ruby="してい">指定</span></h1>
+                <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "＋">
+                <label class = "condision-selected  white operator-item addition condition-label-operator" for="add">
                     ＋
                 </label>
-                <input id = "subtraction" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "ー">
-                <label class = "condision-selected black operator-item condition-label-black" for="subtraction">
+                <input id = "subtraction" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "ー">
+                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="subtraction">
                     ー
                 </label>
-                <input id = "multiplication" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "×">
-                <label class = "condision-selected black operator-item condition-label-black" for="multiplication">
-                    ｘ
+                <input id = "multiplication" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "×">
+                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="multiplication">
+                    ×
                 </label>
-                <input id = "division" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button" value = "÷">
-                <label class = "condision-selected black operator-item condition-label-black" for = "division">
+                <input id = "division" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "÷">
+                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for = "division">
                     ÷
                 </label>
                 <!-- <input id = "operator-all" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button"  value = "all">
                 <label class = "condision-selected black operator-item condition-label-black" for="operator-all">
                     すべて
                 </label> -->
-                <input type = "button" onclick="operatorSetAll();" value="すべて選択">
+                <input class ="operator-all" type = "button" onclick="operatorSetAll();" value="すべて選択">
             </form>
             <form name = "numberSize" id = "numberSize" class = "condition">
-                <h1 class = "condition-title numberSize-item white-title">ケタ数を指定</h1>
-                <input id = "numberSize-1" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9>
-                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-1">
+                <h1 class = "condition-title numberSize-item black-title numberSize-title">ケタ
+                    <span data-ruby="すう">数</span>を<span data-ruby="してい">指定</span></h1>
+                <input id = "numberSize-1" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=9>
+                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-1">
                     1ケタ
                 </label>
-                <input id = "numberSize-2" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=99  >
-                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-2">
+                <input id = "numberSize-2" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=99  >
+                <label class = "condision-selected black numberSize-item condition-button-numberSize" for="numberSize-2">
                     2ケタ
                 </label>
-                <input id = "numberSize-3" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=999  >
-                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-3">
+                <input id = "numberSize-3" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=999  >
+                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-3">
                     3ケタ
                 </label>
-                <input id = "numberSize-4" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value=9999  >
-                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-4">
+                <input id = "numberSize-4" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=9999  >
+                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-4">
                     4ケタ
                 </label>
-                <input id = "numberSize-random" type="radio" name = "aquisitionNumberSizes" class = "condition-button" value = "random"  >
-                <label class = "condision-selected white numberSize-item condition-button-white" for="numberSize-random">
+                <input id = "numberSize-random" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value = "random"  >
+                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-random">
                     ランダム
                 </label>
             </form>
             <a href="#formulas-link" type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>
         </div>
 
-        <div class = "select-Grade">
+        <div id = "select-Grade">
             <a id = "select-Grade"></a>
-            <h1 class = "grade-title">レベルを選択</h1>
+            <h1 class = "grade-title">
+                レベルを<span data-ruby="せんたく">選択</span></h1>
             <div class = "grade1 selected-grade" onclick = "grade1_click();">
-                <h1 class = "selected-grade-title">小学1年</h1>
+                <h1 class = "selected-grade-title">
+                    <span data-ruby="しょうがく">小学</span>1<span data-ruby="ねん">年</span></h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>
-                    <p class = "set-condition condition-grade-item">20問</p>
-                    <p class = "set-condition condition-grade-item">足し算と引き算</p>
+                    <p class = "set-condition condition-grade-item">20<span data-ruby="もん">問</span></p>
+                    <p class = "set-condition condition-grade-item">
+                        たし<span data-ruby="ざん">算</span>とひき<span data-ruby="ざん">算</span></p>
                     <p class = "set-condition condition-grade-item">1ケタ</p>
                 </div>
                 <a href="#formulas-link"></a>
             </div>
             <div class = "grade2 selected-grade" onclick="grade2_click();">
-                <h1 class = "selected-grade-title">小学2年</h1>
+                <h1 class = "selected-grade-title">
+                    <span data-ruby="しょうがく">小学</span>2<span data-ruby="ねん">年</span></h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade  condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade  condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>
-                    <p class = "set-condition  condition-grade-item">30問</p>
-                    <p class = "set-condition  condition-grade-item">割り算以外</p>
+                    <p class = "set-condition  condition-grade-item">30<span data-ruby="もん">問</span></p>
+                    <p class = "set-condition  condition-grade-item">わり<span data-ruby="ざんいがい">算以外</span></p>
                     <p class = "set-condition  condition-grade-item">1ケタ</p>
                 </div>
                 <a href="#formulas-link"></a>
             </div>
             <div class = "grade3 selected-grade" onclick="grade3_click();">
-                <h1 class = "selected-grade-title ">小学3年</h1>
+                <h1 class = "selected-grade-title ">
+                    <span data-ruby="しょうがく">小学</span>3<span data-ruby="ねん">年</span></h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>
-                    <p class = "set-condition condition-grade-item">30問</p>
+                    <p class = "set-condition condition-grade-item">30<span data-ruby="もん">問</span></p>
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
                 <a href="#formulas-link"></a>
             </div>
             <div class = "grade45 selected-grade" onclick="grade45_click();">
-                <h1 class = "selected-grade-title">小学4・5年</h1>
+                <h1 class = "selected-grade-title">
+                    <span data-ruby="しょうがく">小学</span>4・5<span data-ruby="ねん">年</span></h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>   
-                    <p class = "set-condition condition-grade-item">40問</p>
+                    <p class = "set-condition condition-grade-item">40<span data-ruby="もん">問</span></p>
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
                 <a href="#formulas-link"></a>
             </div>
             <div class = "grade6 selected-grade" onclick="grade6_click();">
-                <h1 class = "selected-grade-title">小学6年</h1>
+                <h1 class = "selected-grade-title">
+                    <span data-ruby="しょうがく">小学</span>6<span data-ruby="ねん">年</span></h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>
-                    <p class = "set-condition condition-grade-item">50問</p>
+                    <p class = "set-condition condition-grade-item">50<span data-ruby="もん">問</span></p>
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">2ケタ</p>
                 </div>
                 <a href="#formulas-link"></a>
             </div>
             <div class = "grade-max selected-grade" onclick="highLevel_click();">
-                <h1 class = "selected-grade-title">激ムズ</h1>
+                <h1 class = "selected-grade-title"><span data-ruby="げき">激</span>ムズ</h1>
                 <div>
-                    <p class = "condition-grade condition-grade-item">問題数</p>
-                    <p class = "condition-grade condition-grade-item">四則</p>
-                    <p class = "condition-grade condition-grade-item">ケタ数</p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="もんだいすう">問題数</span></p>
+                    <p class = "condition-grade condition-grade-item">
+                        <span data-ruby="しそく">四則</span></p>
+                    <p class = "condition-grade condition-grade-item">ケタ
+                        <span data-ruby="すう">数</span></p>
                 </div>
                 <div>
-                    <p class = "set-condition condition-grade-item">100問</p>
+                    <p class = "set-condition condition-grade-item">100<span data-ruby="もん">問</span></p>
                     <p class = "set-condition condition-grade-item">すべて</p>
                     <p class = "set-condition condition-grade-item">4ケタ</p>
                 </div>
@@ -238,13 +293,14 @@
         </div>
 
         <div id = "formulas">
-            <h1>計算問題</h1>
-            <div class = "formulas-header">
-                <input type="button" class = "formulas-headerItem answer-display" value="答">
-                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon">
+            <h1 class = "formulas-title formula-hidden">
+                <span data-ruby="さくせい">作成</span>した<span data-ruby="けいさんもんだい">計算問題</span><h1>
+            <div class = "formula-hidden" id = "formulas-header">
+                <input type="button" class = "formulas-headerItem answer-display" value="答" onclick="answerDisplay();">
+                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon"> 
 
                 <img src="imgs\無料のダウンロードのアイコン素材 (1).png" class = "formulas-headerItem formulas-icon">
-                <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon">
+                <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon" onclick="formula_print();">
             </div>
             <a id = "formulas-link"></a>
         </div>
