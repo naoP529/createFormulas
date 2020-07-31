@@ -264,10 +264,11 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
 
 const conditionEnter_onclick = () => {
     let remove_formula = document.getElementsByClassName('formula');
-    console.log(remove_formula);
-    for (let i= 0; 0 < remove_formula.length; i++) {
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
         remove_formula[i].remove();
     }
+
 
     // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
@@ -305,16 +306,22 @@ const conditionEnter_onclick = () => {
             break;
     };
 
-    console.log("----------------------");
-    console.log("----------------------");
-    console.log(formulaNumber);
-    console.log(operatorType);
-    console.log(numberSize);
+    // console.log("----------------------");
+    // console.log("----------------------");
+    // console.log(formulaNumber);
+    // console.log(operatorType);
+    // console.log(numberSize);
 
     createFormula(formulaNumber, operatorType, numberSize);
 };
 
 const grade1_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 20;
     operatorType = ["＋", "ー"];
     numberSize = 9;
@@ -323,6 +330,12 @@ const grade1_click = () => {
 }
 
 const grade2_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    console.log(remove_formula);
+    for (let i= 0; 0 < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 30;
     operatorType = ["＋", "ー", "×"];
     numberSize = 9;
@@ -331,6 +344,12 @@ const grade2_click = () => {
 }
 
 const grade3_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 30;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 99;
@@ -339,6 +358,12 @@ const grade3_click = () => {
 }
 
 const grade45_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 40;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 99;
@@ -347,6 +372,12 @@ const grade45_click = () => {
 }
 
 const grade6_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 50;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 99;
@@ -355,6 +386,12 @@ const grade6_click = () => {
 }
 
 const highLevel_click = () => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     formulaNumber = 100;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 9999;

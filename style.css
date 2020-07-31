@@ -136,7 +136,7 @@ html{
 }
 
 .selected {
-    display: inline-block;
+    display: inline-grid;
     width: 600px;
     height: 600px;
     margin-left: 250px;
