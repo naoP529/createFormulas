@@ -405,15 +405,57 @@ const highLevel_click = () => {
 
 const answerDisplay = () => {
     let temporaryAnswer = document.getElementsByClassName(`temporaryAnswer`);
+    temporaryAnswer = Array.from(temporaryAnswer);
     for (let i = 0; 0 < temporaryAnswer.length; i++) {
         temporaryAnswer[i].classList.toggle(`hidden`);
     }
 };
 
+const reset_formula = () =>  {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    console.log(remove_formula)
+
+    let sleep = (wait) => {
+        let start = new Date();
+
+        while (new Date() - start < wait){
+        };
+    }
+
+    for (let i = remove_formula.length - 1; i >= 0; i--) { 
+        console.log(i);
+        remove_formula[i].remove(); 
+        sleep(20);
+    }
+}
+
+const formula_download = () => {
+    let hidden = document.getElementById(`formulas-header`);
+    hidden.style.visibility = "hidden";
+    
+    let formula = document.getElementById(`formulas`);
+    let formula_image = null;
+    console.log(formula);
+    
+    html2canvas(formula).then(canvas =>{
+        formula_image = canvas.toDataURL();
+        console.log('html2canvas、ロードチェック');
+    });
+
+    const download = new Blob (
+        [formula_image],{type: "image/png"}
+    );
+
+    let a = document.getElementById(`download-A`);
+    a.href = window.URL.createObjectURL(download);
+}
 
 const formula_print = () => {
     window.print();
 }
+
+
 // const termInput = (str, checkname) => {
 //     if (str.length > 0) {
 //         document.getElementById(checkname).checked = true;

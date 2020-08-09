@@ -122,7 +122,7 @@
 
                 <input type="radio" id = "formula-input" name = "acquisitionFormulas" class = "condition-button formula-button" value = "input" onclick="onclick_acquisitionFormulas();">
                 <label class = "formula-item condision-selected white condition-button-formula formula-input" for = "formula-input">
-                <span data-ruby="かず">数</span>を<span data-ruby="してい">指定</span>
+                    数を指定
                 </label>
                 <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
             </form>
@@ -293,13 +293,12 @@
         </div>
 
         <div id = "formulas">
-            <h1 class = "formulas-title formula-hidden">
+            <h1 class = "formulas-title formula-hidden" id = "formulas-title">
                 <span data-ruby="さくせい">作成</span>した<span data-ruby="けいさんもんだい">計算問題</span><h1>
             <div class = "formula-hidden" id = "formulas-header">
-                <input type="button" class = "formulas-headerItem answer-display" value="答" onclick="answerDisplay();">
-                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon"> 
-
-                <img src="imgs\無料のダウンロードのアイコン素材 (1).png" class = "formulas-headerItem formulas-icon">
+                <input type="button" class = "formulas-headerItem answer-display formulas-icon" value="答" onclick="answerDisplay();">
+                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon" onclick="reset_formula();">
+                <a id = "formula-download" class = "download-A" onclick="formula_download();"  download="formulas.png"><img src="imgs\無料のダウンロードのアイコン素材 (1).png" class = "formulas-headerItem formulas-icon"></a>
                 <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon" onclick="formula_print();">
             </div>
             <a id = "formulas-link"></a>

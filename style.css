@@ -7,6 +7,10 @@ html{
     scroll-behavior: smooth;
 }
 
+[data-ruby]::before {
+    ruby-align: center;
+}
+
 /* トップページのスタイル */
 #contents {
     height:100vh;
@@ -629,12 +633,13 @@ html{
 
 .selected-grade-title [data-ruby]::before {
     content: attr(data-ruby);
+    letter-spacing: -0.15em;
     position: absolute;
-    top:-15px;
+    top:-12px;
     left: 0;
     right: 0;
     margin: auto;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 
@@ -748,7 +753,6 @@ html{
 .hidden {
     visibility:hidden
 }
-
 /* .formula-hidden {
     display:none;
 } */
@@ -784,9 +788,17 @@ html{
 
 .formulas-icon {
     width: 90px;
-    padding:10px;
+    padding:10px;    /* border: solid 3px black; */
+    transition: opacity 0.3s;
+}
 
-    /* border: solid 3px black; */
+.download-A {
+    width: 100px;
+}
+
+.formulas-icon:hover {
+    opacity: 0.7;
+    cursor: pointer;
 }
 
 .answer-display {
