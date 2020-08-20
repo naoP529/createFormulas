@@ -430,26 +430,6 @@ const reset_formula = () =>  {
     }
 }
 
-const formula_download = () => {
-    let hidden = document.getElementById(`formulas-header`);
-    hidden.style.visibility = "hidden";
-    
-    let formula = document.getElementById(`formulas`);
-    let formula_image = null;
-    console.log(formula);
-    
-    html2canvas(formula).then(canvas =>{
-        formula_image = canvas.toDataURL();
-        console.log('html2canvas、ロードチェック');
-    });
-
-    const download = new Blob (
-        [formula_image],{type: "image/png"}
-    );
-
-    let a = document.getElementById(`download-A`);
-    a.href = window.URL.createObjectURL(download);
-}
 
 const formula_print = () => {
     window.print();

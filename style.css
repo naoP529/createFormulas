@@ -14,7 +14,6 @@ html{
 /* トップページのスタイル */
 #contents {
     height:100vh;
-    background-color: dimgray;
 }
 
 .main-title {
@@ -49,38 +48,6 @@ html{
     font-size: 0.5em;
 }
 
-.white-background {
-    height:100vh;
-    width:800px;
-    background-color: white;
-}
-
-.details-explanation {
-    position:absolute;
-    margin: 0px;
-    padding: 5px;
-    color: white;
-    font-size: 38px;
-    font-family: 'Noto Sans JP', sans-serif;
-    border:solid 2px white;
-    border-radius: 10px;
-}
-
-.explanation1 {
-    top:200px;
-    left:825px;
-}
-
-.explanation2 {
-    top: 400px;
-    left:1100px;
-}
-
-.explanation3 {
-    top: 550px;
-    left:875px;
-}
-
 .start {
     position: absolute;
     top:720px;
@@ -98,6 +65,25 @@ html{
     border:1px solid #00CED1; 
     cursor: pointer;
     transition: background-color 0.5s, color 0.5s;
+}
+
+.top-image  {
+    position: absolute;
+    height: 35%;
+}
+
+.formula-image {
+    left: 60%;
+}
+
+.selection-image {
+    top: 30%;
+    left: 50%;
+}
+
+.revel-image {
+    left: 60%;
+    top: 60%;
 }
 
 .start:hover {
