@@ -1,65 +1,4 @@
-/*  */// const newFormula = () => {
-//         for (let i = 1; i <= 30; i++) {
-//             //演算子、数をランダムに表示させるための準備
-//             const operators = ["＋", "ー", "×", "÷"];
-//             let maximumValue = 9;
-//             let minimumValue = 1;
-//             let difference = maximumValue + 1 - minimumValue;
-//             let calculationResult = null;
-//             //1~9までの数の中からランダムに選ぶ
-//             let firstTerm = Math.floor( Math.random() * difference) + minimumValue;
-//             //1~9までの数の中からランダムに選ぶ
-//             let secondTerm = Math.floor( Math.random() * difference) + minimumValue;
-//             //準備した"operators"の演算子の中から一つ選ぶ
-//             let randomOperator = operators[Math.floor(Math.random() * operators.length)];
-    
-//             switch (randomOperator) {
-//                 case "＋":
-//                     calculationResult = firstTerm + secondTerm;
-//                     break;
-                    
-//                 case "ー":
-//                     if ((firstTerm - secondTerm) < 0) {
-//                         firstTerm = secondTerm;
-//                         secondTerm = firstTerm;
-//                     };
-//                     calculationResult = firstTerm - secondTerm;
-//                     break;
-    
-//                 case "×":
-//                     calculationResult = firstTerm * secondTerm;
-//                     break;
-    
-//                 case "÷":
-//                     while (!Number.isInteger(firstTerm / secondTerm)) {
-//                         secondTerm = Math.floor( Math.random() * difference) + minimumValue;
-//                     }
-//                     calculationResult = firstTerm / secondTerm;
-//                     break;
-//             }
-            
-        
-//             let displayFormula = $(`<div class = "formula"></div>`);
-//             let temporaryFormula = $(`<p class = "temporaryFormula">${firstTerm} ${randomOperator} ${secondTerm}</p>`);
-//             let buttonFormula = $(` <button id = "create" type="button" onclick="newFormula()">`);
-//             let temporaryAnswer = $(`<p class = "hidden temporaryAnswer" >${calculationResult}</p>`);
-//             buttonFormula.click(function () {
-//                 console.log($(this));
-//                 temporaryAnswer.toggleClass('hidden');
-//             });
-//             displayFormula.append(temporaryFormula);
-//             displayFormula.append(buttonFormula);
-//             displayFormula.append(temporaryAnswer);
-//             $('#formulas').append(displayFormula);
-//         }
-//         // const create = document.getElementById("create");
-//         // create.addEventListener('click', function() { console.log('hoge'); newFormula(); }, false);
-//         // // console.log(create);
-  
-//     };]
-
-// readyのpure JavaScriptの実装とのこと。ただし今回は使ってない。
-// 参照: http://youmightnotneedjquery.com/
+//htmlが読み込まれてからjsを実行するようにする
 function ready(fn) {
     if (document.readyState != 'loading') {
         fn();
@@ -68,6 +7,7 @@ function ready(fn) {
     };
 ;}
 
+// ラジオボタンが選択されている時だけテキストボックスに入力できるようにする
 const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
         document.formulaNumber["freeDesignationformula"]. disabled = false;
@@ -77,11 +17,11 @@ const onclick_acquisitionFormulas = () =>  {
 };
 window.onload = onclick_acquisitionFormulas();
 
-// let termNumber = null;
 let formulaNumber = null;
 let operatorType = null;
 let numberSize = null;
 
+// どのラジオボタンが選択されているかを取得する
 function getCheckedRadioButton(buttons) {
     for (let i = 0; i < buttons.length; i++) {
         if(buttons[i].checked) {
@@ -90,7 +30,8 @@ function getCheckedRadioButton(buttons) {
     };
     return null;
 };
- 
+
+// どのチェックボックスが選択されているかを取得する
 function getCheckedCheckbox(checkbox) {
     let operatorCheked = [];
     for(let i = 0; i < checkbox.length; i++) {
@@ -101,6 +42,7 @@ function getCheckedCheckbox(checkbox) {
     return operatorCheked;
 }
 
+//すべての演算子を選択する
 const operatorSetAll = () => {
     let operatorCheked = document.operatorType.aquisitionOperators;
 
@@ -109,10 +51,12 @@ const operatorSetAll = () => {
     }
 }
 
+//条件に合わせて計算問題を作成する
 const createFormula = (formulaNumber, operatorType, numberSize) => {
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < formulaNumber; i++) {
+        //数と演算子を作成する
         let operators = [];
         let numbers = [];
         for (let i = 0; i < 2; i++) {
@@ -120,20 +64,10 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
 
             numbers.push(randomNumber);
         }
-
-        // let operator = operatorType;
-        // if (operatorType === "all") {
-        //     let type = ["＋", "ー", "×", "÷"];
-        //     let randomOperator = type[Math.floor(Math.random() * type.length)];
-        //     operator = randomOperator
-        // operators.push(operator);
         let randomOperator = operatorType[Math.floor(Math.random() * operatorType.length)];
         operators.push(randomOperator);
 
-        // console.log("----------------------");
-        // console.log(operators);
-        // console.log(numbers);
-
+        // 答えを計算する
         let answer = null;
         switch (operators[0]) {
             case "＋":
@@ -169,90 +103,19 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
                 };
                 break;
         }
-        // console.log(operators, numbers, answer);
 
-        // let numbersTest = numbers.slice(0, numbers.length);
-        // for (let i = 0; i <= operators.length; i++) {
-        //     let firstTerm = numbersTest[i];
-        //     let secondTerm = numbersTest[i + 1];
-        //     if (operators[i] === "×") {
-        //         let answer = firstTerm * secondTerm;
-        //         numbersTest[i] = null;
-        //         numbersTest[i + 1] = answer;
-        //     } else if (operators[i] === "÷") {
-        //         if (firstTerm < secondTerm) {
-        //             let x = firstTerm;
-        //             firstTerm = secondTerm;
-        //             secondTerm = x;
-        //             numbersTest[i] = firstTerm;
-        //             numbersTest[i + 1] = secondTerm;
-        //             numbers[i] = firstTerm;
-        //             numbers[i + 1] = secondTerm;
-        //             console.log(firstTerm, secondTerm);
-        //         };
-        //         if (firstTerm % secondTerm != 0) {
-        //             let answer = Math.floor(Math.random() * numberSize) + 1;
-        //             console.log(`answer:${answer}`);
-
-        //             let newFirstTerm = secondTerm * answer;
-        //             console.log(`newFirstTerm:${newFirstTerm}`);
-        //             numbers[i] = newFirstTerm;
-        //             numbersTest[i] = null;
-        //             numbersTest[i + 1] = answer;
-        //             console.log(numbers[i], numbers[i + 1]);
-        //             //
-        //             for (let x = i; x > 0; x--) {
-        //                 newNumber = numbers[i] * numbers[i]
-        //             };
-
-
-        //         } else {
-        //             let answer = firstTerm / secondTerm;
-        //             numbersTest[i] = null;
-        //             numbersTest[i + 1] = answer;
-        //         }; 
-                
-        //     };
-
-        //     console.log(numbers);
-        //     console.log(numbersTest);
-        // };
-        // console.log("----------------------");
-        // console.log(operators);
-        // console.log(numbers);
-
-         // insertAdjacentHTML()はinnerHTMLより高速らしいが、
-        // 新しいelementを作成することはできない。なので、
-        // いったんdummyのelementを作成して、その直下に追加する。
+        // 作成した計算問題をhtmlに組み込む
         let dummyElement = document.createElement('div');
 
-        // insertAdjacentHTML()で追加した要素は、lastElementChildで取得できる。
-        // これはお決まりのパターン。jqueryを使わないとこんなに冗長になるが、
-        // 最近の流行とのことなので仕方なし。
         dummyElement.insertAdjacentHTML('beforeend',
             `<div class = "formula"></div>`);
         let formula = dummyElement.lastElementChild;
-
-        // これ以降、dummyElementは使わない。formulaを使う。
         formula.insertAdjacentHTML('beforeend',
             `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
-        // let temporaryFormula = formula.lastElementChild;
-        // formula.insertAdjacentHTML('beforeend',
-
-        //     `<input type = "button" value = "答え" id = "buttonAnswer">`);
-        // let buttonAnswer = formula.lastElementChild;
         formula.insertAdjacentHTML(`beforeend`,
             `<p class = "equal formulaParts">＝</p>`);
-        // let equal = formula.lastElementChild;
         formula.insertAdjacentHTML('beforeend',
             `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
-        // let temporaryAnswer = formula.lastElementChild;
-        // 最後にイベントリスナーを登録
-        // buttonAnswer.addEventListener('click', function() {
-        //     temporaryAnswer.classList.toggle('hidden');
-        // });
-
-        // 作ったformulaはいったんfragmentに追加しておく。
         fragment.appendChild(formula);
 
 
@@ -262,15 +125,13 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     formulas.appendChild(fragment);
 }
 
+//// 条件を設定して、決定ボタンを押した時実行される
 const conditionEnter_onclick = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
     for (let i= 0; i < remove_formula.length; i++) {
         remove_formula[i].remove();
     }
-
-
-    // termNumber = getCheckedButton(document.termNumber.acquisitionTerms);
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
     operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
     numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
@@ -284,11 +145,7 @@ const conditionEnter_onclick = () => {
             break;
         
         case "input":
-            // let inputformulaNumber = document.getElementById("inputformulaNumber");
-            // inputformulaNumber.innerText = document.forms.formulaNumber.inputformulaNumber;
-
             formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
-            //formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
             break;
     };
     
@@ -300,21 +157,14 @@ const conditionEnter_onclick = () => {
             break;
         
         case "input":
-            // let inputNumberSize = document.getElementById("inputNumberSize");
-            // inputNumberSize.innerText = document.forms.numberSize.inputNumberSize;
             numberSize = document.forms.numberSize.inputNumberSize.value;
             break;
     };
 
-    // console.log("----------------------");
-    // console.log("----------------------");
-    // console.log(formulaNumber);
-    // console.log(operatorType);
-    // console.log(numberSize);
-
     createFormula(formulaNumber, operatorType, numberSize);
 };
 
+//小学1年をクリックした時に実行される
 const grade1_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -329,6 +179,7 @@ const grade1_click = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//小学2年をクリックした時に実行される
 const grade2_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     console.log(remove_formula);
@@ -343,6 +194,7 @@ const grade2_click = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//小学3年をクリックした時に実行される
 const grade3_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -357,6 +209,7 @@ const grade3_click = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//小学4・5年をクリックした時に実行される
 const grade45_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -371,6 +224,7 @@ const grade45_click = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//小学6年をクリックした時に実行される
 const grade6_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -385,6 +239,7 @@ const grade6_click = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//激ムズをクリックした時に実行される
 const highLevel_click = () => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -395,14 +250,10 @@ const highLevel_click = () => {
     formulaNumber = 100;
     operatorType = ["＋", "ー", "×", "÷"];
     numberSize = 9999;
-    // const formulaHidden = document.getElementsByClassName('formula-hidden');
-    // console.log(formulaHidden);
-    // for (let i = 0; 0 < formulaHidden.length; i++) {
-    //     formulaHidden[i].classList.remove(`formula-hidden`);
-    // }
     createFormula(formulaNumber, operatorType, numberSize);
 }
 
+//答えの表示・非表示を切り替える
 const answerDisplay = () => {
     let temporaryAnswer = document.getElementsByClassName(`temporaryAnswer`);
     temporaryAnswer = Array.from(temporaryAnswer);
@@ -411,6 +262,7 @@ const answerDisplay = () => {
     }
 };
 
+//計算問題を削除する
 const reset_formula = () =>  {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
@@ -430,28 +282,7 @@ const reset_formula = () =>  {
     }
 }
 
-
+//計算問題を印刷する
 const formula_print = () => {
     window.print();
 }
-
-
-// const termInput = (str, checkname) => {
-//     if (str.length > 0) {
-//         document.getElementById(checkname).checked = true;
-//     } else {
-//         document.getElementById(checkname).checked = false;
-//     };
-// };
-
-// const termInputDisabled = () => {
-//     if (document.termNumber["acquisitionTerms"][4]. checked) {
-//         document. termNumber["freeDesignationterm"]. disabled = false;
-//     } else {
-//         document. termNumber["freeDesignationterm"]. disabled = true;
-//     }
-
-    
-// };
-
-

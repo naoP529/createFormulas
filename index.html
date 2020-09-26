@@ -5,10 +5,10 @@
         <title>計クリ</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <!-- <script src="script.js"></script> -->
     </head>
     <body>
         <div id = "contents">
+            <a id = "top"></a>
             <h1 class = "main-title">
                 <ruby>計クリ</h1>
             <h2 class = "main-explanation">2つの
@@ -80,25 +80,6 @@
             <a id = "condition"></a>
             <h1 class = "condition-main-title">
                 <span data-ruby="じょうけん">条件</span>を<span data-ruby="せってい">設定</span></h1>
-            <!-- <form name = "termNumber" id = "termNumber">
-                <h1>項の数を指定</h1>
-                <label>
-                    <input type="radio" name = "acquisitionTerms" value = "2" onclick="onclick_acquisitionTerms();">2
-                </label>
-                <label>
-                    <input type="radio" name = "acquisitionTerms" value = "3" onclick="onclick_acquisitionTerms();">3
-                </label>
-                <label>
-                    <input type="radio" name = "acquisitionTerms" value = "4" onclick="onclick_acquisitionTerms();">4
-                </label>
-                <label>
-                    <input type="radio" name = "acquisitionTerms" value = "random" onclick="onclick_acquisitionTerms();">ランダム
-                </label>
-                <label>
-                    <input type="radio" name = "acquisitionTerms" value = "input" onclick="onclick_acquisitionTerms();">fffffffffffffffffffffffffffffffffffffffff
-                    <input type="text" name="freeDesignationterm" id = "inputTermNumber" value=""> 
-                </label>
-            </form> -->
             <form name = "formulaNumber" id = "formulaNumber" class = "condition">
                 <h1  class = "formula-item condition-title white-title">
                     <span data-ruby="もんだいすう">問題数</span>を<span data-ruby="してい">指定</span></h1>
@@ -144,10 +125,6 @@
                 <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for = "division">
                     ÷
                 </label>
-                <!-- <input id = "operator-all" type="radio" name="aquisitionOperators" class = "condition-button-black condition-button"  value = "all">
-                <label class = "condision-selected black operator-item condition-label-black" for="operator-all">
-                    すべて
-                </label> -->
                 <input class ="operator-all" type = "button" onclick="operatorSetAll();" value="すべて選択">
             </form>
             <form name = "numberSize" id = "numberSize" class = "condition">
@@ -302,12 +279,14 @@
             <a id = "formulas-link"></a>
         </div>
 
-        <!-- <footer>
-            <a href="">リセットして始めに戻る</a>
-            <input type="button" value="答えを表示">
-            <img src="imgs\無料のダウンロードのアイコン素材 (1).png">
-            <img src="imgs\プリンターの無料アイコン4.png">
-        </footer> -->
+        <footer>
+            <a href="#top">
+                <img src="imgs\矢印ボタン　上2.png" class = "arrowForTop footerItem">
+                <h1 class = "forTop footerItem">トップへ</h1>
+            </a>
+
+        </footer>
+        
         <script src="script.js"></script>
     </body>
 </html>
