@@ -268,17 +268,9 @@ const reset_formula = () =>  {
     remove_formula = Array.from(remove_formula);
     console.log(remove_formula)
 
-    let sleep = (wait) => {
-        let start = new Date();
-
-        while (new Date() - start < wait){
-        };
-    }
-
     for (let i = remove_formula.length - 1; i >= 0; i--) { 
         console.log(i);
         remove_formula[i].remove(); 
-        sleep(20);
     }
 }
 
