@@ -1,0 +1,92 @@
+@media (max-width: 1000px) {
+    /* トップページのスタイルここから */
+    /* #contents {
+        background-color: blanchedalmond;
+    } */
+
+    .main-title {
+        top: 0;
+        left: 2%;
+        margin:1% 0 0 2.5%;
+        font-size:3.5em;
+    }
+
+    .main-explanation{
+        font-size: 1.7em;
+        top: 0.5%;
+        left: 30%;
+    }
+
+    .top-image {
+        display: none;
+    }
+
+    .start {
+        left: 33%;
+        padding: 1.5% 0 1.5% 0;
+        top: 87%;
+        height:5%;
+        width: 35%;
+        font-size: 2.5em;
+        border-radius:0.3em;
+    }
+    /* トップページのスタイルここまで */
+
+    /* 2つの方法から選択する画面のスタイルここから */
+    /* #selection-screen {
+        background-color: darkseagreen;
+    } */
+
+    .selection-title {
+        font-size: 2.8em;
+        margin-top: 1%;
+    }
+
+    .selection-title [data-ruby]::before {
+        font-size: 0.45em;
+    }
+
+    .selected {
+        width: 75%;
+        height: 38%;
+        margin-top: 2%;
+    }
+
+    .selected-grand {
+        margin-top: 7%;
+    }
+
+    .selected-title {
+        font-size: 2em;
+        padding:2% 0 0 0;
+    }
+
+    .selected-title [data-ruby]::before {
+        font-size: 0.4em;
+    }
+
+    .condision-type {
+        margin-top: 0;
+    }
+
+    .condision-types {
+        font-size: 1.7em;
+    }
+
+    .selected-details {
+        line-height:200%;
+        font-size:1.4em;
+        margin-top: 0;
+    }
+    /* 2つの方法から選択する画面のスタイルここまで */
+
+    /* 条件設定画面のスタイルここから */
+    #conditions {
+        background-color:lightskyblue;
+    }
+    
+    .condition-main-title {
+        font-size: 3.5em;
+    } 
+    /* 条件設定画面のスタイルここまで */
+}
