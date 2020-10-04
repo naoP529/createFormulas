@@ -1,4 +1,5 @@
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
+
     /* トップページのスタイルここから */
     /* #contents {
         background-color: blanchedalmond;
@@ -106,5 +107,102 @@
     .condition-main-title {
         font-size: 3.5em;
     } 
+
+    .condition {
+        height: 26%;
+    }
+
+    .condition-title {
+        display: block;
+        margin: 0% auto;
+        padding-top: 2%;
+        margin-left: 33%;
+        margin-bottom: 1%;
+    }
+
+    .condition-title [data-ruby]::before {
+        top: -0.7em;
+    }
+
+    .condision-selected {
+        margin: 0 0 2% 0;
+        padding: 0 6%;
+    }
+
+    .formula-input {
+        margin-left: 25%;
+    }
+
+    .formula-text {
+        bottom: 0.25em;
+    }
+
+    .condition-label-operator {
+        padding: 0 7.5%;
+    }
+
+    .operator-all {
+        top: 65%;    
+        left: 35%;
+    }
+
+    .condition-button-numberSize  {
+        padding:0 4.5%;
+    }
+
+    .numberSize-button-random {
+        margin-left: 35%;
+    }
     /* 条件設定画面のスタイルここまで */
+
+    /* レベル選択画面のスタイルここから */
+    /* #select-Grade {
+        background-color: thistle;
+    } */
+
+    .grade-title{
+        font-size: 3.5em;
+        margin-bottom: 1%;
+    }
+
+    .selected-grade {
+        width:46.5%;
+        height: 25%;
+        margin: 0 0 6.5% 2%;
+    }
+
+    .selected-grade-title {
+        font-size: 2em;
+    }
+
+    .condition-grade {
+        width: 11vh;
+        font-size: 1.8em;
+    }
+
+    .set-condition {
+        font-size: 1.8em;
+        margin:5% 0 0 0;
+        width: 20vh;
+    }
+    /* レベル選択画面のスタイルここまで */
+
+    /* 計算問題表示画面のスタイルここから */
+    .formula {
+        display: block;
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 8%;
+    }
+    /* 計算問題表示画面のスタイルここまで */
+
+    /* フッターのスタイルここから */
+    footer {
+        left:70%
+    }
+
+    .arrowForTop {
+        width: 25%;
+    }
+    /* フッターのスタイルここまで */
 }
