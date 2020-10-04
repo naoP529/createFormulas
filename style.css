@@ -791,7 +791,7 @@ html{
 }
 /* 計算問題表示画面のスタイルここまで */
 
-/* フッターのデザインここから */
+/* フッターのスタイルここから */
 footer {
     overflow:hidden;
     position: fixed;
@@ -824,7 +824,7 @@ footer a:hover {
 .footerItem {
     float: right;
 }
-/* フッターのデザインここまで */
+/* フッターのスタイルここまで */
 
 /* 印刷時のスタイルここから */
 @media print {
