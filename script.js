@@ -7,6 +7,8 @@ function ready(fn) {
     };
 ;}
 
+
+
 // ラジオボタンが選択されている時だけテキストボックスに入力できるようにする
 const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
@@ -278,3 +280,17 @@ const reset_formula = () =>  {
 const formula_print = () => {
     window.print();
 }
+
+var mySwiper = new Swiper ('.swiper-container', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    loop: true,
+    speed: 500,
+    autoplay: {
+        delay: 4000, // スライドが切り替わるまでの表示時間(ミリ秒)
+        stopOnLast: false, // 最後のスライドまで表示されたら自動再生を中止するか
+        disableOnInteraction: true // ユーザーのスワイプ操作を検出したら自動再生を中止するか
+    },
+    disableOnInteraction:true,
+  })

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>計クリ</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="responsive_tablet.css">
     </head>
@@ -17,6 +18,23 @@
                 <span data-ruby="かず">数</span>の
                 <span data-ruby="けいさんもんだい">計算問題</span>を
                 <span data-ruby="じどうさくせい">自動作成</span>できます</h2>
+            <div class="swiper-container swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="imgs\計クリ タブレット用 答え.png" >
+                    </div>
+                    <div class="swiper-slide ">Slide 2</div>
+                    <div class="swiper-slide ">Slide 3</div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination "></div>
+                    
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev "></div>
+                <div class="swiper-button-next "></div>
+            </div>
             <a href="#start" class = "start">始</rt></ruby>める</a>
             <img class = "top-image formula-image" src="imgs\計クリ　計算問題表示画面.png">
             <img class = "top-image selection-image" src="imgs\計クリ 条件設定.png">
@@ -289,6 +307,7 @@
 
         </footer>
         
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

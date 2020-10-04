@@ -73,6 +73,10 @@ html{
     top: 60%;
 }
 
+.swiper {
+    display: none;
+}
+
 .start {
     position: absolute;
     top:80%;

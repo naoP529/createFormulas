@@ -17,8 +17,26 @@
         left: 30%;
     }
 
+    .swiper {
+        display: block;
+    }
+
     .top-image {
         display: none;
+    }
+
+    .swiper-container {
+        margin-top: 14%;
+        background-color: whitesmoke;
+    } 
+
+    .swiper-slide img {
+        height: 67.5vh;
+        margin:2% 0 3% 3%;
+    }
+
+    .swiper-pagination {
+        top: 95%;
     }
 
     .start {
