@@ -1,0 +1,79 @@
+@media (max-width: 720px) {
+    [data-ruby]::before {
+        display: none;
+    }
+
+    /* トップページのスタイルここから */
+    /* #contents {
+        background-color: blanchedalmond;
+    } */
+    .main-title {
+        top: 0;
+        left: 2%;
+        margin: 2% 30% 0 0 ;
+        font-size:2.3em;
+    }
+
+    .main-explanation{
+        font-size: 1.05em;
+        top:9%;
+        left: 1%;
+    }
+
+    .swiper-container {
+        margin-top: 38%;
+        background-color: whitesmoke;
+    } 
+
+    .swiper-slide img {
+        height: 52vh;
+        margin:2% 0 3% 3%;
+    }
+
+    .start {
+        left: 30%;
+        padding:0 5%;
+        padding-top: 1%;
+        top: 84%;
+        height:8%;
+        width: 35%;
+        font-size: 2em;
+        border-radius:0.3em;
+    }
+    /* トップページのスタイルここまで */
+
+    /* 2つの方法から選択する画面のスタイルここから */
+    /* #selection-screen {
+        background-color: darkseagreen;
+    } */
+
+    .selection-title {
+        font-size: 1.5em;
+        padding: 2% 0 0 0;
+    }
+
+    .selected {
+        width: 90%;
+        height: 42%;
+        margin-left: 5%;
+        margin-top: 4%;
+    }
+
+    .selected-title {
+        font-size: 1.5em;
+        padding:2% 0 0 0;
+    }
+
+    .condision-type {
+        font-size: 0.8em;
+    }
+
+    .condision-types {
+        font-size: 1.2em;
+    }
+
+    .selected-details {
+        font-size: 0.95em;
+    }
+    /* 2つの方法から選択する画面のスタイルここまで */
+}
