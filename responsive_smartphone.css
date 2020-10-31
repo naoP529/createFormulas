@@ -4,9 +4,9 @@
     }
 
     /* トップページのスタイルここから */
-    /* #contents {
-        background-color: blanchedalmond;
-    } */
+    #contents {
+        height: auto;
+    }
     .main-title {
         top: 0;
         left: 2%;
@@ -15,7 +15,7 @@
     }
 
     .main-explanation{
-        font-size: 1.05em;
+        font-size: 0.9em;
         top:9%;
         left: 1%;
     }
@@ -26,19 +26,20 @@
     } 
 
     .swiper-slide img {
-        height: 52vh;
         margin:2% 0 3% 3%;
     }
 
     .start {
-        left: 30%;
-        padding:0 5%;
-        padding-top: 1%;
-        top: 84%;
-        height:8%;
-        width: 35%;
-        font-size: 2em;
+        position: relative;
+        top:0;
+        left:0;
+        margin:10% auto;
+        font-size: 1.5em;
+        width: 40%;
         border-radius:0.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     /* トップページのスタイルここまで */
 
@@ -48,7 +49,7 @@
     } */
 
     .selection-title {
-        font-size: 1.25em;
+        font-size: 1.15em;
         padding: 2% 0 0 0;
     }
 
@@ -83,7 +84,7 @@
     } */
 
     .condition-main-title {
-        font-size: 2.2em;
+        font-size: 2em;
     } 
 
     .condition {
@@ -98,13 +99,13 @@
 
     .condision-selected {
         height: 22%;
-        width: 32%;
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin:1% 0 3.5% 0;
-    }
-
-    .number {
-        padding-left: 10%;
+        width: 32%;
+        padding: 0;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .formula-input {
@@ -119,11 +120,10 @@
 
     .fourLetters {
         width: 38%;
-        padding-left: 4%;
     }
 
     .condition-label-operator {
-        width: 23%;
+        width: 23.5%;
         margin:0 0;
     }
 
@@ -144,9 +144,9 @@
     /* 条件設定画面のスタイルここまで */
 
     /* レベル選択画面のスタイルここから */
-    #select-Grade {
+    /* #select-Grade {
         background-color: thistle;
-    }
+    } */
 
     .grade-title{
         font-size: 2em;
@@ -154,9 +154,13 @@
 
     .selected-grade {
         width: 100%;
-        height: 15%;
-        margin: 0;
-        border-radius: 0;
+        height: 14%;
+        margin:0 0 2% 0;
+        border-radius: 2%;
+    }
+
+    .condition-grade-div {
+        width: 100%;
     }
 
     .selected-grade-title {
@@ -167,19 +171,34 @@
     .condition-grade {
         float: left;
         font-size: 1em;
-        width: 18vw;
-        margin: 0;
+        width: auto;
+        margin: 0% 13% 0 5%;
     }
 
     .set-condition {
-        font-size: 1em;
-        margin: 0;
+        position: absolute;
+        font-size: 1.2em;
+        right: 10%;
+        top: 55%;
         display: inline-block;
-        width: 100%;
+        width: auto;
+        margin: 0;
     }
 
-    .condition-grade-div {
-        width: 100%;
+    .set1 {
+        right: 80%;
+    }
+
+    .set2 {
+        right: 50%;
+    }
+
+    .set3 {
+        right: 22%;
+    }
+
+    .long {
+        right: 40%;
     }
     /* レベル選択画面のスタイルここまで */
 
@@ -189,7 +208,7 @@
     }
 
     .formulas-title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .answer-display {
@@ -208,4 +227,18 @@
         margin-left: 0;
     }
     /* 計算問題表示画面のスタイルここから */
+
+    /* フッターのスタイルここから */
+        footer {
+            left:60%
+        }
+
+        .forTop {
+            font-size: 1.6em;
+        }
+    
+        .arrowForTop {
+            width: 25%;
+        }
+    /* フッターのスタイルここまで */
 }

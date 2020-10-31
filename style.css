@@ -694,6 +694,14 @@ html{
 /* レベル選択画面のスタイルここまで */
 
 /* 計算問題表示画面のスタイルここから */
+#formula_mark {
+    font-family:'Noto Sans JP', sans-serif ;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 4%;
+    opacity: 0.8;
+}
+
 #formulas {
     position: block;
     margin-left: 13%;
@@ -743,7 +751,7 @@ html{
     display: inline;
 }
 
- {
+.formulaParts {
     margin-left: 5%;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 2.7em;

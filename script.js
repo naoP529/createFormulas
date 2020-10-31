@@ -46,15 +46,21 @@ function getCheckedCheckbox(checkbox) {
 
 //すべての演算子を選択する
 const operatorSetAll = () => {
-    let operatorCheked = document.operatorType.aquisitionOperators;
+    let operatorChecked = document.operatorType.aquisitionOperators;
 
-    for(let i = 0; i < operatorCheked.length; i++) {
-        operatorCheked[i].checked = true;
+    for(let i = 0; i < operatorChecked.length; i++) {
+        operatorChecked[i].checked = true;
     }
 }
 
 //条件に合わせて計算問題を作成する
 const createFormula = (formulaNumber, operatorType, numberSize) => {
+    let remove_formula = document.getElementsByClassName('formula');
+    remove_formula = Array.from(remove_formula);
+    for (let i= 0; i < remove_formula.length; i++) {
+        remove_formula[i].remove();
+    }
+
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < formulaNumber; i++) {
@@ -125,15 +131,14 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
 
     let formulas = document.getElementById('formulas');
     formulas.appendChild(fragment);
+
+    formulas.style.display = "block";
+    document.getElementById("formula_mark").style.display = "none";
 }
 
 //// 条件を設定して、決定ボタンを押した時実行される
 const conditionEnter_onclick = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
+
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
     operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
     numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
@@ -166,94 +171,29 @@ const conditionEnter_onclick = () => {
     createFormula(formulaNumber, operatorType, numberSize);
 };
 
-//小学1年をクリックした時に実行される
-const grade1_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
+const grade_data = [
+    {formulaNumber:20, operatorType:["＋", "ー"], numberSize:9},
+    {formulaNumber:30, operatorType:["＋", "ー", "×"], numberSize:9},
+    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
+    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
+    {formulaNumber:50, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
+    {formulaNumber:100, operatorType:["＋", "ー", "×", "÷"], numberSize:9999},
+];
 
-    formulaNumber = 20;
-    operatorType = ["＋", "ー"];
-    numberSize = 9;
 
-    createFormula(formulaNumber, operatorType, numberSize);
-}
+const grades = document.querySelectorAll(".selected-grade");
+let index = null;
 
-//小学2年をクリックした時に実行される
-const grade2_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    console.log(remove_formula);
-    for (let i= 0; 0 < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
+//レベルを選択した時に実行される
+grades.forEach((grade) => {
+    grade.addEventListener("click", () => {
+      index = [].slice.call(grades).indexOf(grade);
+      createFormula(grade_data[index].formulaNumber,
+                    grade_data[index].operatorType,
+                    grade_data[index].numberSize);
+    });
+  });
 
-    formulaNumber = 30;
-    operatorType = ["＋", "ー", "×"];
-    numberSize = 9;
-
-    createFormula(formulaNumber, operatorType, numberSize);
-}
-
-//小学3年をクリックした時に実行される
-const grade3_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
-
-    formulaNumber = 30;
-    operatorType = ["＋", "ー", "×", "÷"];
-    numberSize = 99;
-
-    createFormula(formulaNumber, operatorType, numberSize);
-}
-
-//小学4・5年をクリックした時に実行される
-const grade45_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
-
-    formulaNumber = 40;
-    operatorType = ["＋", "ー", "×", "÷"];
-    numberSize = 99;
-
-    createFormula(formulaNumber, operatorType, numberSize);
-}
-
-//小学6年をクリックした時に実行される
-const grade6_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
-
-    formulaNumber = 50;
-    operatorType = ["＋", "ー", "×", "÷"];
-    numberSize = 99;
-
-    createFormula(formulaNumber, operatorType, numberSize);
-}
-
-//激ムズをクリックした時に実行される
-const highLevel_click = () => {
-    let remove_formula = document.getElementsByClassName('formula');
-    remove_formula = Array.from(remove_formula);
-    for (let i= 0; i < remove_formula.length; i++) {
-        remove_formula[i].remove();
-    }
-
-    formulaNumber = 100;
-    operatorType = ["＋", "ー", "×", "÷"];
-    numberSize = 9999;
-    createFormula(formulaNumber, operatorType, numberSize);
-}
 
 //答えの表示・非表示を切り替える
 const answerDisplay = () => {
@@ -294,3 +234,10 @@ var mySwiper = new Swiper ('.swiper-container', {
     },
     disableOnInteraction:true,
   })
+
+window.onload = function() {
+    document.getElementById("formulas").style.display = "none";
+    let coordinate = document.getElementById("formulas-header").getBoundingClientRect();
+    console.log(coordinate.left);
+    console.log(coordinate.top);
+};

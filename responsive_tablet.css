@@ -1,9 +1,9 @@
 @media (max-width: 1024px) {
 
     /* トップページのスタイルここから */
-    /* #contents {
-        background-color: blanchedalmond;
-    } */
+    #contents {
+        height: auto;
+    }
 
     .main-title {
         top: 0;
@@ -32,7 +32,7 @@
     } 
 
     .swiper-slide img {
-        height: 67.5vh;
+        width: 93%;
         margin:2% 0 3% 3%;
     }
 
@@ -41,13 +41,24 @@
     }
 
     .start {
-        left: 33%;
-        padding: 1.5% 0 1.5% 0;
-        top: 87%;
-        height:5%;
-        width: 35%;
+        position: relative;
+        height:10%;
+        width: 40%;
+        padding: 1.5% 0;
+        top:0;
+        left:0;
+        margin:8% auto;
         font-size: 2.5em;
         border-radius:0.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .start:hover {
+        background-color: white;
+        color:#00CED1;
     }
     /* トップページのスタイルここまで */
 
@@ -101,6 +112,11 @@
         font-size:1.5em;
         margin-top: 0;
         line-height: 180%;
+    }
+
+    .selected:hover {
+        opacity: 1;
+        
     }
     /* 2つの方法から選択する画面のスタイルここまで */
 
@@ -162,6 +178,23 @@
         margin-left: 35%;
         width: 35%;
     }
+
+    .conditionsButton:hover {
+        background-color: white;
+        color:#00CED1;
+    }
+
+    .white:hover {
+        opacity: 1;
+    }
+
+    .black:hover {
+        opacity: 1;
+    }
+
+    .operator-all:hover {
+        opacity: 1;
+    } 
     /* 条件設定画面のスタイルここまで */
 
     /* レベル選択画面のスタイルここから */
@@ -180,6 +213,10 @@
         margin: 0 0 6.5% 2%;
     }
 
+    .selected-grade:hover [
+        opacity: 1;
+    ] 
+
     .selected-grade-title {
         font-size: 2em;
     }
@@ -187,6 +224,10 @@
     .condition-grade {
         width: 11vh;
         font-size: 1.8em;
+    }
+
+    .condition-grade-div {
+        display: inline;
     }
 
     .set-condition {
@@ -202,6 +243,10 @@
         width: 90%;
         margin-left: 5%;
         margin-bottom: 8%;
+    }
+
+    .formulas-icon:hover {
+        opacity: 1;
     }
     /* 計算問題表示画面のスタイルここまで */
 
