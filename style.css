@@ -714,7 +714,54 @@ html{
 
 }
 
-.formulas-title {
+#mode-selection {
+    width: 100%;
+    margin-left: 13%;
+    margin-bottom: 1%;
+    position:relative
+}
+
+.mode-selection-item {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.mode-selection-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 2.5em;
+}
+
+#print_mode, #input_mode {
+    margin: 0;
+    font-size: 1.5em;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5% 1%;
+    border-top-left-radius:0.2em;
+    border-top-right-radius:0.2em;
+    transition: background-color, 0.2s;
+}
+
+#print_mode:hover, #input_mode:hover {
+    background-color: aliceblue;
+    border-bottom: solid 0.1em aliceblue;
+}
+
+#print_mode {
+    left: 18%;
+    border-bottom: solid 0.1em #1bacff;
+}
+
+#input_mode {
+    left: 32%;
+}
+
+/* .formulas-title {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
     font-size: 3em;
@@ -732,7 +779,7 @@ html{
     right: 0;
     margin: auto;
     font-size: 0.5em;
-}
+} */
 
 .hidden {
     visibility:hidden
@@ -755,7 +802,18 @@ html{
     margin-left: 5%;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 2.7em;
-} 
+}
+
+/* .sticky-container {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  
+    width: 100%;
+    height: 100%
+} */
 
 #formulas-header {
     position: absolute;
@@ -796,6 +854,16 @@ html{
 
 .answer-display:active {
     border: none;
+}
+
+#formula_answer_input {
+    margin-left: 13%;
+}
+
+.answer_input_title{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2em;
+    font-weight: 100;
 }
 /* 計算問題表示画面のスタイルここまで */
 

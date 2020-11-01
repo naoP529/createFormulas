@@ -292,17 +292,32 @@
                 <a href="#formulas-link"></a>
             </div>
         </div>
+
         <h2 id = "formula_mark">ここに計算問題が表示されます</h2>
-        <div id = "formulas">
-            <h1 class = "formulas-title formula-hidden" id = "formulas-title">
-                <span data-ruby="さくせい">作成</span>した<span data-ruby="けいさんもんだい">計算問題</span><h1>
+
+        <div id = "problem">
+            <div id = "mode-selection">
+                <h1 class = "mode-selection-item mode-selection-title">モード切替</h1>
+                <p class = "mode-selection-item" id="print_mode">印刷用モード</p>
+                <p class = "mode-selection-item" id="input_mode">解答入力モード</p>
+                <div class = "clear"></div>
+            </div>
+
             <div class = "formula-hidden" id = "formulas-header">
                 <input type="button" class = "formulas-headerItem answer-display formulas-icon" value="答" onclick="answerDisplay();">
                 <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon" onclick="reset_formula();">
                 <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon" onclick="formula_print();">
             </div>
-            <a id = "formulas-link"></a>
+    
+            <div id = "formulas">
+                <a id = "formulas-link"></a>
+            </div>
+    
+            <div id = "formula_answer_input">
+                <!-- <h1 class="answer_input_title">[]の中に解答を入力してください</h1> -->
+            </div>
         </div>
+        
 
         <footer id = "footer">
             <a href="#top">

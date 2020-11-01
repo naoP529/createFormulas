@@ -238,6 +238,10 @@
     /* レベル選択画面のスタイルここまで */
 
     /* 計算問題表示画面のスタイルここから */
+    #formula_mark {
+        font-size: 2em;
+    }
+
     .formula {
         display: block;
         width: 90%;

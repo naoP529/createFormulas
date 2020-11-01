@@ -203,6 +203,10 @@
     /* レベル選択画面のスタイルここまで */
 
     /* 計算問題表示画面のスタイルここから */
+    #formula_mark {
+        font-size: 1em;
+    }
+
     #formulas {
         margin-left: 15%;
     }

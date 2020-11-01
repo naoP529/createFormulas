@@ -7,8 +7,6 @@ function ready(fn) {
     };
 ;}
 
-
-
 // ラジオボタンが選択されている時だけテキストボックスに入力できるようにする
 const onclick_acquisitionFormulas = () =>  {
     if (document.formulaNumber["acquisitionFormulas"][4].checked) {
@@ -53,6 +51,27 @@ const operatorSetAll = () => {
     }
 }
 
+//印刷モード、解答入力モード切り替え
+const print_mode_botton = document.getElementById("print_mode");
+const input_mode_botton = document.getElementById("input_mode");
+const print_mode = document.getElementById("formulas");
+const input_mode = document.getElementById("formula_answer_input");
+
+print_mode_botton.addEventListener("click", () => {
+    input_mode_botton.style.border = "none";
+    print_mode_botton.style.borderBottom = "0.1em solid #1bacff";
+    input_mode.style.display = "none";
+    print_mode.style.display = "block";
+});
+
+input_mode_botton.addEventListener("click", () => {
+    print_mode_botton.style.border = "none";
+    input_mode_botton.style.borderBottom = "0.1em solid #1bacff";
+    print_mode.style.display = "none";
+    input_mode.style.display = "block";
+});
+
+
 //条件に合わせて計算問題を作成する
 const createFormula = (formulaNumber, operatorType, numberSize) => {
     let remove_formula = document.getElementsByClassName('formula');
@@ -62,6 +81,7 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     }
 
     const fragment = document.createDocumentFragment();
+    const fragmentb = document.createDocumentFragment();
 
     for (let i = 0; i < formulaNumber; i++) {
         //数と演算子を作成する
@@ -126,14 +146,28 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
             `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
         fragment.appendChild(formula);
 
+        let dummyElementb = document.createElement('div');
 
+        dummyElementb.insertAdjacentHTML('beforeend',
+            `<div class = "formula"></div>`);
+        let formulab = dummyElementb.lastElementChild;
+        formulab.insertAdjacentHTML('beforeend',
+            `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
+        formulab.insertAdjacentHTML(`beforeend`,
+            `<p class = "equal formulaParts">＝</p>`);
+        formulab.insertAdjacentHTML('beforeend',
+            `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
+        fragmentb.appendChild(formulab);
     };
 
     let formulas = document.getElementById('formulas');
+    let formula_answer_input = document.getElementById('formula_answer_input');
+    formula_answer_input.appendChild(fragmentb);
     formulas.appendChild(fragment);
 
-    formulas.style.display = "block";
-    document.getElementById("formula_mark").style.display = "none";
+    document.getElementById("problem").style.display = "block";
+
+    document.getElementById("formula_mark").style.display = "none"; 
 }
 
 //// 条件を設定して、決定ボタンを押した時実行される
@@ -235,9 +269,10 @@ var mySwiper = new Swiper ('.swiper-container', {
     disableOnInteraction:true,
   })
 
+
+//計算問題の部分を隠す
 window.onload = function() {
-    document.getElementById("formulas").style.display = "none";
-    let coordinate = document.getElementById("formulas-header").getBoundingClientRect();
-    console.log(coordinate.left);
-    console.log(coordinate.top);
+    document.getElementById("problem").style.display = "none";
+
 };
+
