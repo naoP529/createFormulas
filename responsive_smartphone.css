@@ -230,6 +230,30 @@
         font-size: 1.2em;
         margin-left: 0;
     }
+
+    .mode-selection-title {
+        display: inline-block;
+        width: 100%;
+        font-size: 1em;
+        margin-bottom: 5%;
+    }
+
+    #mode-selection {
+        margin-bottom: 1%;
+    }
+
+    #print_mode, #input_mode {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1.2em;
+    }
+
+    .formulas-icon {
+        font-size: 1.5em;
+        padding: 1.2% 5%;
+        width: auto;
+    }
     /* 計算問題表示画面のスタイルここから */
 
     /* フッターのスタイルここから */
