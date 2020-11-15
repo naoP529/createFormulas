@@ -89,7 +89,7 @@ html{
     text-decoration: none;
     background-color: white;
     font-weight: 400;
-    font-size: 4.3em;
+    font-size: 3.5em;
     font-family:'Noto Sans JP', sans-serif;
     border:1px solid #00CED1; 
     cursor: pointer;
@@ -116,7 +116,7 @@ html{
     padding: 2% 0 3% 0;
     text-align: center;
     color: black;
-    font-size:4.5em;
+    font-size:4em;
     font-family: 'Noto Sans JP', sans-serif;
 
 }
@@ -187,7 +187,7 @@ html{
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
     text-align: center;
-    font-size: 2.2em;
+    font-size: 2em;
 }
 
 .selected-title [data-ruby] {
@@ -231,7 +231,7 @@ html{
     list-style: none;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 2em;
+    font-size: 1.7em;
 } 
 
 .condision-types li{
@@ -282,7 +282,7 @@ html{
     list-style: none;
     color: white;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 2em;
+    font-size: 1.7em;
 }
 
 .condision-types-grand li{
@@ -704,12 +704,12 @@ html{
 
 #formulas {
     position: block;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 .formula {
     display: inline-block;
-    width: 45%;
+    width: 50%;
     margin-bottom: 4.5%;
     position: relative;
 }
@@ -721,11 +721,11 @@ html{
 
 #mode-selection {
     display: block;
-    margin-left: 7%;
+    margin-left: 2%;
     margin-bottom: 1%;
     position:relative;
     float: left;
-    width: 45%;
+    width: 42%;
 }
 
 .mode-selection-item {
@@ -758,11 +758,11 @@ html{
 
 #print_mode {
     border-bottom: solid 0.1em #1bacff;
-    left: 32%;
+    left: 35%;
 }
 
 #input_mode {
-    left: 55%;
+    left: 60%;
 }
 
 .hidden {
@@ -785,7 +785,7 @@ html{
 .formulaParts {
     margin-left: 5%;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 2.7em;
+    font-size: 2.4em;
 }
 
 .input-formulaParts {
@@ -795,7 +795,7 @@ html{
 
 #formulas-header {
     display: inline-block;
-    width: 45%;
+    width: 55%;
 }
 
 .formulas-headerItem {
@@ -804,15 +804,15 @@ html{
 
 #point {
     font-family: 'Noto Sans JP', sans-serif;    
-    margin-left: 7%;
+    margin-left: 5%;
     font-size: 2em;
 }
 
 .formulas-icon {
     margin-left: 2%;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 2em;
-    padding: 2% 4%;
+    font-size: 1.5em;
+    padding: 1.5% 3%;
     transition: opacity 0.3s;
     background: none;
     border-radius: 8%;
@@ -841,7 +841,7 @@ html{
 }
 
 #formula_answer_input {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 .answer_input_title{

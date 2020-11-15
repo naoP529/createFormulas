@@ -324,12 +324,13 @@ const answer_check = () => {
 
 //解答を削除
 const resolve_answer_click = () => {
-    let answer_check_text = document.getElementsByName("answer_form");
+    let answer_check_text = document.getElementsByName("answer_check_text");
     let circles = document.getElementsByClassName("circle");
     let input_answer = document.getElementsByClassName("input-answer");
 
     for (let i = 0; i < answer_check_text.length; i++) {
         answer_check_text[i].value = "";
+        console.log(answer_check_text[i].value);
         circles[i].style.visibility = "hidden";
         input_answer[i].style.visibility = "hidden";
     };
