@@ -189,6 +189,8 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     document.getElementById("problem").style.display = "block";
 
     document.getElementById("formula_mark").style.display = "none"; 
+
+    document.getElementById("point").textContent = `得点 /${formulaNumber}`;
 }
 
 //// 条件を設定して、決定ボタンを押した時実行される
@@ -257,6 +259,7 @@ const answerDisplay = () => {
     for (let i = 0; 0 < temporaryAnswer.length; i++) {
         temporaryAnswer[i].classList.toggle(`hidden`);
     }
+
 };
 
 //計算問題を削除する
@@ -269,6 +272,7 @@ const reset_formula = () =>  {
         console.log(i);
         remove_formula[i].remove(); 
     }
+    document.getElementById("point").textContent = `得点`;
 }
 
 //計算問題を印刷する

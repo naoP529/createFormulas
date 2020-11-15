@@ -252,6 +252,35 @@
     .formulas-icon:hover {
         opacity: 1;
     }
+
+    #mode-selection {
+        width: 100%;
+        margin-bottom: 2%;
+    }
+
+    .mode-selection-title {
+        font-size: 1.5em;
+    }
+
+    #formulas-header {
+        width: 100%;
+        margin-bottom: 3%;
+    }
+
+    #print_mode {
+        left: 20%;
+        font-size: 1.8em;
+    }
+
+    #input_mode {
+        left: 45%;
+        font-size: 1.8em;
+    }
+
+    .formulas-icon {
+        font-size: 1.8em;
+        padding: 1.5% 5%;
+    }
     /* 計算問題表示画面のスタイルここまで */
 
     /* フッターのスタイルここから */
