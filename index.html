@@ -296,19 +296,25 @@
         <h2 id = "formula_mark">ここに計算問題が表示されます</h2>
 
         <div id = "problem">
-            <div id = "mode-selection">
-                <h1 class = "mode-selection-item mode-selection-title">モード切替</h1>
-                <p class = "mode-selection-item" id="print_mode">印刷用モード</p>
-                <p class = "mode-selection-item" id="input_mode">解答入力モード</p>
-                <div class = "clear"></div>
+            <div class = "formula-clear">
+                <div id = "mode-selection">
+                    <h1 class = "mode-selection-item mode-selection-title">モード切替</h1>
+                    <p class = "mode-selection-item" id="print_mode">印刷用モード</p>
+                    <p class = "mode-selection-item" id="input_mode">解答入力モード</p>
+                    <div class = "clear"></div>
+                </div>
+                
+
+                <div class = "formula-hidden" id = "formulas-header">
+                    <input type="button" class = "formulas-headerItem  formulas-icon" id="answer-display" value="答え" onclick="answerDisplay();">
+                    <input type="button" id = "answer_check_button"  class = "formulas-headerItem formulas-icon" value="答え合わせ" onclick="answer_check();"> 
+                    <input type="button" class = "formulas-headerItem formulas-icon" value="削除" onclick="reset_formula();">
+                    <input type="button" id="resolve_answer" class="formulas-headerItem formulas-icon" value="解き直し" onclick="resolve_answer_click();">
+                    <input type="button" id = "print_icon" class = "formulas-headerItem formulas-icon" value="印刷" onclick="formula_print();">
+                    <p class="formulas-headerItem" id = "point">得点</p>
+                </div>
             </div>
 
-            <div class = "formula-hidden" id = "formulas-header">
-                <input type="button" class = "formulas-headerItem answer-display formulas-icon" value="答" onclick="answerDisplay();">
-                <img src="imgs\リロードのフリーアイコン.png" class = "formulas-headerItem formulas-icon" onclick="reset_formula();">
-                <img src="imgs\プリンターの無料アイコン4.png" class = "formulas-headerItem formulas-icon" onclick="formula_print();">
-            </div>
-    
             <div id = "formulas">
                 <a id = "formulas-link"></a>
             </div>

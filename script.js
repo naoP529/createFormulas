@@ -54,23 +54,39 @@ const operatorSetAll = () => {
 //印刷モード、解答入力モード切り替え
 const print_mode_botton = document.getElementById("print_mode");
 const input_mode_botton = document.getElementById("input_mode");
+const print_mode_answer = document.getElementById("answer-display");
+const input_mode_answer = document.getElementById("answer_check_button");
 const print_mode = document.getElementById("formulas");
 const input_mode = document.getElementById("formula_answer_input");
+const print_icon = document.getElementById("print_icon");
+const resolve_answer = document.getElementById("resolve_answer");
+const point = document.getElementById("point");
 
 print_mode_botton.addEventListener("click", () => {
     input_mode_botton.style.border = "none";
-    print_mode_botton.style.borderBottom = "0.1em solid #1bacff";
     input_mode.style.display = "none";
+    input_mode_answer.style.display = "none";
+    resolve_answer.style.display = "none";
+    point.style.display = "none";
+    print_mode_botton.style.borderBottom = "0.1em solid #1bacff";
     print_mode.style.display = "block";
+    print_mode_answer.style.display = "inline";
+    print_icon.style.display = "inline-block";
 });
 
 input_mode_botton.addEventListener("click", () => {
     print_mode_botton.style.border = "none";
-    input_mode_botton.style.borderBottom = "0.1em solid #1bacff";
     print_mode.style.display = "none";
+    print_mode_answer.style.display = "none";
+    print_icon.style.display = "none";
+    input_mode_botton.style.borderBottom = "0.1em solid #1bacff";
+    resolve_answer.style.display = "inline-block";
+    point.style.display = "inline-block";
     input_mode.style.display = "block";
+    input_mode_answer.style.display = "inline";
 });
 
+let answers = [];
 
 //条件に合わせて計算問題を作成する
 const createFormula = (formulaNumber, operatorType, numberSize) => {
@@ -131,6 +147,7 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
                 };
                 break;
         }
+        answers.push(answer);
 
         // 作成した計算問題をhtmlに組み込む
         let dummyElement = document.createElement('div');
@@ -152,11 +169,15 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
             `<div class = "formula"></div>`);
         let formulab = dummyElementb.lastElementChild;
         formulab.insertAdjacentHTML('beforeend',
-            `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
+            `<p class = "temporaryFormula formulaParts  input-formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
         formulab.insertAdjacentHTML(`beforeend`,
-            `<p class = "equal formulaParts">＝</p>`);
+            `<p class = "equal formulaParts input-formulaParts">＝</p>`);
         formulab.insertAdjacentHTML('beforeend',
-            `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
+            `<form name = "answer_form"><input type="text" name = "answer_check_text"><form>`);
+        formulab.insertAdjacentHTML('beforeend',
+            `<p class = "formulaParts input-answer" >答え：${answer}</p>`);
+        formulab.insertAdjacentHTML('beforeend',
+            `<img src="imgs/丸.png" class = "circle">`);
         fragmentb.appendChild(formulab);
     };
 
@@ -269,10 +290,56 @@ var mySwiper = new Swiper ('.swiper-container', {
     disableOnInteraction:true,
   })
 
+//答え合わせ
+const answer_check = () => {
+    let user_answer = [];
+    let answer_check_text = document.getElementsByName("answer_form");
+    let circle = document.getElementsByClassName("circle");
+    let input_answer = document.getElementsByClassName("input-answer");
+    
+    answer_check_text.forEach((answer) => {
+        let get_answer = answer.answer_check_text.value;
+
+        if(get_answer == "") {
+            get_answer = "無し";
+        }
+
+        user_answer.push(get_answer);
+        
+    });
+
+    let point = 0;
+
+    for (let i = 0; i < user_answer.length; i++) {
+        if (user_answer[i] == answers[i]) {
+            circle[i].style.visibility = "visible";
+            point++;
+        } else {
+            input_answer[i].style.visibility = "visible";
+        };
+    };
+
+    document.getElementById("point").textContent = `得点 ${point}/${user_answer.length}`;
+};
+
+//解答を削除
+const resolve_answer_click = () => {
+    let answer_check_text = document.getElementsByName("answer_form");
+    let circles = document.getElementsByClassName("circle");
+    let input_answer = document.getElementsByClassName("input-answer");
+
+    for (let i = 0; i < answer_check_text.length; i++) {
+        answer_check_text[i].value = "";
+        circles[i].style.visibility = "hidden";
+        input_answer[i].style.visibility = "hidden";
+    };
+};
 
 //計算問題の部分を隠す
 window.onload = function() {
     document.getElementById("problem").style.display = "none";
-
+    document.getElementById("answer_check_button").style.display = "none";
+    document.getElementById("resolve_answer").style.display = "none";
+    document.getElementById("point").style.display = "none";
 };
 
