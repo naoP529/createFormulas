@@ -704,43 +704,47 @@ html{
 
 #formulas {
     position: block;
-    margin-left: 13%;
+    margin-left: 5%;
 }
 
 .formula {
     display: inline-block;
     width: 45%;
     margin-bottom: 4.5%;
+    position: relative;
+}
 
+.formula-clear {
+    float: left;
+    width: 100%;
 }
 
 #mode-selection {
-    width: 100%;
-    margin-left: 13%;
+    display: block;
+    margin-left: 7%;
     margin-bottom: 1%;
-    position:relative
+    position:relative;
+    float: left;
+    width: 45%;
 }
 
 .mode-selection-item {
     float: left;
 }
 
-.clear {
-    clear: both;
-}
-
 .mode-selection-title {
+    display: inline;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 400;
     font-size: 2.5em;
 }
 
 #print_mode, #input_mode {
-    margin: 0;
-    font-size: 1.5em;
-    position:absolute;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0;
+    font-size: 1.5em;
     padding: 0.5% 1%;
     border-top-left-radius:0.2em;
     border-top-right-radius:0.2em;
@@ -753,33 +757,13 @@ html{
 }
 
 #print_mode {
-    left: 18%;
     border-bottom: solid 0.1em #1bacff;
-}
-
-#input_mode {
     left: 32%;
 }
 
-/* .formulas-title {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 400;
-    font-size: 3em;
+#input_mode {
+    left: 55%;
 }
-
-.formulas-title [data-ruby] {
-    position: relative;
-}
-
-.formulas-title [data-ruby]::before {
-    content: attr(data-ruby);
-    position: absolute;
-    top:-0.8em;
-    left: 0;
-    right: 0;
-    margin: auto;
-    font-size: 0.5em;
-} */
 
 .hidden {
     visibility:hidden
@@ -804,66 +788,108 @@ html{
     font-size: 2.7em;
 }
 
-/* .sticky-container {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    top: 0;
-    z-index: 1;
-  
-    width: 100%;
-    height: 100%
-} */
+.input-formulaParts {
+    font-size: 2em;
+    margin-left: 3%;
+}
 
 #formulas-header {
-    position: absolute;
-    left: 4%;
+    display: inline-block;
+    width: 45%;
 }
 
 .formulas-headerItem {
-    display: flex;
-    margin-top:3%;
+    display: inline-block;
+}
+
+#point {
+    font-family: 'Noto Sans JP', sans-serif;    
+    margin-left: 7%;
+    font-size: 2em;
 }
 
 .formulas-icon {
-    width: 35%;
-    padding:3%;
+    margin-left: 2%;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2em;
+    padding: 2% 4%;
     transition: opacity 0.3s;
+    background: none;
+    border-radius: 8%;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .formulas-icon:hover {
-    opacity: 0.7;
+    background-color: black;
+    color: white;
+    opacity: 0.5;
     cursor: pointer;
 }
 
-.answer-display {
-    background-color: white;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 2.2em;
+#answer-display  {
     color: red;
-    height: 20%;
-    width: 40%;
-    padding: 3%;
-    border-radius: 5%;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight:400;
-} 
+    border: solid 1px red;
+}
 
-.answer-display:active {
-    border: none;
+#answer-display:hover {
+    background-color: red;
+    color: white;
+}
+
+#answer-display:focus {
+    outline:0;
 }
 
 #formula_answer_input {
-    margin-left: 13%;
+    margin-left: 5%;
 }
 
 .answer_input_title{
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 2em;
     font-weight: 100;
+}
+
+form[name = "answer_form"] {
+    display: inline;
+}
+
+input[name = "answer_check_text"] {
+    font-size: 1.5em;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 2% 1%;
+    width: 20%;
+    margin-left:5%;
+}
+
+#answer_check_button {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: red;
+    border:solid 1px red;
+}
+
+#answer_check_button:hover {
+    background-color: red;
+    border: red;
+    color: white;
+}
+
+#answer_check_button:focus {
+    outline:0;
+}
+
+.input-answer {
+    font-size: 1.5em;
+    display: inline-block;
+    color: red;
+    visibility:hidden;
+}
+
+.circle {
+    position: absolute;
+    left: 20%;
+    bottom:38%;
+    visibility:hidden;
 }
 /* 計算問題表示画面のスタイルここまで */
 
