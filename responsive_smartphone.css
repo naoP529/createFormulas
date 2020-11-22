@@ -215,6 +215,11 @@
         font-size: 1.8em;
     }
 
+    .formula {
+        width: 100%;
+        margin: 10% 0;
+    }
+
     .answer-display {
         font-size: 1em;
         padding-left: 10%;
@@ -227,10 +232,38 @@
     } 
 
     .formulaParts {
-        font-size: 1.2em;
+        font-size: 1em;
         margin-left: 0;
     }
-    /* 計算問題表示画面のスタイルここから */
+
+    .mode-selection-title {
+        display: inline-block;
+        width: 100%;
+        font-size: 1em;
+        margin-bottom: 5%;
+    }
+
+    #mode-selection {
+        margin-bottom: 1%;
+    }
+
+    #print_mode, #input_mode {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1.2em;
+    }
+
+    .formulas-icon {
+        font-size: 1.5em;
+        padding: 1.2% 5%;
+        width: auto;
+    }
+
+    input[name = "answer_check_text"]  {
+        font-size: 0.7em;
+    }
+    /* 計算問題表示画面のスタイルここまで */
 
     /* フッターのスタイルここから */
         footer {

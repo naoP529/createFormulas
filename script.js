@@ -189,6 +189,8 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     document.getElementById("problem").style.display = "block";
 
     document.getElementById("formula_mark").style.display = "none"; 
+
+    document.getElementById("point").textContent = `得点 /${formulaNumber}`;
 }
 
 //// 条件を設定して、決定ボタンを押した時実行される
@@ -269,6 +271,8 @@ const reset_formula = () =>  {
         console.log(i);
         remove_formula[i].remove(); 
     }
+
+    document.getElementById("point").textContent = `得点 /${formulaNumber}`;
 }
 
 //計算問題を印刷する
@@ -324,12 +328,13 @@ const answer_check = () => {
 
 //解答を削除
 const resolve_answer_click = () => {
-    let answer_check_text = document.getElementsByName("answer_form");
+    let answer_check_text = document.getElementsByName("answer_check_text");
     let circles = document.getElementsByClassName("circle");
     let input_answer = document.getElementsByClassName("input-answer");
 
     for (let i = 0; i < answer_check_text.length; i++) {
         answer_check_text[i].value = "";
+        console.log(answer_check_text[i].value);
         circles[i].style.visibility = "hidden";
         input_answer[i].style.visibility = "hidden";
     };
