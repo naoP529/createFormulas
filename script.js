@@ -173,11 +173,11 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
         formulab.insertAdjacentHTML(`beforeend`,
             `<p class = "equal formulaParts input-formulaParts">＝</p>`);
         formulab.insertAdjacentHTML('beforeend',
-            `<form name = "answer_form"><input type="text" name = "answer_check_text"><form>`);
+            `<form name = "answer_form" onsubmit="return answer_text_return()"><input type="text" name = "answer_check_text" autocomplete="off"><form>`);
         formulab.insertAdjacentHTML('beforeend',
             `<p class = "formulaParts input-answer" >答え：${answer}</p>`);
         formulab.insertAdjacentHTML('beforeend',
-            `<img src="imgs/丸.png" class = "circle">`);
+            `<p class = "formulaParts correct">正解！</p>`);
         fragmentb.appendChild(formulab);
     };
 
@@ -189,6 +189,8 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     document.getElementById("problem").style.display = "block";
 
     document.getElementById("formula_mark").style.display = "none"; 
+
+    document.getElementById("formula_answer_input").style.display = "none";
 
     document.getElementById("point").textContent = `得点 /${formulaNumber}`;
 }
@@ -249,8 +251,11 @@ grades.forEach((grade) => {
                     grade_data[index].operatorType,
                     grade_data[index].numberSize);
     });
-  });
+});
 
+const answer_text_return = () => {
+    return false;
+}
 
 //答えの表示・非表示を切り替える
 const answerDisplay = () => {
@@ -259,7 +264,6 @@ const answerDisplay = () => {
     for (let i = 0; 0 < temporaryAnswer.length; i++) {
         temporaryAnswer[i].classList.toggle(`hidden`);
     }
-
 };
 
 //計算問題を削除する
@@ -272,7 +276,8 @@ const reset_formula = () =>  {
         console.log(i);
         remove_formula[i].remove(); 
     }
-    document.getElementById("point").textContent = `得点`;
+
+    document.getElementById("point").textContent = `得点 /-`;
 }
 
 //計算問題を印刷する
@@ -298,7 +303,7 @@ var mySwiper = new Swiper ('.swiper-container', {
 const answer_check = () => {
     let user_answer = [];
     let answer_check_text = document.getElementsByName("answer_form");
-    let circle = document.getElementsByClassName("circle");
+    let correct = document.getElementsByClassName("correct");
     let input_answer = document.getElementsByClassName("input-answer");
     
     answer_check_text.forEach((answer) => {
@@ -312,14 +317,17 @@ const answer_check = () => {
         
     });
 
+    console.log(user_answer);
+    console.log(answers);
+
     let point = 0;
 
     for (let i = 0; i < user_answer.length; i++) {
         if (user_answer[i] == answers[i]) {
-            circle[i].style.visibility = "visible";
+            correct[i].style.display = "inline-block";
             point++;
         } else {
-            input_answer[i].style.visibility = "visible";
+            input_answer[i].style.display = "inline-block";
         };
     };
 
@@ -329,14 +337,14 @@ const answer_check = () => {
 //解答を削除
 const resolve_answer_click = () => {
     let answer_check_text = document.getElementsByName("answer_check_text");
-    let circles = document.getElementsByClassName("circle");
+    let correct = document.getElementsByClassName("correct");
     let input_answer = document.getElementsByClassName("input-answer");
 
     for (let i = 0; i < answer_check_text.length; i++) {
         answer_check_text[i].value = "";
         console.log(answer_check_text[i].value);
-        circles[i].style.visibility = "hidden";
-        input_answer[i].style.visibility = "hidden";
+        correct[i].style.display = "none";
+        input_answer[i].style.display = "none";
     };
 };
 
