@@ -1,972 +1,976 @@
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior: smooth;
 }
+
+
 
 [data-ruby]::before {
-  ruby-align: center;
+    ruby-align: center;
 }
 
 /* トップページのスタイルここから */
 #contents {
-  height: 100vh;
+    height:100vh;
 }
 
 .main-title {
-  position: absolute;
-  top: 22%;
-  left: 10%;
-  font-size: 6em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
+    position: absolute;
+    top: 22%;
+    left: 10%;
+    font-size: 6em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
 }
 
 .main-explanation {
-  position: absolute;
-  top: 50%;
-  left: 3%;
-  font-size: 1.9em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 100;
+    position:absolute;
+    top: 50%;
+    left: 3%;
+    font-size: 1.9em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
 }
 
-.main-explanation [data-ruby] {
-  position: relative;
+.main-explanation  [data-ruby] {
+    position: relative;
 }
 
-.main-explanation [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
+.main-explanation  [data-ruby]::before {
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
 }
 
 .top-image {
-  position: absolute;
-  height: 35%;
+    position:absolute;
+    height: 35%;
 }
 
 .formula-image {
-  left: 60%;
+    left: 60%;
 }
 
 .selection-image {
-  top: 30%;
-  left: 50%;
+    top: 30%;
+    left: 50%;
 }
 
 .revel-image {
-  left: 60%;
-  top: 60%;
+    left: 60%;
+    top: 60%;
 }
 
 .swiper {
-  display: none;
+    display: none;
 }
 
 .start {
-  position: absolute;
-  top: 80%;
-  left: 38%;
-  height: 11%;
-  width: 22.5%;
-  color: #00ced1;
-  border-radius: 0.2em;
-  text-align: center;
-  text-decoration: none;
-  background-color: white;
-  font-weight: 400;
-  font-size: 3.5em;
-  font-family: "Noto Sans JP", sans-serif;
-  border: 1px solid #00ced1;
-  cursor: pointer;
-  transition: background-color 0.5s, color 0.5s;
+    position: absolute;
+    top:80%;
+    left:38%;
+    height:11%;
+    width: 22.5%;
+    color: #00CED1;
+    border-radius:0.2em;
+    text-align: center; 
+    text-decoration: none;
+    background-color: white;
+    font-weight: 400;
+    font-size: 3.5em;
+    font-family:'Noto Sans JP', sans-serif;
+    border:1px solid #00CED1; 
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .start:hover {
-  background-color: #00ced1;
-  color: white;
+    background-color: #00CED1;
+    color:white;
 }
 
 .start:focus {
-  outline: 0;
+    outline:0;
 }
 /* トップページのスタイルここまで */
 
 /* 2つの方法から選択する画面のスタイルここから */
 #selection-screen {
-  height: 100vh;
+    height: 100vh;
 }
 
 .selection-title {
-  margin: 0;
-  padding: 2% 0 3% 0;
-  text-align: center;
-  color: black;
-  font-size: 4em;
-  font-family: "Noto Sans JP", sans-serif;
+    margin: 0;
+    padding: 2% 0 3% 0;
+    text-align: center;
+    color: black;
+    font-size:4em;
+    font-family: 'Noto Sans JP', sans-serif;
+
 }
 
 .selection-title [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .selection-title [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.7em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.7em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
 }
 
 .selected {
-  display: inline-grid;
-  width: 35%;
-  height: 68%;
-  margin-left: 12%;
-  border-radius: 1.5em;
-  transition: opacity 0.3s;
+    display: inline-grid;
+    width: 35%;
+    height:68%;
+    margin-left: 12%;
+    border-radius: 1.5em;
+    transition: opacity 0.3s;
 }
 
 .selected:hover {
-  opacity: 0.8;
+    opacity: 0.8;
+    
 }
 
 .selected-condision {
-  background-color: #0066ff;
-  position: relative;
-  z-index: 1;
+    background-color: #0066FF;
+    position: relative;
+    z-index: 1;
 }
 
 .selected-condision a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-indent: -999px;
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 .selected-grand {
-  background-color: #cc33ff;
-  position: relative;
-  z-index: 1;
+    background-color: #CC33FF;
+    position: relative;
+    z-index: 1;
 }
 
 .selected-grand a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-indent: -999px;
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 .selected-title {
-  margin: 0;
-  padding: 5%;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  text-align: center;
-  font-size: 2em;
+    margin: 0;
+    padding:5% ;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-align: center;
+    font-size: 2em;
 }
 
 .selected-title [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .selected-title [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.45em;
-}
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.45em;
+}	
 
 .condision-type {
-  margin: 2% 0 0% 5%;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.2em;
+    margin: 2% 0 0% 5%;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.2em;
 }
 
 .condision-type [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .condision-type [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -1em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
-  width: 5em;
-}
+    content: attr(data-ruby);
+    position:absolute;
+    top:-1em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
+    width: 5em;
+}	
 
 .condision-types {
-  margin: 0 0 1% 5%;
-  list-style: none;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.7em;
-}
+    margin: 0 0 1% 5%;
+    list-style: none;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.7em;
+} 
 
-.condision-types li {
-  display: inline-block;
-  margin-left: 1%;
+.condision-types li{
+    display: inline-block;
+    margin-left: 1%;
 }
 
 .condision-types [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .condision-types [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
-  width: 8em;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
+    width: 8em;
 }
 
 .selected-details {
-  margin: 1.5% 1% 0 5%;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.5em;
-  line-height: 45px;
+    margin: 1.5% 1% 0 5%;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size:1.5em;
+    line-height: 45px;
 }
 
 .selected-details [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .selected-details [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -2em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
-  width: 15em;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-2em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
+    width: 15em;
 }
 
 .condision-types-grand {
-  margin: 0 0 0.5% 1.5%;
-  list-style: none;
-  color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.7em;
+    margin: 0 0 0.5% 1.5%;
+    list-style: none;
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.7em;
 }
 
-.condision-types-grand li {
-  display: inline-block;
-  margin-left: 0.5em;
+.condision-types-grand li{
+    display: inline-block;
+    margin-left: 0.5em;
 }
 
 .elementary {
-  font-size: 0.8em;
+    font-size:0.8em;
 }
 /* 2つの方法から選択する画面のスタイルここまで */
 
 /* 条件設定画面のスタイルここから */
 #conditions {
-  height: 100vh;
+    height:100vh;
 }
 
 #formulaNumber {
-  background-color: #22259f;
+    background-color: #22259f;
 }
 
 #operatorType {
-  background-color: #55a5ff;
+    background-color: #55a5ff;
 }
 
 #numberSize {
-  background-color: #a2ea00;
+    background-color:#a2ea00;
 }
 
+
+
 .formula-text {
-  position: relative;
-  bottom: 3%;
-  right: 5px;
-  height: 2.4em;
-  width: 15%;
-  font-size: 1.5em;
-  border-radius: 0 5px 5px 0;
-  font-family: "Noto Sans JP", sans-serif;
+    position:relative;
+    bottom: 3%;
+    right: 5px;
+    height: 2.4em;
+    width: 15%;
+    font-size: 1.5em;
+    border-radius: 0 5px 5px 0;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .condition-main-title {
-  text-align: center;
-  margin: 0;
-  padding: 1% 0 1.5% 0;
-  font-size: 4.2em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 1% 0 1.5% 0;
+    font-size:4.2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
 }
 
 .condition {
-  height: 21%;
+    height: 21%;
 }
 
 .condision-selected {
-  margin-left: 1.5%;
-  font-size: 2.5em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 100;
-  padding: 0 1.5%;
-  border-radius: 0.2em;
+    margin-left:1.5%;
+    font-size: 2.5em ; 
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+    padding: 0 1.5%;
+    border-radius: 0.2em;
 }
 
 .formula-item {
-  display: inline-block;
+    display: inline-block;
 }
 
 .operator-item {
-  display: inline-block;
+    display: inline-block;
 }
 
+
 .numberSize-item {
-  display: inline-block;
+    display: inline-block;
 }
 
 .condition-title {
-  margin-top: 3%;
-  margin-left: 2.8%;
-  font-size: 2.8em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
+    margin-top: 3%;
+    margin-left:2.8%;
+    font-size: 2.8em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
 }
 
-.condition-main-title [data-ruby] {
-  position: relative;
+.condition-main-title [data-ruby]   {
+    position: relative;
 }
 
 .condition-main-title [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.4em;
-  width: 100%;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.4em;
+    width: 100%;
 }
 
 .condition-title [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .condition-title [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.45em;
-  width: 100%;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.45em;
+    width: 100%;
 }
 
 .white-title {
-  color: white;
+    color: white;
 }
 
 .conditionsButton {
-  border-radius: 0.2em;
-  display: block;
-  width: 22.5%;
-  color: #00ced1;
-  margin: 3% auto;
-  padding: 0.5% 0;
-  text-align: center;
-  font-size: 2.5em;
-  background-color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  box-shadow: none;
-  border: 1px solid #00ced1;
-  cursor: pointer;
-  transition: background-color 0.5s, color 0.5s;
-  text-decoration: none;
+    border-radius: 0.2em;
+    display: block;
+    width: 22.5%;
+    color: #00CED1;
+    margin: 3% auto;
+    padding: 0.5% 0 ;
+    text-align: center;
+    font-size: 2.5em;
+    background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    box-shadow: none;
+    border:1px solid #00CED1;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+    text-decoration: none;
 }
 
 .conditionsButton:hover {
-  background-color: #00ced1;
-  color: white;
+    background-color: #00CED1;
+    color:white;
 }
 
 .conditionsButton:focus {
-  outline: 0;
+    outline:0;
 }
 
 .condition-button {
-  display: none;
+    display: none;
 }
 
+
+
 .white {
-  color: white;
-  border: solid 1px white;
-  transition: 0.2s;
+    color: white;
+    border: solid 1px white;
+    transition: 0.2s;
 }
 
 .white:hover {
-  transition: 0.2s;
-  opacity: 0.5;
-  cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
+
 .black {
-  border: solid 1px black;
-  transition: 0.2s;
+    border: solid 1px black;
+    transition: 0.2s;
 }
 
 .addition {
-  margin-left: 2%;
+    margin-left:2%;
 }
 
-.black:hover {
-  transition: 0.2s;
-  opacity: 0.5;
-  cursor: pointer;
+.black:hover  {
+    transition: 0.2s;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
 .condition-button-label {
-  transition: 0.2s;
+    transition: 0.2s;
 }
 
-.condition-label-operator {
-  padding: 0 4%;
+.condition-label-operator  {
+    padding: 0 4%;
 }
 
 .formula-button:checked + .condition-button-formula {
-  background-color: white;
-  border: none;
-  color: #22259f;
-  font-weight: 400;
+    background-color: white;
+    border: none;
+    color:#22259f;
+    font-weight: 400; 
 }
 
 .operator-button:checked + .condition-label-operator {
-  background-color: white;
-  color: #55a5ff;
-  border: none;
-  font-weight: 400;
+    background-color: white;
+    color: #55a5ff;
+    border: none;
+    font-weight: 400;
 }
 
 .numberSize-item:checked + .condition-button-numberSize {
-  background-color: white;
-  border: none;
-  color: black;
-  font-weight: 400;
+    background-color: white;
+    border: none;
+    color:black;
+    font-weight: 400;
 }
 
 #operatorType {
-  position: relative;
+    position: relative;
 }
 
 .operator-all {
-  position: absolute;
-  top: 30%;
-  padding: 0.15% 3%;
-  left: 75%;
-  border-radius: 0.2em;
-  display: block;
-  color: #00ced1;
-  text-align: center;
-  font-size: 2.35em;
-  background-color: white;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  box-shadow: none;
-  border: 1px solid #00ced1;
-  cursor: pointer;
-  transition: background-color 0.5s, color 0.5s;
-  text-decoration: none;
+    position: absolute;
+    top: 30%;
+    padding: 0.15% 3%;
+    left: 75%;
+    border-radius: 0.2em;
+    display: block;
+    color: #00CED1;
+    text-align: center;
+    font-size: 2.35em;
+    background-color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    box-shadow: none;
+    border:1px solid #00CED1;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+    text-decoration: none;
 }
 
 .operator-all:hover {
-  background-color: #00ced1;
-  color: white;
+    background-color: #00CED1;
+    color:white;
 }
 
 .operator-all:focus {
-  outline: 0;
+    outline:0;
 }
 
 .formula-input {
-  border-radius: 0.2% 0 0 0.2%;
+    border-radius:0.2% 0 0 0.2%;
 }
 /* 条件設定画面のスタイルここまで */
 
 /* レベル選択画面のスタイルここから */
 #select-Grade {
-  height: 100vh;
+    height: 100vh;
 }
 
 .grade-title {
-  text-align: center;
-  margin: 0;
-  padding: 1% 0 1.5% 0;
-  font-size: 4.2em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 1% 0 1.5% 0;
+    font-size:4.2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
 }
 
 .grade-title [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .grade-title [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.5em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.4em;
-  width: 100%;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.5em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.4em;
+    width: 100%;
 }
 
 .selected-grade {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 2% 4%;
-  height: 35%;
-  width: 28%;
-  background-color: darkseagreen;
-  border-radius: 0.4em;
-  transition: opacity 0.3s;
+    position: relative;
+    display: inline-block;
+    margin: 0 0 2% 4%;
+    height: 35%;
+    width: 28%;
+    background-color: darkseagreen;
+    border-radius: 0.4em;
+    transition: opacity 0.3s;
 }
 
-.selected-grade:hover {
-  opacity: 0.7;
-  cursor: pointer;
+.selected-grade:hover  {
+    opacity:0.7;
+    cursor: pointer;
 }
 
 .selected-grade div {
-  float: left;
+    float: left;
 }
 
 .selected-grade a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-indent: -999px;
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent:-999px;
+    z-index: 2;
 }
 
 .selected-grade-title {
-  margin: 2% 0;
-  text-align: center;
-  font-size: 2.5em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
+    margin: 2% 0;
+    text-align: center;
+    font-size: 2.5em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
 }
 
 .selected-grade-title [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .selected-grade-title [data-ruby]::before {
-  content: attr(data-ruby);
-  letter-spacing: -0.15em;
-  position: absolute;
-  top: -0.5em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.4em;
+    content: attr(data-ruby);
+    letter-spacing: -0.15em;
+    position: absolute;
+    top:-0.5em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.4em;
 }
 
+
 .condition-grade {
-  display: block;
-  margin: 9.7% 0 5% 10%;
-  font-size: 2em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 100;
-  width: 10vw;
+    display: block;
+    margin:9.7% 0 5% 10%;
+    font-size: 2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+    width: 10vw;
 }
 
 .condition-grade [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .condition-grade [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.45em;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.45em;
 }
 
 .set-condition {
-  display: block;
-  margin: 5.5% 0 0 5%;
-  font-size: 2em;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  width: 17vw;
+    display: block;
+    margin:5.5% 0 0 5%;
+    font-size: 2em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    width: 17vw;
 }
 
 .set-condition [data-ruby] {
-  position: relative;
+    position: relative;
 }
 
 .set-condition [data-ruby]::before {
-  content: attr(data-ruby);
-  position: absolute;
-  top: -0.8em;
-  left: 0;
-  right: 0;
-  margin: auto;
-  font-size: 0.5em;
+    content: attr(data-ruby);
+    position: absolute;
+    top:-0.8em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0.5em;
 }
 
 .grade1 {
-  background-color: #60eeff;
+    background-color: #60EEFF;
 }
 
 .grade2 {
-  background-color: #78ff94;
+    background-color: #78FF94;
 }
 
 .grade3 {
-  background-color: #ffff44;
+    background-color: #FFFF44;
 }
 
 .grade45 {
-  background-color: #ff5f17;
+    background-color: #FF5F17;
 }
 
 .grade6 {
-  background-color: #bb0000;
+    background-color: #BB0000;
 }
 
 .grade-max {
-  background-color: #330033;
+    background-color: #330033;
 }
 
-.grade6 h1,
-.grade6 p {
-  color: white;
+.grade6 h1, .grade6 p {
+    color: white;
 }
 
-.grade-max h1,
-.grade-max p {
-  color: white;
+.grade-max h1, .grade-max p {
+    color: white;
 }
 /* レベル選択画面のスタイルここまで */
 
 /* 計算問題表示画面のスタイルここから */
 #formula_mark {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 4%;
-  opacity: 0.8;
+    font-family:'Noto Sans JP', sans-serif ;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 4%;
+    opacity: 0.8;
 }
 
 #formulas {
-  /* position: block; */
-  margin-left: 2%;
+    position: block;
+    margin-left: 2%;
 }
 
 .formula {
-  display: inline-block;
-  width: 50%;
-  height: auto;
-  margin-bottom: 4.5%;
-  /* position: relative; */
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 4.5%;
+    position: relative;
 }
 
 .formula-clear {
-  float: left;
-  width: 100%;
+    float: left;
+    width: 100%;
 }
 
 #mode-selection {
-  display: block;
-  /* margin-left: 2%; */
-  margin-bottom: 1%;
-  position: relative;
-  float: left;
-  width: 42%;
-  z-index: 2;
+    display: block;
+    margin-left: 2%;
+    margin-bottom: 1%;
+    position:relative;
+    float: left;
+    width: 42%;
 }
 
 .mode-selection-item {
-  float: left;
+    float: left;
 }
 
 .mode-selection-title {
-  display: inline;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-  font-size: 2.5em;
+    display: inline;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 2.5em;
 }
 
-#print_mode,
-#input_mode {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
-  font-size: 1.5em;
-  padding: 0.5% 1%;
-  border-top-left-radius: 0.2em;
-  border-top-right-radius: 0.2em;
-  transition: background-color, 0.2s;
+#print_mode, #input_mode {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    font-size: 1.5em;
+    padding: 0.5% 1%;
+    border-top-left-radius:0.2em;
+    border-top-right-radius:0.2em;
+    transition: background-color, 0.2s;
 }
 
-#print_mode:hover,
-#input_mode:hover {
-  background-color: aliceblue;
-  border-bottom: solid 0.1em aliceblue;
+#print_mode:hover, #input_mode:hover {
+    background-color: aliceblue;
+    border-bottom: solid 0.1em aliceblue;
 }
 
 #print_mode {
-  border-bottom: solid 0.1em #1bacff;
-  left: 35%;
+    border-bottom: solid 0.1em #1bacff;
+    left: 35%;
 }
 
 #input_mode {
-  left: 60%;
+    left: 60%;
 }
 
 .hidden {
-  visibility: hidden;
+    visibility:hidden
 }
 
 .temporaryFormula {
-  display: inline;
+    display: inline;
 }
 
 .temporaryAnswer {
-  display: inline;
-  color: red;
+    display: inline;
+    color: red;
 }
 
 .equal {
-  display: inline;
+    display: inline;
 }
 
 .formulaParts {
-  margin-left: 5%;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 2.4em;
+    margin-left: 5%;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2.4em;
 }
 
 .input-formulaParts {
-  font-size: 2em;
-  margin-left: 3%;
+    font-size: 2em;
+    margin-left: 3%;
 }
 
 #formulas-header {
-  display: inline-block;
-  width: 55%;
-  z-index: 2;
+    display: inline-block;
+    width: 55%;
 }
 
 .formulas-headerItem {
-  display: inline-block;
-  z-index: 2;
+    display: inline-block;
 }
 
 #point {
-  font-family: "Noto Sans JP", sans-serif;
-  margin-left: 5%;
-  font-size: 2em;
+    font-family: 'Noto Sans JP', sans-serif;    
+    margin-left: 5%;
+    font-size: 2em;
 }
 
 .formulas-icon {
-  margin-left: 2%;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.5em;
-  padding: 1.5% 3%;
-  transition: opacity 0.3s;
-  background: none;
-  border-radius: 8%;
-  border: solid 1% black;
-  transition: background-color 0.3s, color 0.3s;
-  outline: none;
+    margin-left: 2%;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.5em;
+    padding: 1.5% 3%;
+    transition: opacity 0.3s;
+    background: none;
+    border-radius: 8%;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .formulas-icon:hover {
-  background-color: black;
-  color: white;
-  cursor: pointer;
+    background-color: black;
+    color: white;
+    opacity: 0.5;
+    cursor: pointer;
 }
 
-#answer-display {
-  color: red;
-  border: solid 1px red;
+#answer-display  {
+    color: red;
+    border: solid 1px red;
 }
 
 #answer-display:hover {
-  background-color: red;
-  color: white;
+    background-color: red;
+    color: white;
 }
 
 #answer-display:focus {
-  outline: 0;
+    outline:0;
 }
 
 #formula_answer_input {
-  margin-left: 2%;
+    margin-left: 2%;
 }
 
-.answer_input_title {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 2em;
-  font-weight: 100;
+.answer_input_title{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2em;
+    font-weight: 100;
 }
 
-form[name="answer_form"] {
-  display: inline;
+form[name = "answer_form"] {
+    display: inline;
 }
 
-input[name="answer_check_text"] {
-  font-size: 1.5em;
-  font-family: "Noto Sans JP", sans-serif;
-  padding: 2% 1%;
-  width: 20%;
-  margin-left: 5%;
+input[name = "answer_check_text"] {
+    font-size: 1.5em;
+    font-family: 'Noto Sans JP', sans-serif;
+    padding: 2% 1%;
+    width: 20%;
+    margin-left:5%;
 }
 
 #answer_check_button {
-  font-family: "Noto Sans JP", sans-serif;
-  color: red;
-  border: solid 1px red;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: red;
+    border:solid 1px red;
 }
 
 #answer_check_button:hover {
-  background-color: red;
-  border: red;
-  color: white;
+    background-color: red;
+    border: red;
+    color: white;
 }
 
 #answer_check_button:focus {
-  outline: 0;
+    outline:0;
 }
 
 .input-answer {
-  font-size: 1.5em;
-  display: inline-block;
-  color: red;
-  display: none;
+    font-size: 1.5em;
+    display: inline-block;
+    color: red;
+    visibility:hidden;
 }
 
-.correct {
-  font-size: 1.5em;
-  display: inline-block;
-  color: red;
-  display: none;
+.circle {
+    position: absolute;
+    left: 20%;
+    bottom:38%;
+    visibility:hidden;
 }
 /* 計算問題表示画面のスタイルここまで */
 
 /* フッターのスタイルここから */
 footer {
-  overflow: hidden;
-  position: fixed;
-  left: 80%;
-  bottom: 2%;
-  z-index: 10;
+    overflow:hidden;
+    position: fixed;
+    left:80%;
+    bottom: 2%;
+    z-index: 10;
 }
 
 footer a {
-  opacity: 0.4;
-  transition: opacity 0.2s;
+    opacity: 0.4;
+    transition: opacity 0.2s;
 }
 
 footer a:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 .arrowForTop {
-  width: 20%;
+    width: 20%;
 }
 
 .forTop {
-  display: inline;
-  font-family: "Noto Sans JP", sans-serif;
-  margin: 0;
-  font-size: 2.5em;
-  color: black;
+    display: inline;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin:0;
+    font-size: 2.5em;
+    color: black;
 }
 
 .footerItem {
-  float: right;
+    float: right;
 }
 /* フッターのスタイルここまで */
 
 /* 印刷時のスタイルここから */
 @media print {
-  #contents {
-    display: none;
-  }
+    #contents {
+        display:none;
+    }
 
-  #selection-screen {
-    display: none;
-  }
+    #selection-screen {
+        display: none;
+    }
 
-  #conditions {
-    display: none;
-  }
+    #conditions {
+        display: none;
+    }
 
-  #select-Grade {
-    display: none;
-  }
+    #select-Grade {
+        display: none;
+    }
 
-  #formulas-header {
-    display: none;
-  }
+    #formulas-header {
+        display: none;
+    }
 
-  #formulas {
-    margin: 0;
-  }
+    #formulas {
+        margin: 0;
+    }
 
-  .formula {
-    width: 50%;
-  }
+    .formula {
+        width: 50%;
+    }
 
-  .formulas-title {
-    font-size: 30px;
-  }
+    .formulas-title {
+        font-size: 30px;
+    }
 
-  .formulas-title [data-ruby]::before {
-    font-size: 15px;
-    top: -12px;
-  }
+    .formulas-title [data-ruby]::before {
+        font-size: 15px;
+        top: -12px;
+    }
 
-  .formulaParts {
-    font-size: 25px;
-    margin-left: 20px;
-  }
+    .formulaParts {
+        font-size: 25px;
+        margin-left: 20px;
+    }    
+
 }
 /* 印刷時のスタイルここまで */

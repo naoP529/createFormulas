@@ -277,7 +277,11 @@ const reset_formula = () =>  {
         remove_formula[i].remove(); 
     }
 
+<<<<<<< HEAD
     document.getElementById("point").textContent = `得点 /-`;
+=======
+    document.getElementById("point").textContent = `得点 /${formulaNumber}`;
+>>>>>>> d7744dd453091aef9d33303de78112f0d834e73b
 }
 
 //計算問題を印刷する
