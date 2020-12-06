@@ -96,6 +96,8 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
         remove_formula[i].remove();
     }
 
+    answers.length = 0;
+
     const fragment = document.createDocumentFragment();
     const fragmentb = document.createDocumentFragment();
 
@@ -186,11 +188,15 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     formula_answer_input.appendChild(fragmentb);
     formulas.appendChild(fragment);
 
-    document.getElementById("problem").style.display = "block";
+    let problem = document.getElementById("problem");
 
-    document.getElementById("formula_mark").style.display = "none"; 
+    if(problem.style.display === "none") {
+        problem.style.display = "block";
 
-    document.getElementById("formula_answer_input").style.display = "none";
+        document.getElementById("formula_mark").style.display = "none"; 
+    
+        document.getElementById("formula_answer_input").style.display = "none";
+    }
 
     document.getElementById("point").textContent = `得点 /${formulaNumber}`;
 }
