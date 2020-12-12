@@ -458,7 +458,7 @@ html {
 }
 
 .condition-label-operator {
-  padding: 0 4%;
+  padding: 0 2%;
 }
 
 .formula-button:checked + .condition-button-formula {
@@ -482,20 +482,27 @@ html {
   font-weight: 400;
 }
 
+.calculation {
+  width: 100%;
+  background-color: #55a5ff;
+}
+
 #operatorType {
   position: relative;
+  width: 65%;
+  display: inline-block;
 }
 
 .operator-all {
   position: absolute;
-  top: 30%;
-  padding: 0.15% 3%;
+  top: 32%;
+  padding: 0.15% 1.5%;
   left: 75%;
   border-radius: 0.2em;
   display: block;
   color: #00ced1;
   text-align: center;
-  font-size: 2.35em;
+  font-size: 2em;
   background-color: white;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
@@ -513,6 +520,21 @@ html {
 
 .operator-all:focus {
   outline: 0;
+}
+
+#remainder {
+  margin: none;
+  display: inline-block;
+  width: 25%;
+}
+
+.remainder-label {
+  margin-left: 5%;
+}
+
+.remainder-title {
+  margin: 0;
+  display: inline-block;
 }
 
 .formula-input {
@@ -705,6 +727,10 @@ html {
   /* position: relative; */
 }
 
+.check_formula {
+  width: 100%;
+}
+
 .formula-clear {
   float: left;
   width: 100%;
@@ -779,7 +805,7 @@ html {
 .formulaParts {
   margin-left: 5%;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 2.4em;
+  font-size: 2em;
 }
 
 .input-formulaParts {
@@ -849,14 +875,29 @@ html {
 
 form[name="answer_form"] {
   display: inline;
+  margin-left: 1%;
+  font-size: 1.5em;
+}
+
+form[name="remainder_form"] {
+  display: inline;
+  margin-left: 1%;
+  font-size: 1.5em;
 }
 
 input[name="answer_check_text"] {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-family: "Noto Sans JP", sans-serif;
-  padding: 2% 1%;
+  padding: 1% 1%;
   width: 20%;
-  margin-left: 5%;
+  margin-left: 1%;
+}
+
+input[name="remainder_check_text"] {
+  font-size: 1.2em;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 1% 1%;
+  width: 10%;
 }
 
 #answer_check_button {

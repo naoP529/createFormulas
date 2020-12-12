@@ -163,27 +163,41 @@
                 </label>
                 <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
             </form>
-            <form name = "operatorType" id = "operatorType" class = "condition">
-                <h1 class = "condition-title operator-item white-title">
-                    <span data-ruby="えんざんし">演算子</span>を<span data-ruby="してい">指定</span></h1>
-                <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "＋">
-                <label class = "condision-selected  white operator-item addition condition-label-operator" for="add">
-                    ＋
-                </label>
-                <input id = "subtraction" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "ー">
-                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="subtraction">
-                    ー
-                </label>
-                <input id = "multiplication" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "×">
-                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="multiplication">
-                    ×
-                </label>
-                <input id = "division" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "÷">
-                <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for = "division">
-                    ÷
-                </label>
-                <input class ="operator-all" type = "button" onclick="operatorSetAll();" value="すべて選択">
-            </form>
+            <div class="calculation">
+                <form name = "operatorType" id = "operatorType" class = "condition">
+                    <h1 class = "condition-title operator-item white-title">
+                        <span data-ruby="えんざんし">演算子</span>を<span data-ruby="してい">指定</span></h1>
+                    <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "＋">
+                    <label class = "condision-selected  white operator-item addition condition-label-operator" for="add">
+                        ＋
+                    </label>
+                    <input id = "subtraction" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "ー">
+                    <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="subtraction">
+                        ー
+                    </label>
+                    <input id = "multiplication" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "×">
+                    <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for="multiplication">
+                        ×
+                    </label>
+                    <input id = "division" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "÷">
+                    <label class = "condision-selected white operator-item condition-label-black condition-label-operator" for = "division">
+                        ÷
+                    </label>
+                    <input class ="operator-all" type = "button" onclick="operatorSetAll();" value="すべて選択">
+                </form>
+                <form name="remainder" id = "remainder" class="condition">
+                    <h1 class="condition-title white-title remainder-title">あまり</h1>
+                    <input id = "remainder_select" type="radio" name="aquisitionRemainder" class="operator-button condition-button-black condition-button" value="remainder_on">
+                    <label class="condision-selected white operator-item condition-label-black condition-label-operator remainder-label" for="remainder_select">
+                        あり
+                    </label> 
+                    <input id="remainder_none" type="radio" name="aquisitionRemainder" class="operator-button condition-button-black condition-button" value="remainder_none">
+                    <label class="condision-selected white operator-item condition-label-black condition-label-operator remainder-label" for="remainder_none">
+                        なし
+                    </label>
+                </form> 
+            </div>
+            
             <form name = "numberSize" id = "numberSize" class = "condition">
                 <h1 class = "condition-title numberSize-item black-title numberSize-title">ケタ
                     <span data-ruby="すう">数</span>を<span data-ruby="してい">指定</span></h1>

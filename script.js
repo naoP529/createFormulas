@@ -20,6 +20,7 @@ window.onload = onclick_acquisitionFormulas();
 let formulaNumber = null;
 let operatorType = null;
 let numberSize = null;
+let remainder = null;
 
 // どのラジオボタンが選択されているかを取得する
 function getCheckedRadioButton(buttons) {
@@ -87,9 +88,10 @@ input_mode_botton.addEventListener("click", () => {
 });
 
 let answers = [];
+let remainders = [];
 
 //条件に合わせて計算問題を作成する
-const createFormula = (formulaNumber, operatorType, numberSize) => {
+const createFormula = (formulaNumber, operatorType, numberSize, remainder) => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
     for (let i= 0; i < remove_formula.length; i++) {
@@ -97,6 +99,7 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
     }
 
     answers.length = 0;
+    remainders.length = 0;
 
     const fragment = document.createDocumentFragment();
     const fragmentb = document.createDocumentFragment();
@@ -115,6 +118,7 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
 
         // 答えを計算する
         let answer = null;
+        let remainder_item = null;
         switch (operators[0]) {
             case "＋":
                 answer = numbers[0] + numbers[1];
@@ -142,14 +146,25 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
                 
                 if (numbers[0] % numbers[1] === 0) {
                     answer = numbers[0] / numbers[1];
+
+                } else if(remainder === "remainder_on") {
+                    answer = Math.floor(Math.random() * numberSize) + 1;
+                    remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
+                    numbers[0] = answer * numbers[1] + remainder_item;
                 } else {
                     answer = Math.floor(Math.random() * numberSize) + 1;
                     let newnumbers0 = numbers[1] * answer;
                     numbers[0] = newnumbers0;
+                    
                 };
                 break;
         }
+        if (remainder_item === null) {
+            remainder_item = 0;
+        };
+
         answers.push(answer);
+        remainders.push(remainder_item);
 
         // 作成した計算問題をhtmlに組み込む
         let dummyElement = document.createElement('div');
@@ -161,23 +176,32 @@ const createFormula = (formulaNumber, operatorType, numberSize) => {
             `<p class = "temporaryFormula formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
         formula.insertAdjacentHTML(`beforeend`,
             `<p class = "equal formulaParts">＝</p>`);
-        formula.insertAdjacentHTML('beforeend',
+        if (remainder_item === null) {
+            formula.insertAdjacentHTML('beforeend',
             `<p class = "hidden temporaryAnswer formulaParts" >${answer}</p>`);
+        } else {
+            formula.insertAdjacentHTML('beforeend',
+            `<p class = "hidden temporaryAnswer formulaParts" >${answer}　あまり：${remainder_item}</p>`);
+        }
         fragment.appendChild(formula);
 
         let dummyElementb = document.createElement('div');
 
         dummyElementb.insertAdjacentHTML('beforeend',
-            `<div class = "formula"></div>`);
+            `<div class = "formula check_formula"></div>`);
         let formulab = dummyElementb.lastElementChild;
         formulab.insertAdjacentHTML('beforeend',
             `<p class = "temporaryFormula formulaParts  input-formulaParts">${numbers[0]} ${operators[0]} ${numbers[1]}</p>`);
         formulab.insertAdjacentHTML(`beforeend`,
             `<p class = "equal formulaParts input-formulaParts">＝</p>`);
         formulab.insertAdjacentHTML('beforeend',
-            `<form name = "answer_form" onsubmit="return answer_text_return()"><input type="text" name = "answer_check_text" autocomplete="off"><form>`);
+            `<form name = "answer_form" onsubmit="return answer_text_return()">答え：<input type="text" name = "answer_check_text" autocomplete="off"><form>`);
+        if (operators[0] === "÷") {
+            formulab.insertAdjacentHTML('beforeend',
+            `<form name = "remainder_form" onsubmit="return answer_text_return()">あまり：<input type="text" name = "remainder_check_text" autocomplete="off"><form>`);
+        }
         formulab.insertAdjacentHTML('beforeend',
-            `<p class = "formulaParts input-answer" >答え：${answer}</p>`);
+            `<p class = "formulaParts input-answer" >答え：${answer} あまり：${remainder_item}</p>`);
         formulab.insertAdjacentHTML('beforeend',
             `<p class = "formulaParts correct">正解！</p>`);
         fragmentb.appendChild(formulab);
@@ -206,6 +230,7 @@ const conditionEnter_onclick = () => {
 
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
     operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
+    remainder = getCheckedRadioButton(document.remainder.aquisitionRemainder);
     numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
     
     switch (formulaNumber) {
@@ -233,7 +258,7 @@ const conditionEnter_onclick = () => {
             break;
     };
 
-    createFormula(formulaNumber, operatorType, numberSize);
+    createFormula(formulaNumber, operatorType, numberSize, remainder);
 };
 
 const grade_data = [
@@ -308,7 +333,9 @@ var mySwiper = new Swiper ('.swiper-container', {
 //答え合わせ
 const answer_check = () => {
     let user_answer = [];
+    let user_remainder = [];
     let answer_check_text = document.getElementsByName("answer_form");
+    let remainder_check_text = document.getElementsByName("remainder_form");
     let correct = document.getElementsByClassName("correct");
     let input_answer = document.getElementsByClassName("input-answer");
     
@@ -323,15 +350,26 @@ const answer_check = () => {
         
     });
 
-    console.log(user_answer);
-    console.log(answers);
+    remainder_check_text.forEach((remainder) => {
+        let get_remainder = remainder.remainder_check_text.value;
 
+        if(get_remainder == ""){
+            get_remainder = 0;
+        }
+
+        user_remainder.push(get_remainder);
+    }); 
+
+    console.log(user_remainder);
+    console.log(remainders);
+    
     let point = 0;
 
     for (let i = 0; i < user_answer.length; i++) {
-        if (user_answer[i] == answers[i]) {
+        if (user_answer[i] == answers[i] && user_remainder[i] == remainders[i]) {
             correct[i].style.display = "inline-block";
             point++;
+            console.log("正解");
         } else {
             input_answer[i].style.display = "inline-block";
         };
@@ -345,9 +383,11 @@ const resolve_answer_click = () => {
     let answer_check_text = document.getElementsByName("answer_check_text");
     let correct = document.getElementsByClassName("correct");
     let input_answer = document.getElementsByClassName("input-answer");
+    let remainder_check_text = document.getElementsByName("remainder_check_text");
 
     for (let i = 0; i < answer_check_text.length; i++) {
         answer_check_text[i].value = "";
+        remainder_check_text[i].value = "";
         console.log(answer_check_text[i].value);
         correct[i].style.display = "none";
         input_answer[i].style.display = "none";
