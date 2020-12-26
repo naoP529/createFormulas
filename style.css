@@ -350,6 +350,7 @@ html {
 
 .numberSize-item {
   display: inline-block;
+  margin-left: 3%;
 }
 
 .condition-title {
@@ -539,6 +540,27 @@ html {
 
 .formula-input {
   border-radius: 0.2% 0 0 0.2%;
+}
+
+.NumberSize_div {
+  display: inline-block;
+  width: 34%;
+  margin-left: 3%;
+}
+
+.number_title {
+  font-family: "Noto Sans JP", sans-serif;
+  text-align: center;
+  font-weight: 100;
+  font-size: 2em;
+  margin: 4% 0;
+}
+
+.and {
+  font-family: "Noto Sans JP", sans-serif;
+  display: inline-block;
+  font-size: 2.5em;
+  font-weight: 100;
 }
 /* 条件設定画面のスタイルここまで */
 

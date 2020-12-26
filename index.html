@@ -201,26 +201,51 @@
             <form name = "numberSize" id = "numberSize" class = "condition">
                 <h1 class = "condition-title numberSize-item black-title numberSize-title">ケタ
                     <span data-ruby="すう">数</span>を<span data-ruby="してい">指定</span></h1>
-                <input id = "numberSize-1" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=9>
-                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-1">
-                    1ケタ
-                </label>
-                <input id = "numberSize-2" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=99  >
-                <label class = "condision-selected black numberSize-item condition-button-numberSize" for="numberSize-2">
-                    2ケタ
-                </label>
-                <input id = "numberSize-3" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=999  >
-                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-3">
-                    3ケタ
-                </label>
-                <input id = "numberSize-4" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value=9999  >
-                <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="numberSize-4">
-                    4ケタ
-                </label>
-                <input id = "numberSize-random" type="radio" name = "aquisitionNumberSizes" class = "condition-button numberSize-item" value = "random"  >
-                <label class = "condision-selected black numberSize-item  condition-button-numberSize numberSize-button-random " for="numberSize-random">
-                    ランダム
-                </label>
+
+                <div class="NumberSize_div">
+                    <h2 class="firstNumber_title number_title">1つ目の数</h2>
+
+                    <input id = "firstNumberSize-1" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=9>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-1">
+                        1ケタ
+                    </label>
+                    <input id = "firstNumberSize-2" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=99  >
+                    <label class = "condision-selected black numberSize-item condition-button-numberSize" for="firstNumberSize-2">
+                        2ケタ
+                    </label>
+                    <input id = "firstNumberSize-3" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=999  >
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-3">
+                        3ケタ
+                    </label>
+                    <input id = "firstNumberSize-4" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=9999  >
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-4">
+                        4ケタ
+                    </label>
+                </div>
+
+                <h3 class="and">と</h3>
+
+                <div class="NumberSize_div">
+                    <h2 class="secondNumber_title number_title">2つ目の数</h2>
+
+                    <input  id = "secondNumberSizi-1" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value="9">
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-1">
+                        1ケタ
+                    </label>
+                    <input  id = "secondNumberSizi-2" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value="99">
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-2">
+                        2ケタ
+                    </label>
+                    <input  id = "secondNumberSizi-3" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value="999">
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-3">
+                        3ケタ
+                    </label>
+                    <input  id = "secondNumberSizi-4" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value="9999">
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-4">
+                        4ケタ
+                    </label>
+                </div>
+
             </form>
             <a href="#formulas-link" type="button" class = "conditionsButton" onclick="conditionEnter_onclick();">決定！</a>
         </div>

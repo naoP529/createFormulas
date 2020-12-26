@@ -91,12 +91,18 @@ let answers = [];
 let remainders = [];
 
 //条件に合わせて計算問題を作成する
-const createFormula = (formulaNumber, operatorType, numberSize, remainder) => {
+const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder) => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
     for (let i= 0; i < remove_formula.length; i++) {
         remove_formula[i].remove();
     }
+
+    console.log(formulaNumber);
+    console.log(operatorType);
+    console.log(firstNumberSize);
+    console.log(secondNumberSize);
+    console.log(remainder);
 
     answers.length = 0;
     remainders.length = 0;
@@ -108,11 +114,10 @@ const createFormula = (formulaNumber, operatorType, numberSize, remainder) => {
         //数と演算子を作成する
         let operators = [];
         let numbers = [];
-        for (let i = 0; i < 2; i++) {
-            let randomNumber = Math.floor(Math.random() * numberSize) + 1;
 
-            numbers.push(randomNumber);
-        }
+        numbers.push(Math.floor(Math.random() * firstNumberSize) + 1);
+        numbers.push(Math.floor(Math.random() * secondNumberSize) + 1);
+
         let randomOperator = operatorType[Math.floor(Math.random() * operatorType.length)];
         operators.push(randomOperator);
 
@@ -144,19 +149,46 @@ const createFormula = (formulaNumber, operatorType, numberSize, remainder) => {
                     numbers[1] = x;
                 };
                 
-                if (numbers[0] % numbers[1] === 0) {
-                    answer = numbers[0] / numbers[1];
+                // if (numbers[0] % numbers[1] === 0) {
+                //     answer = numbers[0] / numbers[1];
 
-                } else if(remainder === "remainder_on") {
-                    answer = Math.floor(Math.random() * numberSize) + 1;
-                    remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
-                    numbers[0] = answer * numbers[1] + remainder_item;
-                } else {
-                    answer = Math.floor(Math.random() * numberSize) + 1;
-                    let newnumbers0 = numbers[1] * answer;
-                    numbers[0] = newnumbers0;
+                // } else if(remainder === "remainder_on") {
+                //     answer = Math.floor(Math.random() * numberSize) + 1;
+                //     remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
+                //     numbers[0] = answer * numbers[1] + remainder_item;
+                // } else {
+                //     answer = Math.floor(Math.random() * numberSize) + 1;
+                //     let newnumbers0 = numbers[1] * answer;
+                //     numbers[0] = newnumbers0;
                     
-                };
+                // };
+
+                switch(remainder) {
+                    case "remainder_on":
+
+                        if(numbers[0] % numbers[1] === 0) {
+                            answer = numbers[0] / numbers[1];
+                            remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
+                            numbers[0] = answer + remainder_item;
+                        } else {
+                            answer = Math.floor(numbers[0] / numbers[1]);
+                            remainder_item = numbers[0] % numbers[1];
+                        }
+
+                        break;
+
+                    case  "remainder_none":
+
+                        if(numbers[0] % numbers[1] === 0) {
+                            answer = numbers[0] % numbers[1];
+                        } else {
+                            answer = Math.floor(numbers[0] / numbers[1]);
+                            numbers[0] = answer * numbers[1]; 
+                        }
+                        
+                        break;
+                }
+
                 break;
         }
         if (remainder_item === null) {
@@ -231,7 +263,8 @@ const conditionEnter_onclick = () => {
     formulaNumber = getCheckedRadioButton(document.formulaNumber.acquisitionFormulas);
     operatorType = getCheckedCheckbox(document.operatorType.aquisitionOperators);
     remainder = getCheckedRadioButton(document.remainder.aquisitionRemainder);
-    numberSize = getCheckedRadioButton(document.numberSize.aquisitionNumberSizes);
+    firstNumberSize = getCheckedRadioButton(document.numberSize.firstAquisitionNumberSizes);
+    secondNumberSize = getCheckedRadioButton(document.numberSize.secondAquisitionNumberSizes);
     
     switch (formulaNumber) {
         case "random":
@@ -245,20 +278,28 @@ const conditionEnter_onclick = () => {
             formulaNumber = document.forms.formulaNumber.inputformulaNumber.value;
             break;
     };
-    
-    switch (numberSize) {
-        case "random":
-            let numbers = [9, 99, 999, 9999];
-            let rondomNumberSize = numbers[Math.floor(Math.random() * numbers.length)];
-            numberSize = rondomNumberSize;
-            break;
-        
-        case "input":
-            numberSize = document.forms.numberSize.inputNumberSize.value;
-            break;
-    };
 
-    createFormula(formulaNumber, operatorType, numberSize, remainder);
+    if(formulaNumber === null) {
+        alert("問題数を指定してください");
+    }
+    
+    if(operatorType.length === 0) {
+        alert("演算子を指定してください");
+    }
+    
+    if(remainder === null) {
+        alert("あまりを指定してください");
+    }
+    
+    if(firstNumberSize === null) {
+        alert("一つ目の数のケタ数を指定してください");
+    }
+    
+    if(secondNumberSize === null) {
+        alert("2つ目の数のケタ数を指定してください");
+    }
+ 
+    createFormula(formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder);
 };
 
 const grade_data = [
