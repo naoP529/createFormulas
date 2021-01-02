@@ -15,11 +15,11 @@ const onclick_acquisitionFormulas = () =>  {
         document.formulaNumber["freeDesignationformula"]. disabled = true;
     };
 };
-window.onload = onclick_acquisitionFormulas();
 
 let formulaNumber = null;
 let operatorType = null;
-let numberSize = null;
+let firstNumberSize = null;
+let secondNumberSize = null;
 let remainder = null;
 
 // どのラジオボタンが選択されているかを取得する
@@ -90,22 +90,30 @@ input_mode_botton.addEventListener("click", () => {
 let answers = [];
 let remainders = [];
 
+const numberSize = [
+    {max:9, minimum:0},
+    {max:99, minimum:10},
+    {max:999, minimum:100},
+    {max:9999, minimum:1000}
+];
+
 //条件に合わせて計算問題を作成する
-const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder) => {
+const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder, level) => {
     let remove_formula = document.getElementsByClassName('formula');
     remove_formula = Array.from(remove_formula);
     for (let i= 0; i < remove_formula.length; i++) {
         remove_formula[i].remove();
     }
 
-    console.log(formulaNumber);
-    console.log(operatorType);
-    console.log(firstNumberSize);
-    console.log(secondNumberSize);
-    console.log(remainder);
-
     answers.length = 0;
     remainders.length = 0;
+
+    let firstMaxNumber = numberSize[firstNumberSize].max;
+    let firstMinimumNumber = numberSize[firstNumberSize].minimum;
+    let secondMaxNumber = numberSize[secondNumberSize].max;
+    let secondMinimumNumber = numberSize[secondNumberSize].minimum;
+
+    console.log(firstMaxNumber, firstMinimumNumber, secondMaxNumber, secondMinimumNumber)
 
     const fragment = document.createDocumentFragment();
     const fragmentb = document.createDocumentFragment();
@@ -115,11 +123,23 @@ const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumbe
         let operators = [];
         let numbers = [];
 
-        numbers.push(Math.floor(Math.random() * firstNumberSize) + 1);
-        numbers.push(Math.floor(Math.random() * secondNumberSize) + 1);
-
         let randomOperator = operatorType[Math.floor(Math.random() * operatorType.length)];
         operators.push(randomOperator);
+
+        numbers.push(Math.floor(Math.random() * (firstMaxNumber + 1 - firstMinimumNumber)) + firstMinimumNumber);
+        if(level === "not") {
+            numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+        } else if(randomOperator === "÷") {
+            switch (secondNumberSize) {
+                case 1:
+                    numbers.push(Math.floor(Math.random() * 10) + 1);
+                    break;
+                case 3:
+                    numbers.push(Math.floor(Math.random() * 1000) + 10);
+            }
+        } else {
+            numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+        }
 
         // 答えを計算する
         let answer = null;
@@ -148,20 +168,10 @@ const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumbe
                     numbers[0] = numbers[1];
                     numbers[1] = x;
                 };
-                
-                // if (numbers[0] % numbers[1] === 0) {
-                //     answer = numbers[0] / numbers[1];
 
-                // } else if(remainder === "remainder_on") {
-                //     answer = Math.floor(Math.random() * numberSize) + 1;
-                //     remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
-                //     numbers[0] = answer * numbers[1] + remainder_item;
-                // } else {
-                //     answer = Math.floor(Math.random() * numberSize) + 1;
-                //     let newnumbers0 = numbers[1] * answer;
-                //     numbers[0] = newnumbers0;
-                    
-                // };
+                if (numbers[1] === 0) {
+                    numbers[1] = 1
+                }
 
                 switch(remainder) {
                     case "remainder_on":
@@ -299,16 +309,16 @@ const conditionEnter_onclick = () => {
         alert("2つ目の数のケタ数を指定してください");
     }
  
-    createFormula(formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder);
+    createFormula(formulaNumber, operatorType, firstNumberSize, secondNumberSize, remainder, "not");
 };
 
 const grade_data = [
-    {formulaNumber:20, operatorType:["＋", "ー"], numberSize:9},
-    {formulaNumber:30, operatorType:["＋", "ー", "×"], numberSize:9},
-    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
-    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
-    {formulaNumber:50, operatorType:["＋", "ー", "×", "÷"], numberSize:99},
-    {formulaNumber:100, operatorType:["＋", "ー", "×", "÷"], numberSize:9999},
+    {formulaNumber:20, operatorType:["＋", "ー"], firstNumberSize:0, secondNumberSize:0, remainder:"remainder_none"},
+    {formulaNumber:30, operatorType:["＋", "ー", "×"], firstNumberSize:0, secondNumberSize:0, remainder:"remainder_none"},
+    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], firstNumberSize:1, secondNumberSize:1, remainder:"remainder_none"},
+    {formulaNumber:40, operatorType:["＋", "ー", "×", "÷"], firstNumberSize:1, secondNumberSize:1, remainder:"remainder_on"},
+    {formulaNumber:50, operatorType:["＋", "ー", "×", "÷"], firstNumberSize:1, secondNumberSize:1, remainder:"remainder_on"},
+    {formulaNumber:100, operatorType:["＋", "ー", "×", "÷"], firstNumberSize:3, secondNumberSize:3, remainder:"remainder_on"},
 ];
 
 
@@ -321,7 +331,10 @@ grades.forEach((grade) => {
       index = [].slice.call(grades).indexOf(grade);
       createFormula(grade_data[index].formulaNumber,
                     grade_data[index].operatorType,
-                    grade_data[index].numberSize);
+                    grade_data[index].firstNumberSize,
+                    grade_data[index].secondNumberSize,
+                    grade_data[index].remainder,
+                    "level");
     });
 });
 
@@ -437,6 +450,7 @@ const resolve_answer_click = () => {
 
 //計算問題の部分を隠す
 window.onload = function() {
+    onclick_acquisitionFormulas();
     document.getElementById("problem").style.display = "none";
     document.getElementById("answer_check_button").style.display = "none";
     document.getElementById("resolve_answer").style.display = "none";

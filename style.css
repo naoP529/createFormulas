@@ -648,8 +648,8 @@ html {
 
 .condition-grade {
   display: block;
-  margin: 9.7% 0 5% 10%;
-  font-size: 2em;
+  margin: 9.7% 0 0 10%;
+  font-size: 1.8em;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 100;
   width: 10vw;
@@ -672,7 +672,7 @@ html {
 .set-condition {
   display: block;
   margin: 5.5% 0 0 5%;
-  font-size: 2em;
+  font-size: 1.8em;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
   width: 17vw;
