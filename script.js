@@ -127,16 +127,31 @@ const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumbe
         operators.push(randomOperator);
 
         numbers.push(Math.floor(Math.random() * (firstMaxNumber + 1 - firstMinimumNumber)) + firstMinimumNumber);
-        if(level === "not") {
-            numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
-        } else if(randomOperator === "÷") {
-            switch (secondNumberSize) {
-                case 1:
-                    numbers.push(Math.floor(Math.random() * 10) + 1);
-                    break;
-                case 3:
-                    numbers.push(Math.floor(Math.random() * 1000) + 10);
-            }
+        // if(level === "not") {
+        //     numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+        // } else if(randomOperator === "÷") {
+        //     switch (secondNumberSize) {
+        //         case 1:
+        //             numbers.push(Math.floor(Math.random() * 10) + 1);
+        //             break;
+        //         case 3:
+        //             numbers.push(Math.floor(Math.random() * 1000) + 10);
+        //     }
+        // } else {
+        //     numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+        // }
+
+        if(level === "level" && randomOperator === "÷") {
+            let probability = Math.random();
+            if(probability < 0.35) {
+                numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+            } else {
+                if(secondNumberSize < 1) {
+                    numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
+                } else {
+                    numbers.push(Math.floor(Math.random() * (numberSize[secondNumberSize - 1].max + 1 - numberSize[secondNumberSize - 1].minimum) + numberSize[secondNumberSize - 1].minimum));
+                }
+            } 
         } else {
             numbers.push(Math.floor(Math.random() * (secondMaxNumber + 1 - secondMinimumNumber)) + secondMinimumNumber);
         }
@@ -170,16 +185,27 @@ const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumbe
                 };
 
                 if (numbers[1] === 0) {
-                    numbers[1] = 1
+                    numbers[1] = 1;
                 }
 
+                if (numbers[1] === 1) {
+                    let probability = Math.random(); 
+                    
+                    if (probability < 0.1) {
+                        numbers[1] === 1
+                    } else {
+                        numbers[1] = Math.floor(Math.random() * 8) + 2;
+                        answer = Math.floor(Math.random() * 8) + 2;
+                    }
+                }
+                
                 switch(remainder) {
                     case "remainder_on":
 
                         if(numbers[0] % numbers[1] === 0) {
                             answer = numbers[0] / numbers[1];
                             remainder_item = Math.floor(Math.random() * (numbers[1] - 1)) + 1;
-                            numbers[0] = answer + remainder_item;
+                            numbers[0] = answer * numbers[1] + remainder_item;
                         } else {
                             answer = Math.floor(numbers[0] / numbers[1]);
                             remainder_item = numbers[0] % numbers[1];
@@ -190,10 +216,12 @@ const createFormula = (formulaNumber, operatorType, firstNumberSize, secondNumbe
                     case  "remainder_none":
 
                         if(numbers[0] % numbers[1] === 0) {
-                            answer = numbers[0] % numbers[1];
+                            answer = numbers[0] / numbers[1];
+                            console.log(`あまりなし,割り切れる${answer}, ${numbers[0]}, ${numbers[1]}`);
                         } else {
                             answer = Math.floor(numbers[0] / numbers[1]);
                             numbers[0] = answer * numbers[1]; 
+                            console.log(`あまりなし,割り切れない${answer}, ${numbers[0]}, ${numbers[1]}`);
                         }
                         
                         break;
