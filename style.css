@@ -19,6 +19,10 @@ html {
   height: 100vh;
 }
 
+#print_header {
+  display: none;
+}
+
 .main-title {
   position: absolute;
   top: 22%;
@@ -327,8 +331,10 @@ html {
   font-weight: 400;
 }
 
+
+
 .condition {
-  height: 21%;
+  height: 20%;
 }
 
 .condision-selected {
@@ -355,10 +361,41 @@ html {
 
 .condition-title {
   margin-top: 3%;
-  margin-left: 2.8%;
+  margin-left: 2%;
   font-size: 2.8em;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
+}
+
+.answer_title {
+  font-size: 1.5em;
+  display: inline;
+}
+
+.answer_label {
+  font-size: 1.8em;
+  padding: 0 1%;
+  margin-left: 0.5%;
+}
+
+#answer_form {
+  display: inline-block;
+  width: 30%;
+}
+
+#decimals_form {
+  background: none;
+  border-radius: 5%;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1em;
+  border-radius: 5%;
+  color: black;
+  border-color: white;
+}
+
+#decimals_form:disabled {
+  opacity: 0.3;
+  background-color: gray;
 }
 
 .condition-main-title [data-ruby] {
@@ -389,6 +426,11 @@ html {
   margin: auto;
   font-size: 0.45em;
   width: 100%;
+}
+
+.operator-title {
+  margin-left:4.5%;
+  margin-top: 5%;
 }
 
 .white-title {
@@ -459,7 +501,7 @@ html {
 }
 
 .condition-label-operator {
-  padding: 0 2%;
+  padding: 0 3%;
 }
 
 .formula-button:checked + .condition-button-formula {
@@ -484,21 +526,23 @@ html {
 }
 
 .calculation {
+  height: 15%;
   width: 100%;
   background-color: #55a5ff;
 }
 
 #operatorType {
   position: relative;
-  width: 65%;
+  width: 40%;
   display: inline-block;
+  height: 100%;
 }
 
 .operator-all {
   position: absolute;
-  top: 32%;
+  top: 35%;
   padding: 0.15% 1.5%;
-  left: 75%;
+  left: 225%;
   border-radius: 0.2em;
   display: block;
   color: #00ced1;
@@ -523,10 +567,14 @@ html {
   outline: 0;
 }
 
-#remainder {
+#numberSize {
+  height: 35%;
+}
+
+.remainder {
   margin: none;
   display: inline-block;
-  width: 25%;
+  width: 22%;
 }
 
 .remainder-label {
@@ -544,16 +592,23 @@ html {
 
 .NumberSize_div {
   display: inline-block;
-  width: 34%;
+  width: 40%;
   margin-left: 3%;
+}
+
+.numberSize-title {
+  display: block;
+  margin: 0;
+  padding-top: 1%;
+  text-align: center;
 }
 
 .number_title {
   font-family: "Noto Sans JP", sans-serif;
   text-align: center;
-  font-weight: 100;
   font-size: 2em;
-  margin: 4% 0;
+  display: inline-block;
+  font-weight: 100;
 }
 
 .and {
@@ -561,6 +616,20 @@ html {
   display: inline-block;
   font-size: 2.5em;
   font-weight: 100;
+}
+
+.decimals-title {
+  font-weight: 100;
+  font-family: "Noto Sans JP", sans-serif;
+  display: inline-block;
+  font-size:1.8em;
+}
+
+.decimals {
+  width: 50%;
+  margin-left: 5%;
+  margin-top: 0.5%;
+  display: inline-block;
 }
 /* 条件設定画面のスタイルここまで */
 
@@ -576,6 +645,17 @@ html {
   font-size: 4.2em;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
+}
+
+.div-title {
+  margin: 0;
+  padding: 1% 0 1% 0%;
+  font-size: 2em;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin:0 2%;
+  border-bottom: solid 1px black;
 }
 
 .grade-title [data-ruby] {
@@ -594,19 +674,67 @@ html {
 }
 
 .selected-grade {
-  position: relative;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size:1.2em;
+  width: 40%;
+  margin:1% 0 0 5%;
   display: inline-block;
-  margin: 0 0 2% 4%;
-  height: 35%;
-  width: 28%;
-  background-color: darkseagreen;
-  border-radius: 0.4em;
-  transition: opacity 0.3s;
+  font-weight: 300;
+  transition: 0.05s;
+}
+
+@keyframes rotate {
+  from {
+    transform:rotate(45deg);
+    background-color: black;
+    left: -2%;
+  } to {
+    transform:rotate(0);
+    background-color: none;
+    left: -1%;
+  }
+}
+
+.selected-grade::before {
+  content: "";
+  display:  inline-block;  
+  width: 10px;
+  height: 10px;
+  border: solid 0.5px black;
+  position: relative;
+  top: -100%;
+  left: -1%;
+  animation-name: rotate;
+  animation-timing-function:ease-in-out;
+  animation-duration:0.1s;
+  animation-iteration-count:1;
 }
 
 .selected-grade:hover {
-  opacity: 0.7;
+  font-weight: 600;
   cursor: pointer;
+}
+
+.selected-grade:hover::before{
+  opacity: 1;
+  cursor: pointer;
+  animation-name: rotate-hover;
+  animation-timing-function:ease-in-out;
+  animation-duration:0.3s;
+  animation-iteration-count:1;
+  animation-fill-mode:forwards;
+}
+
+@keyframes rotate-hover {
+  form {
+    transform:rotate(0);
+    background-color: none;
+    left: -1%;
+  } to {  
+    transform:rotate(45deg);
+    background-color: black;
+    left: -3%;
+  }
 }
 
 .selected-grade div {
@@ -644,6 +772,17 @@ html {
   right: 0;
   margin: auto;
   font-size: 0.4em;
+}
+
+.grade-div {
+  display: inline-block;
+  vertical-align:top;
+  width: 43%;
+  height: 25%;
+  margin: 0.5% 3%;
+  border-radius: 15px;
+  border: solid 2px black;
+  background:none;
 }
 
 .condition-grade {
@@ -693,38 +832,59 @@ html {
 }
 
 .grade1 {
-  background-color: #60eeff;
+  border-color: deepskyblue;
+}
+  
+.grade1-title{
+  border-color: deepskyblue;
+  color: deepskyblue;
 }
 
 .grade2 {
-  background-color: #78ff94;
+  border-color: rgb(105, 207, 65);
+}
+  
+.grade2-title{
+  border-color:  rgb(105, 207, 65);
+  color: rgb(105, 207, 65);
 }
 
 .grade3 {
-  background-color: #ffff44;
+  border-color: rgb(182, 192, 46);
+}
+  
+.grade3-title{
+  border-color: rgb(182, 192, 46);
+  color: rgb(182, 192, 46);
 }
 
-.grade45 {
-  background-color: #ff5f17;
+.grade4{
+  border-color: rgb(250, 151, 3);
+}
+  
+.grade4-title{
+  border-color: rgb(250, 151, 3);
+  color: rgb(250, 151, 3);
+}
+
+.grade5 {
+  border-color: rgb(185, 16, 16);
+}
+  
+.grade5-title{
+  border-color: rgb(185, 16, 16);
+  color: rgb(185, 16, 16);
 }
 
 .grade6 {
-  background-color: #bb0000;
+  border-color: rgb(153, 10, 209);
+}
+  
+.grade6-title{
+  border-color: rgb(153, 10, 209);
+  color:rgb(153, 10, 209);
 }
 
-.grade-max {
-  background-color: #330033;
-}
-
-.grade6 h1,
-.grade6 p {
-  color: white;
-}
-
-.grade-max h1,
-.grade-max p {
-  color: white;
-}
 /* レベル選択画面のスタイルここまで */
 
 /* 計算問題表示画面のスタイルここから */
@@ -751,6 +911,11 @@ html {
 
 .check_formula {
   width: 100%;
+}
+
+.remainder_hidden {
+  display: none;
+  visibility:hidden;
 }
 
 .formula-clear {
@@ -957,9 +1122,11 @@ input[name="remainder_check_text"] {
 footer {
   overflow: hidden;
   position: fixed;
-  left: 80%;
+  width: 100%;
   bottom: 2%;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
 }
 
 footer a {
@@ -971,8 +1138,28 @@ footer a:hover {
   opacity: 1;
 }
 
-.arrowForTop {
+.footerIcon {
   width: 20%;
+}
+
+.contacts {
+  display: flex;
+}
+
+.top-a {
+  display: flex;
+  align-items: center;
+}
+
+.contact-icon {
+  width: 15%;
+  height: auto;
+  margin: 0 1rem;
+}
+
+.contact {
+  color: black;
+  text-decoration: none;
 }
 
 .forTop {
@@ -983,53 +1170,5 @@ footer a:hover {
   color: black;
 }
 
-.footerItem {
-  float: right;
-}
 /* フッターのスタイルここまで */
 
-/* 印刷時のスタイルここから */
-@media print {
-  #contents {
-    display: none;
-  }
-
-  #selection-screen {
-    display: none;
-  }
-
-  #conditions {
-    display: none;
-  }
-
-  #select-Grade {
-    display: none;
-  }
-
-  #formulas-header {
-    display: none;
-  }
-
-  #formulas {
-    margin: 0;
-  }
-
-  .formula {
-    width: 50%;
-  }
-
-  .formulas-title {
-    font-size: 30px;
-  }
-
-  .formulas-title [data-ruby]::before {
-    font-size: 15px;
-    top: -12px;
-  }
-
-  .formulaParts {
-    font-size: 25px;
-    margin-left: 20px;
-  }
-}
-/* 印刷時のスタイルここまで */

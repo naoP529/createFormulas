@@ -130,7 +130,7 @@
     } 
 
     .condition {
-        height: 26%;
+        height: 15%;
     }
 
     .condition-title {
@@ -139,6 +139,11 @@
         padding-top: 2%;
         margin-left: 33%;
         margin-bottom: 1%;
+        font-size: 2.2em;
+    }
+
+    #numberSize {
+        height: 40%;
     }
 
     .condition-title [data-ruby]::before {
@@ -146,14 +151,9 @@
     }
 
     .condision-selected {
-        margin: 0 0 2% 0;
-        padding-left: 0;
+        margin: 0 0 0 1%;
+        padding:0 3%;
         box-sizing: border-box;
-        width: 24%;
-    }
-
-    .formula-input {
-        margin-left: 25%;
     }
 
     .formula-text {
@@ -161,13 +161,15 @@
     }
 
     .condition-label-operator {
-        padding: 0 7.5%;
+        padding: 0 3%;
+        font-size: 2em;
     }
 
     .operator-all {
-        top: 65%;    
-        left: 35%;
-        padding:0 5%;
+        top: 30%;    
+        left: 78%;
+        padding:0 1%;
+        font-size: 1.5em;
     }
 
     .condition-button-numberSize  {
@@ -195,45 +197,103 @@
     .operator-all:hover {
         opacity: 1;
     } 
+
+    #operatorType {
+        width: 100%;
+        height: 50%;
+    }
+
+    .operator-title {
+        display: inline-block;
+        margin: 0;
+    }
+
+    #remainder {
+        width: 40%;
+        height: 50%;
+    }
+
+    .remainder-title {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    #answer_form {
+        width: 55%;
+        height: 50%;
+        margin: 0;
+    }
+
+    .answer_label {
+        font-size: 1.2em;
+    }
+
+    .answer_title {
+        display: inline-block;
+        margin: 0;
+        font-size: 1.5em;
+    }
+
+    #decimals_form {
+        font-size: 0.8em;
+        width: auto;
+    }
+    
+    .numberSize-title {
+        margin: 0%;
+        text-align: center;
+    }
+
+    .NumberSize_div {
+        width: 100%;
+    }
+
+    .decimals {
+        width: 100%;
+    }
+
+    .number_title {
+        font-size: 1.5em;
+    }
+
+    .decimals-title {
+        font-size:1.5em;
+    }
+
+    .condition-button-numberSize {
+        font-size: 1.3em;
+        width: 15%;
+        padding: 0.5% 3%;
+    }
     /* 条件設定画面のスタイルここまで */
 
     /* レベル選択画面のスタイルここから */
     /* #select-Grade {
         background-color: thistle;
     } */
-
-    .grade-title{
-        font-size: 3.5em;
-        margin-bottom: 1%;
+    #select-Grade {
+        height: auto;
     }
 
-    .selected-grade {
-        width:46.5%;
-        height: 25%;
-        margin: 0 0 6.5% 2%;
+    .grade-div {
+        box-sizing:border-box;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 5%;
+        height: auto;
+        border-radius: 3%;
     }
 
-    .selected-grade:hover [
-        opacity: 1;
-    ] 
-
-    .selected-grade-title {
+    .div-title {
         font-size: 2em;
     }
 
-    .condition-grade {
-        width: 11vh;
-        font-size: 1.8em;
-    }
-
-    .condition-grade-div {
-        display: inline;
-    }
-
-    .set-condition {
-        font-size: 1.8em;
-        margin:5% 0 0 0;
-        width: 20vh;
+    .selected-grade {
+        width: 100%;
+        margin: 1% 0;
+        font-size: 1.5em;
+        margin-left: 5%;
     }
     /* レベル選択画面のスタイルここまで */
 
@@ -281,15 +341,19 @@
         font-size: 1.8em;
         padding: 1.5% 5%;
     }
+
+    .formulaParts {
+        font-size: 1.5em;
+    }
     /* 計算問題表示画面のスタイルここまで */
 
     /* フッターのスタイルここから */
-    footer {
-        left:70%
+    .footerItem {
+        font-size: 2rem;
     }
 
-    .arrowForTop {
-        width: 25%;
+    .forTop {
+        font-size: 2rem;
     }
     /* フッターのスタイルここまで */
 }

@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
         <meta name="description" content="2つの数の計算問題を自動で作成できます。条件を設定して自分に合った問題を作るか、設定済みの条件から選んで作成しましょう。答えはすべて整数になり、答え合わせもできます。"/>
+        <meta name="Keywords" content="計算問題, 学習指導要領, 自動作成, 小学校, 算数, 足し算, たしざん, たし算, 引き算, ひき算, ひきざん, かけ算, 割り算, わり算, あまり, 小数, 条件, 指定, 整数, 計クリ, 学年別, 計算, ドリル, 無料">
         <title>計クリ</title>
         <link rel="canonical" href="https://naop529.github.io/createFormulas/">
         <!-- アイコン設定 -->
@@ -17,7 +18,7 @@
         <!-- OGP設定 -->
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://naop529.github.io/createFormulas/" />
-        <meta property="og:image" content=https://drive.google.com/file/d/1uzmzn_QwLEtVHXCmcwxap74U3qGEef1B/view?usp=sharing"/>
+        <meta property="og:image" content="https://drive.google.com/file/d/1uzmzn_QwLEtVHXCmcwxap74U3qGEef1B/view?usp=sharing"/>
         <meta property="og:title" content="計算問題を自動作成　－計クリ－"/>
         <meta property="og:description" content="条件を設定して自分に合った問題を作るか、設定済みの6つの条件から選んで2つの数の計算問題を作成しましょう。答えはすべて整数になり、答え合わせもできます。">
           <!-- Facebook用設定 -->
@@ -32,6 +33,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="responsive_tablet.css">
         <link rel="stylesheet" href="responsive_smartphone.css">
+        <link rel="stylesheet" type="text/css" media="print" href="print.css">
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-6XPP5D0NW2"></script>
         <script>
@@ -165,8 +167,8 @@
                 <input type="text" name="freeDesignationformula" class = "formula-text" id = "inputformulaNumber" value="">
             </form>
             <div class="calculation">
-                <form name = "operatorType" id = "operatorType" class = "condition">
-                    <h1 class = "condition-title operator-item white-title">
+                <form name = "operatorType" id = "operatorType" class = "condition operator-div">
+                    <h1 class = "condition-title operator-title operator-item white-title">
                         <span data-ruby="えんざんし">演算子</span>を<span data-ruby="してい">指定</span></h1>
                     <input id = "add" type="checkbox" name="aquisitionOperators" class = "condition-button-black condition-button operator-button" value = "＋">
                     <label class = "condision-selected  white operator-item addition condition-label-operator" for="add">
@@ -186,7 +188,7 @@
                     </label>
                     <input class ="operator-all" type = "button" onclick="operatorSetAll();" value="すべて選択">
                 </form>
-                <form name="remainder" id = "remainder" class="condition">
+                <form name="remainder" id = "remainder" class="condition operator-div remainder">
                     <h1 class="condition-title white-title remainder-title">あまり</h1>
                     <input id = "remainder_select" type="radio" name="aquisitionRemainder" class="operator-button condition-button-black condition-button" value="remainder_on">
                     <label class="condision-selected white operator-item condition-label-black condition-label-operator remainder-label" for="remainder_select">
@@ -197,6 +199,24 @@
                         なし
                     </label>
                 </form> 
+                <form name="answer_form" id = "answer_form" class="condition operator-div">
+                    <h1 class="condition-title white-title answer_title">答え</h1>
+                    <input id = "answer-integer" type="radio" name="aquisitionDecimals" class="operator-button condition-button-black condition-button" value="integer" onclick=decimals_form_onclick();>
+                    <label class="condision-selected white operator-item condition-label-black answer_label condition-label-operator" for="answer-integer">
+                        整数
+                    </label> 
+                    <input id="answer-decimals" type="radio" name="aquisitionDecimals" class="operator-button condition-button-black condition-button" value="decimals" onclick=decimals_form_onclick();>
+                    <label class="condision-selected white operator-item condition-label-black answer_label condition-label-operator" for="answer-decimals" >
+                        小数
+                    </label>
+                    <select name="decimals_form" id="decimals_form">
+                        <option value="10">小数第一位</option>
+                        <option value="100">小数第二位</option>
+                        <option value="1000">小数第三位</option>
+                        <option value="10000">小数第四位</option>
+                    </select>
+                </form>
+
             </div>
             
             <form name = "numberSize" id = "numberSize" class = "condition">
@@ -205,45 +225,89 @@
 
                 <div class="NumberSize_div">
                     <h2 class="firstNumber_title number_title">1つ目の数</h2>
-
-                    <input id = "firstNumberSize-1" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=0>
-                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-1">
-                        1ケタ
-                    </label>
-                    <input id = "firstNumberSize-2" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=1>
-                    <label class = "condision-selected black numberSize-item condition-button-numberSize" for="firstNumberSize-2">
-                        2ケタ
-                    </label>
-                    <input id = "firstNumberSize-3" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=2>
-                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-3">
-                        3ケタ
-                    </label>
                     <input id = "firstNumberSize-4" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=3>
                     <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-4">
                         4ケタ
                     </label>
+                    <input id = "firstNumberSize-3" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=2>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-3">
+                        3ケタ
+                    </label>     
+                    <input id = "firstNumberSize-2" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=1>
+                    <label class = "condision-selected black numberSize-item condition-button-numberSize" for="firstNumberSize-2">
+                        2ケタ
+                    </label>                                   
+                    <input id = "firstNumberSize-1" type="radio" name = "firstAquisitionNumberSizes" class = "condition-button numberSize-item" value=0>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberSize-1">
+                        1ケタ
+                    </label>
                 </div>
 
-                <h3 class="and">と</h3>
+                <div class = "decimals">
+                    <h3 class = "decimals-title">小数</h3>
+                    <input id="firstNumberDecimals_none" type="radio" name="firstDecimals" class="numberSize-item condition-button" value=1>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberDecimals_none">
+                        整数
+                    </label>
+                    <input id="firstNumberDecimals_1" type="radio" name="firstDecimals" class="numberSize-item condition-button" value=10>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberDecimals_1">
+                        第一位
+                    </label>
+                    <input id="firstNumberDecimals_2" type="radio" name="firstDecimals" class="numberSize-item condition-button" value=100>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberDecimals_2">
+                        第二位
+                    </label>
+                    <input id="firstNumberDecimals_3" type="radio" name="firstDecimals" class="numberSize-item condition-button" value=1000>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberDecimals_3">
+                        第三位
+                    </label>
+                    <input id="firstNumberDecimals_4" type="radio" name="firstDecimals" class="numberSize-item condition-button" value=10000>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="firstNumberDecimals_4">
+                        第四位
+                    </label>
+                </div>
 
                 <div class="NumberSize_div">
                     <h2 class="secondNumber_title number_title">2つ目の数</h2>
-
-                    <input  id = "secondNumberSizi-1" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=0>
-                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-1">
-                        1ケタ
-                    </label>
-                    <input  id = "secondNumberSizi-2" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=1>
-                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-2">
-                        2ケタ
+                        <input  id = "secondNumberSizi-4" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=3>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-4">
+                        4ケタ
                     </label>
                     <input  id = "secondNumberSizi-3" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=2>
                     <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-3">
                         3ケタ
                     </label>
-                    <input  id = "secondNumberSizi-4" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=3>
-                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-4">
-                        4ケタ
+                    <input  id = "secondNumberSizi-2" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=1>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-2">
+                        2ケタ
+                    </label>                    
+                    <input  id = "secondNumberSizi-1" type="radio" name="secondAquisitionNumberSizes" class="numberSize-item condition-button" value=0>
+                    <label class = "condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberSizi-1">
+                        1ケタ
+                    </label>
+                </div>
+
+                <div class = "decimals">
+                    <h3 class = "decimals-title">小数</h3>
+                    <input id="secondNumberDecimals_none" type="radio" name="secondDecimals" class="numberSize-item condition-button" value=1>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberDecimals_none">
+                        整数
+                    </label>
+                    <input id="secondNumberDecimals_1" type="radio" name="secondDecimals" class="numberSize-item condition-button" value=10>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberDecimals_1">
+                        第一位
+                    </label>
+                    <input id="secondNumberDecimals_2" type="radio" name="secondDecimals" class="numberSize-item condition-button" value=100>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberDecimals_2">
+                        第二位
+                    </label>
+                    <input id="secondNumberDecimals_3" type="radio" name="secondDecimals" class="numberSize-item condition-button" value=1000>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberDecimals_3">
+                        第三位
+                    </label>
+                    <input id="secondNumberDecimals_4" type="radio" name="secondDecimals" class="numberSize-item condition-button" value=10000>
+                    <label class="condision-selected black numberSize-item  condition-button-numberSize" for="secondNumberDecimals_4">
+                        第四位
                     </label>
                 </div>
 
@@ -255,126 +319,66 @@
             <a id = "select-Grade"></a>
             <h1 class = "grade-title">
                 レベルを<span data-ruby="せんたく">選択</span></h1>
-            <div class = "grade1 selected-grade">
-                <h1 class = "selected-grade-title">
-                    <span data-ruby="しょうがく">小学</span>1<span data-ruby="ねん">年</span></h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
-                </div>
-                <div class = "set-condition-div">
-                    <p class = "set-condition condition-grade-item set1">20<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition condition-grade-item set2">
-                        ＋、－</p>
-                    <p class = "set-condition condition-grade-item set3">1ケタ</p>
-                </div>
+            <div class = "grade1 grade-div">
+                <h1 class = "div-title grade1-title">小学1年</h1>
+                <p class="selected-grade grade1-p">1ケタのたしざん</p>
+                <p class="selected-grade grade1-p">20までのひきざん</p>
+                <p class="selected-grade grade1-p">1年のまとめ</p>   
                 <a href="#formulas-link"></a>
             </div>
-            <div class = "grade2 selected-grade" >
-                <h1 class = "selected-grade-title">
-                    <span data-ruby="しょうがく">小学</span>2<span data-ruby="ねん">年</span></h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade  condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
 
-                </div>
-                <div class = "set-condition-div">
-                    <p class = "set-condition  condition-grade-item set1">30<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition  condition-grade-item long">＋、－、×</p>
-                    <p class = "set-condition  condition-grade-item set3">1ケタ</p>
-                </div>
+            <div class = "grade2 grade-div">
+                <h1 class = "div-title grade2-title">小学2年</h1>
+                <p class="selected-grade">2ケタの足し算</p>
+                <p class="selected-grade">2ケタの引き算</p>  
+                <p class="selected-grade">大きな数の足し算・引き算(1)</p>
+                <p class="selected-grade">大きな数の足し算・引き算(2)</p>
+                <p class="selected-grade">九九</p>
+                <p class="selected-grade">2年のまとめ</p>   
                 <a href="#formulas-link"></a>
             </div>
-            <div class = "grade3 selected-grade" >
-                <h1 class = "selected-grade-title ">
-                    <span data-ruby="しょうがく">小学</span>3<span data-ruby="ねん">年</span></h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
-                    <p class="condition-grade condition-grade-item">あまり</p>
-                </div>
-                <div class = "set-condition-div">
-                    <p class = "set-condition condition-grade-item set1">30<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition condition-grade-item set2">すべて</p>
-                    <p class = "set-condition condition-grade-item set3">2ケタ</p>
-                    <p class="set-condition  condition-grade-item set3">なし</p>
-                </div>
+
+            <div class = "grade3 grade-div">
+                <h1 class = "div-title grade3-title">小学3年</h1>
+                <p class="selected-grade">割り算</p>
+                <p class="selected-grade">あまりのある割り算</p>  
+                <p class="selected-grade">大きな数の足し算・引き算</p>
+                <p class="selected-grade">2ケタ×1ケタの計算</p>
+                <p class="selected-grade">小数の足し算</p>
+                <p class="selected-grade">小数の引き算</p>   
+                <p class="selected-grade">2ケタをかけるかけ算</p>   
+                <p class="selected-grade">3年のまとめ</p>   
                 <a href="#formulas-link"></a>
             </div>
-            <div class = "grade45 selected-grade" >
-                <h1 class = "selected-grade-title">
-                    <span data-ruby="しょうがく">小学</span>4・5<span data-ruby="ねん">年</span></h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
-                    <p class="condition-grade condition-grade-item">あまり</p>
-                </div>
-                <div class = "set-condition-div">   
-                    <p class = "set-condition condition-grade-item set1">40<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition condition-grade-item set2">すべて</p>
-                    <p class = "set-condition condition-grade-item set3">2ケタ</p>
-                    <p class="set-condition  condition-grade-item set3">あり</p>
-                </div>
+
+            <div class = "grade4 grade-div" >
+                <h1 class = "div-title grade4-title">小学4年</h1>
+                <p class="selected-grade">2ケタで割る割り算</p>
+                <p class="selected-grade">小数第二位までの足し算</p>  
+                <p class="selected-grade">小数第二位までの引き算</p>  
+                <p class="selected-grade">小数×整数</p>
+                <p class="selected-grade">小数÷整数</p>
+                <p class="selected-grade">4年のまとめ</p>   
                 <a href="#formulas-link"></a>
             </div>
-            <div class = "grade6 selected-grade" >
-                <h1 class = "selected-grade-title">
-                    <span data-ruby="しょうがく">小学</span>6<span data-ruby="ねん">年</span></h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
-                    <p class="condition-grade condition-grade-item">あまり</p>
-                </div>
-                <div class = "set-condition-div">
-                    <p class = "set-condition condition-grade-item set1">50<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition condition-grade-item set2">すべて</p>
-                    <p class = "set-condition condition-grade-item set3">2ケタ</p>
-                    <p class="set-condition  condition-grade-item set3">あり</p>
-                </div>
+
+            <div class = "grade5 grade-div">
+                <h1 class = "div-title grade5-title">小学5年</h1>
+                <p class="selected-grade">小数×小数</p>
+                <p class="selected-grade">小数÷小数</p>
+                <p class="selected-grade">5年のまとめ</p>
                 <a href="#formulas-link"></a>
             </div>
-            <div class = "grade-max selected-grade" >
-                <h1 class = "selected-grade-title"><span data-ruby="げき">激</span>ムズ</h1>
-                <div class = "condition-grade-div">
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="もんだいすう">問題数</span></p>
-                    <p class = "condition-grade condition-grade-item">
-                        <span data-ruby="しそく">四則</span></p>
-                    <p class = "condition-grade condition-grade-item">ケタ
-                        <span data-ruby="すう">数</span></p>
-                    <p class="condition-grade condition-grade-item">あまり</p>        
-                </div>
-                <div class = "set-condition-div">
-                    <p class = "set-condition condition-grade-item set1">100<span data-ruby="もん">問</span></p>
-                    <p class = "set-condition condition-grade-item set2">すべて</p>
-                    <p class = "set-condition condition-grade-item set3">4ケタ</p>
-                    <p class="set-condition  condition-grade-item set3">あり</p>
-                </div>
+
+            <div class = "grade6 grade-div">
+                <h1 class = "div-title grade6-title">小学6年</h1>
+                <p class="selected-grade">6年のまとめ</p>
                 <a href="#formulas-link"></a>
             </div>
         </div>
 
         <h2 id = "formula_mark">ここに計算問題が表示されます</h2>
+        <h2 id = "print_header">created by 計クリ</h2>
 
         <div id = "problem">
             <div class = "formula-clear">
@@ -407,8 +411,13 @@
         
 
         <footer id = "footer">
-            <a href="#top">
-                <img src="imgs\矢印ボタン　上2.png" class = "arrowForTop footerItem">
+            <a class="contacts" href="https://docs.google.com/forms/d/1AeXPUjk1V-vfLiFaeApApSfcyrgF_xltQ2QjyEkg6VI/edit">
+                <img src="imgs\メールの無料アイコン.png" class="footerIcon contact-icon">
+                <h1 class = "contact footerItem">ご意見・ご質問箱</h1>
+            </a>
+                
+            <a href="#top" class="top-a">
+                <img src="imgs\矢印ボタン　上2.png" class = "footerIcon">
                 <h1 class = "forTop footerItem">トップへ</h1>
             </a>
 
